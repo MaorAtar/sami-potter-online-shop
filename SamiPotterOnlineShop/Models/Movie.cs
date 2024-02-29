@@ -15,8 +15,8 @@ namespace SamiPotterOnlineShop.Models
         public double Price { get; set; }
         public string ImageURL { get; set; }
         public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
         public MovieCategory MovieCategory { get; set; }
+        public int Amount { get; set; }
 
         //Relationships
         public List<Actor_Movie> Actors_Movies { get; set; }

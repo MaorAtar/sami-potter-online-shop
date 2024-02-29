@@ -143,10 +143,10 @@ namespace SamiPotterOnlineShop.Data
                             Price = 39.50,
                             ImageURL = "http://dotnethow.net/images/movies/movie-3.jpeg",
                             StartDate = DateTime.Now.AddDays(-10),
-                            EndDate = DateTime.Now.AddDays(10),
                             CinemaId = 3,
                             ProducerId = 3,
-                            MovieCategory = MovieCategory.Documentary
+                            MovieCategory = MovieCategory.Documentary,
+                            Amount = 5
                         },
                         new Movie()
                         {
@@ -155,10 +155,10 @@ namespace SamiPotterOnlineShop.Data
                             Price = 29.50,
                             ImageURL = "http://dotnethow.net/images/movies/movie-1.jpeg",
                             StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(3),
                             CinemaId = 1,
                             ProducerId = 1,
-                            MovieCategory = MovieCategory.Action
+                            MovieCategory = MovieCategory.Action,
+                            Amount = 5
                         },
                         new Movie()
                         {
@@ -167,10 +167,10 @@ namespace SamiPotterOnlineShop.Data
                             Price = 39.50,
                             ImageURL = "http://dotnethow.net/images/movies/movie-4.jpeg",
                             StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(7),
                             CinemaId = 4,
                             ProducerId = 4,
-                            MovieCategory = MovieCategory.Horror
+                            MovieCategory = MovieCategory.Horror,
+                            Amount = 5
                         },
                         new Movie()
                         {
@@ -179,10 +179,10 @@ namespace SamiPotterOnlineShop.Data
                             Price = 39.50,
                             ImageURL = "http://dotnethow.net/images/movies/movie-6.jpeg",
                             StartDate = DateTime.Now.AddDays(-10),
-                            EndDate = DateTime.Now.AddDays(-5),
                             CinemaId = 1,
                             ProducerId = 2,
-                            MovieCategory = MovieCategory.Documentary
+                            MovieCategory = MovieCategory.Documentary,
+                            Amount = 5
                         },
                         new Movie()
                         {
@@ -191,10 +191,10 @@ namespace SamiPotterOnlineShop.Data
                             Price = 39.50,
                             ImageURL = "http://dotnethow.net/images/movies/movie-7.jpeg",
                             StartDate = DateTime.Now.AddDays(-10),
-                            EndDate = DateTime.Now.AddDays(-2),
                             CinemaId = 1,
                             ProducerId = 3,
-                            MovieCategory = MovieCategory.Cartoon
+                            MovieCategory = MovieCategory.Cartoon,
+                            Amount = 0
                         },
                         new Movie()
                         {
@@ -203,10 +203,10 @@ namespace SamiPotterOnlineShop.Data
                             Price = 39.50,
                             ImageURL = "http://dotnethow.net/images/movies/movie-8.jpeg",
                             StartDate = DateTime.Now.AddDays(3),
-                            EndDate = DateTime.Now.AddDays(20),
                             CinemaId = 1,
                             ProducerId = 5,
-                            MovieCategory = MovieCategory.Drama
+                            MovieCategory = MovieCategory.Drama,
+                            Amount = 0
                         }
                     });
                     context.SaveChanges();

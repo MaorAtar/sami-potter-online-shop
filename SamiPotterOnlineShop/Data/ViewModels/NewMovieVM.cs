@@ -28,9 +28,9 @@ namespace SamiPotterOnlineShop.Data.ViewModels
         [Required(ErrorMessage = "Start date is required")]
         public DateTime StartDate { get; set; }
 
-        [Display(Name = "Movie end date")]
-        [Required(ErrorMessage = "End date is required")]
-        public DateTime EndDate { get; set; }
+        [Display(Name = "Amount")]
+        [Required(ErrorMessage = "Amount is required")]
+        public int Amount { get; set; }
 
         [Display(Name = "Select a category")]
         [Required(ErrorMessage = "Movie category is required")]

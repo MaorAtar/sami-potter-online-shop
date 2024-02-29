@@ -79,7 +79,7 @@ namespace SamiPotterOnlineShop.Controllers
                 Description = movieDeatils.Description,
                 Price = movieDeatils.Price,
                 StartDate = movieDeatils.StartDate,
-                EndDate = movieDeatils.EndDate,
+                Amount = movieDeatils.Amount,
                 ImageURL = movieDeatils.ImageURL,
                 MovieCategory = movieDeatils.MovieCategory,
                 CinemaId = movieDeatils.CinemaId,
