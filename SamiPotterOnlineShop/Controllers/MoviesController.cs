@@ -31,7 +31,7 @@ namespace SamiPotterOnlineShop.Controllers
             if (!string.IsNullOrEmpty(searchString))
             {
                 var filteredResult = allMovies.Where(n => n.Name.ToLower().Contains(searchString.ToLower()) ||
-                n.Description.ToLower().Contains(searchString.ToLower())).ToList();
+                n.Description.ToLower().Contains(searchString.ToLower()) || n.Id.ToString().ToLower().Contains(searchString.ToLower())).ToList();
                 return View("Index", filteredResult);
             }
             return View("Index", allMovies);
