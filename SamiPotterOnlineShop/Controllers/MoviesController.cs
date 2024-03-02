@@ -81,7 +81,7 @@ namespace SamiPotterOnlineShop.Controllers
                 StartDate = movieDeatils.StartDate,
                 Amount = movieDeatils.Amount,
                 ImageURL = movieDeatils.ImageURL,
-                MovieCategory = movieDeatils.MovieCategory,
+                ItemCategory = movieDeatils.ItemCategory,
                 WarehouseId = movieDeatils.WarehouseId,
                 ProducerId = movieDeatils.ProducerId,
                 ActorIds = movieDeatils.Actors_Movies.Select(n => n.ActorId).ToList()

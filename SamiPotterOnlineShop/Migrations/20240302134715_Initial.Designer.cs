@@ -12,7 +12,7 @@ using SamiPotterOnlineShop.Data;
 namespace SamiPotterOnlineShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240302072111_Initial")]
+    [Migration("20240302134715_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -287,7 +287,7 @@ namespace SamiPotterOnlineShop.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MovieCategory")
+                    b.Property<int>("ItemCategory")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -326,6 +326,9 @@ namespace SamiPotterOnlineShop.Migrations
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OrderLocation")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .IsRequired()

@@ -119,7 +119,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(-10),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            MovieCategory = MovieCategory.Movie,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 5
                         },
                         new Movie()
@@ -131,7 +131,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now,
                             WarehouseId = 1,
                             ProducerId = 1,
-                            MovieCategory = MovieCategory.Movie,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 3
                         },
                         new Movie()
@@ -143,7 +143,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now,
                             WarehouseId = 1,
                             ProducerId = 1,
-                            MovieCategory = MovieCategory.Movie,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 5
                         },
                         new Movie()
@@ -155,7 +155,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(-10),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            MovieCategory = MovieCategory.Movie,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 2
                         },
                         new Movie()
@@ -167,7 +167,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(-10),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            MovieCategory = MovieCategory.Movie,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 0
                         },
                         new Movie()
@@ -179,7 +179,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(3),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            MovieCategory = MovieCategory.Movie,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 6
                         },
                         new Movie()
@@ -191,7 +191,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(2),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            MovieCategory = MovieCategory.Movie,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 6
                         },
                         new Movie()
@@ -203,7 +203,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(-3),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            MovieCategory = MovieCategory.Movie,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 9
                         },
                         new Movie()
@@ -215,7 +215,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(1),
                             WarehouseId = 1,
                             ProducerId = 2,
-                            MovieCategory = MovieCategory.Movie,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 2
                         },
                         new Movie()
@@ -227,7 +227,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(4),
                             WarehouseId = 1,
                             ProducerId = 3,
-                            MovieCategory = MovieCategory.Movie,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 6
                         },
                         new Movie()
@@ -239,7 +239,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(9),
                             WarehouseId = 1,
                             ProducerId = 4,
-                            MovieCategory = MovieCategory.Movie,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 1
                         }
                     });
@@ -563,7 +563,7 @@ namespace SamiPotterOnlineShop.Data
                     await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
 
                 var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-                string adminUserEmail = "admin@etickets.com";
+                string adminUserEmail = "admin@gmail.com";
                 var adminUser = await userManager.FindByEmailAsync(adminUserEmail);
                 if (adminUser == null)
                 {
@@ -574,11 +574,11 @@ namespace SamiPotterOnlineShop.Data
                         Email = adminUserEmail,
                         EmailConfirmed = true
                     };
-                    await userManager.CreateAsync(newAdminUser, "admin123");
+                    await userManager.CreateAsync(newAdminUser, "Admin123!");
                     await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
                 }
 
-                string appUserEmail = "user@etickets.com";
+                string appUserEmail = "user@gmail.com";
                 var appUser = await userManager.FindByEmailAsync(appUserEmail);
                 if (appUser == null)
                 {
@@ -589,7 +589,7 @@ namespace SamiPotterOnlineShop.Data
                         Email = appUserEmail,
                         EmailConfirmed = true
                     };
-                    await userManager.CreateAsync(newAppUser, "user123");
+                    await userManager.CreateAsync(newAppUser, "User123!");
                     await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
                 }
             }

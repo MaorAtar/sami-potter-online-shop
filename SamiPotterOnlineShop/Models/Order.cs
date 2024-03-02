@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SamiPotterOnlineShop.Data.Enums;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SamiPotterOnlineShop.Models
@@ -10,6 +11,7 @@ namespace SamiPotterOnlineShop.Models
 
         public string Email { get; set; }
         public string UserId { get; set; }
+        public OrderLocation OrderLocation { get; set; }
 
         [ForeignKey(nameof(UserId))]
         public ApplicationUser User { get; set; }

@@ -25,7 +25,7 @@ namespace SamiPotterOnlineShop.Data.Services
                 WarehouseId = data.WarehouseId,
                 StartDate = data.StartDate,
                 Amount = data.Amount,
-                MovieCategory = data.MovieCategory,
+                ItemCategory = data.ItemCategory,
                 ProducerId = data.ProducerId
             };
             await _context.Movies.AddAsync(newMovie);
@@ -77,7 +77,7 @@ namespace SamiPotterOnlineShop.Data.Services
                 dbMovie.WarehouseId = data.WarehouseId;
                 dbMovie.StartDate = data.StartDate;
                 dbMovie.Amount = data.Amount;
-                dbMovie.MovieCategory = data.MovieCategory;
+                dbMovie.ItemCategory = data.ItemCategory;
                 dbMovie.ProducerId = data.ProducerId;
                 await _context.SaveChangesAsync();
             }

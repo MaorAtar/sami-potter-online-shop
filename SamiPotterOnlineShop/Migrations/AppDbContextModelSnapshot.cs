@@ -284,7 +284,7 @@ namespace SamiPotterOnlineShop.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MovieCategory")
+                    b.Property<int>("ItemCategory")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -323,6 +323,9 @@ namespace SamiPotterOnlineShop.Migrations
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OrderLocation")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .IsRequired()
