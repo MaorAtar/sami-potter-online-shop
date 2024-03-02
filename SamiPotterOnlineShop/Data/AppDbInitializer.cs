@@ -22,15 +22,15 @@ namespace SamiPotterOnlineShop.Data
                     {
                         new Warehouse()
                         {
-                            Name = "Warehouse 1",
-                            Logo = "http://dotnethow.net/images/Warehouses/Warehouse-1.jpeg",
-                            Description = "This is the description of the first Warehouse"
+                            Name = "Warehouse KGC",
+                            Logo = "https://t4.ftcdn.net/jpg/01/81/65/85/360_F_181658575_6gz3Gx96iRndmBtXv2llVsGOGsfdT1AP.jpg",
+                            Description = "Warehouse located at Kiryat-Gat."
                         },
                         new Warehouse()
                         {
-                            Name = "Warehouse 2",
-                            Logo = "http://dotnethow.net/images/Warehouses/Warehouse-2.jpeg",
-                            Description = "This is the description of the second Warehouse"
+                            Name = "Warehouse B7",
+                            Logo = "https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+                            Description = "Warehouse located at Beer-Sheva."
                         }
                     });
                     context.SaveChanges();
@@ -245,7 +245,7 @@ namespace SamiPotterOnlineShop.Data
                     });
                     context.SaveChanges();
                 }
-                //Actors & Movies
+
                 if (!context.Actors_Movies.Any())
                 {
                     context.Actors_Movies.AddRange(new List<Actor_Movie>()
@@ -574,7 +574,7 @@ namespace SamiPotterOnlineShop.Data
                         Email = adminUserEmail,
                         EmailConfirmed = true
                     };
-                    await userManager.CreateAsync(newAdminUser, "Coding@1234?");
+                    await userManager.CreateAsync(newAdminUser, "admin123");
                     await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
                 }
 
@@ -589,7 +589,7 @@ namespace SamiPotterOnlineShop.Data
                         Email = appUserEmail,
                         EmailConfirmed = true
                     };
-                    await userManager.CreateAsync(newAppUser, "Coding@1234?");
+                    await userManager.CreateAsync(newAppUser, "user123");
                     await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
                 }
             }
