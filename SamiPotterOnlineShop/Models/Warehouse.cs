@@ -3,21 +3,21 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SamiPotterOnlineShop.Models
 {
-    public class Cinema : IEntityBase
+    public class Warehouse : IEntityBase
     {
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "Cinema Logo")]
-        [Required(ErrorMessage = "Cinema Logo is required")]
+        [Display(Name = "Warehouse Logo")]
+        [Required(ErrorMessage = "Warehouse Logo is required")]
         public string Logo { get; set; }
 
-        [Display(Name = "Cinema Name")]
-        [Required(ErrorMessage = "Cinema Name is required")]
+        [Display(Name = "Warehouse Name")]
+        [Required(ErrorMessage = "Warehouse Name is required")]
         public string Name { get; set; }
 
         [Display(Name = "Description")]
-        [Required(ErrorMessage = "Cinema Description is required")]
+        [Required(ErrorMessage = "Warehouse Description is required")]
         public string Description { get; set; }
 
         //Relationships

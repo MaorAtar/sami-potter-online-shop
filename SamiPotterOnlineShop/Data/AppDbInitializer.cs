@@ -15,41 +15,23 @@ namespace SamiPotterOnlineShop.Data
 
                 context.Database.EnsureCreated();
 
-                //Cinema
-                if (!context.Cinemas.Any())
+                //Warehouse
+                if (!context.Warehouses.Any())
                 {
-                    context.Cinemas.AddRange(new List<Cinema>()
+                    context.Warehouses.AddRange(new List<Warehouse>()
                     {
-                        new Cinema()
+                        new Warehouse()
                         {
-                            Name = "Cinema 1",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
-                            Description = "This is the description of the first cinema"
+                            Name = "Warehouse 1",
+                            Logo = "http://dotnethow.net/images/Warehouses/Warehouse-1.jpeg",
+                            Description = "This is the description of the first Warehouse"
                         },
-                        new Cinema()
+                        new Warehouse()
                         {
-                            Name = "Cinema 2",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-2.jpeg",
-                            Description = "This is the description of the second cinema"
-                        },
-                        new Cinema()
-                        {
-                            Name = "Cinema 3",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-3.jpeg",
-                            Description = "This is the description of the third cinema"
-                        },
-                        new Cinema()
-                        {
-                            Name = "Cinema 4",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-4.jpeg",
-                            Description = "This is the description of the fourth cinema"
-                        },
-                        new Cinema()
-                        {
-                            Name = "Cinema 5",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-5.jpeg",
-                            Description = "This is the description of the fifth cinema"
-                        },
+                            Name = "Warehouse 2",
+                            Logo = "http://dotnethow.net/images/Warehouses/Warehouse-2.jpeg",
+                            Description = "This is the description of the second Warehouse"
+                        }
                     });
                     context.SaveChanges();
                 }
@@ -63,7 +45,6 @@ namespace SamiPotterOnlineShop.Data
                             FullName = "Daniel Radcliffe",
                             Bio = "Daniel Jacob Radcliffe (born 23 July 1989).",
                             ProfilePictureURL = "https://resizing.flixster.com/rjR5PhclYP6M-GaGyqb-33tnuQQ=/218x280/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/233401_v9_bd.jpg"
-
                         },
                         new Actor()
                         {
@@ -102,7 +83,6 @@ namespace SamiPotterOnlineShop.Data
                             FullName = "David Heyman",
                             Bio = "David Jonathan Heyman (born 26 July 1961).",
                             ProfilePictureURL = "https://resizing.flixster.com/-hx4AWoKceKQg4L3SdG5A03INtY=/218x280/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/376672_v9_bc.jpg"
-
                         },
                         new Producer()
                         {
@@ -137,7 +117,7 @@ namespace SamiPotterOnlineShop.Data
                             Price = 39.50,
                             ImageURL = "https://www.odeon.co.uk/media/dayfnwnw/wb_hp_1sht_1-8_ww-logo_st02_-1.jpg",
                             StartDate = DateTime.Now.AddDays(-10),
-                            CinemaId = 3,
+                            WarehouseId = 1,
                             ProducerId = 1,
                             MovieCategory = MovieCategory.Movie,
                             Amount = 5
@@ -149,7 +129,7 @@ namespace SamiPotterOnlineShop.Data
                             Price = 29.50,
                             ImageURL = "https://www.odeon.co.uk/media/jvtpdvvy/wb_hp_1sht_1-8_ww-logo_st02_2-1-1.jpg",
                             StartDate = DateTime.Now,
-                            CinemaId = 1,
+                            WarehouseId = 1,
                             ProducerId = 1,
                             MovieCategory = MovieCategory.Movie,
                             Amount = 3
@@ -161,7 +141,7 @@ namespace SamiPotterOnlineShop.Data
                             Price = 39.50,
                             ImageURL = "https://www.odeon.co.uk/media/0pvbocpw/wb_hp_1sht_1-8_ww-logo_st02_4-1-1.jpg",
                             StartDate = DateTime.Now,
-                            CinemaId = 4,
+                            WarehouseId = 1,
                             ProducerId = 1,
                             MovieCategory = MovieCategory.Movie,
                             Amount = 5
@@ -173,7 +153,7 @@ namespace SamiPotterOnlineShop.Data
                             Price = 39.50,
                             ImageURL = "https://www.odeon.co.uk/media/u54j5bmb/wb_hp_1sht_1-8_ww-logo_st02_6-1-1.jpg",
                             StartDate = DateTime.Now.AddDays(-10),
-                            CinemaId = 1,
+                            WarehouseId = 1,
                             ProducerId = 1,
                             MovieCategory = MovieCategory.Movie,
                             Amount = 2
@@ -185,7 +165,7 @@ namespace SamiPotterOnlineShop.Data
                             Price = 39.50,
                             ImageURL = "https://www.odeon.co.uk/media/skkl4k3t/wb_hp_1sht_1-8_ww-logo_st02_7-2-1.jpg",
                             StartDate = DateTime.Now.AddDays(-10),
-                            CinemaId = 1,
+                            WarehouseId = 1,
                             ProducerId = 1,
                             MovieCategory = MovieCategory.Movie,
                             Amount = 0
@@ -197,7 +177,7 @@ namespace SamiPotterOnlineShop.Data
                             Price = 39.50,
                             ImageURL = "https://www.odeon.co.uk/media/051fgvew/wb_hp_1sht_1-8_ww-logo_st02_8_500px-1-1.jpg",
                             StartDate = DateTime.Now.AddDays(3),
-                            CinemaId = 2,
+                            WarehouseId = 1,
                             ProducerId = 1,
                             MovieCategory = MovieCategory.Movie,
                             Amount = 6
@@ -209,7 +189,7 @@ namespace SamiPotterOnlineShop.Data
                             Price = 39.50,
                             ImageURL = "https://www.odeon.co.uk/media/y10f3l1t/wb_hp_1sht_1-8_ww-logo_st02_9-1-1.jpg",
                             StartDate = DateTime.Now.AddDays(2),
-                            CinemaId = 2,
+                            WarehouseId = 1,
                             ProducerId = 1,
                             MovieCategory = MovieCategory.Movie,
                             Amount = 6
@@ -221,7 +201,7 @@ namespace SamiPotterOnlineShop.Data
                             Price = 39.50,
                             ImageURL = "https://www.odeon.co.uk/media/ck4nivvy/wb_hp_1sht_1-8_ww-logo_st02_10-1-1.jpg",
                             StartDate = DateTime.Now.AddDays(-3),
-                            CinemaId = 2,
+                            WarehouseId = 1,
                             ProducerId = 1,
                             MovieCategory = MovieCategory.Movie,
                             Amount = 9
@@ -233,7 +213,7 @@ namespace SamiPotterOnlineShop.Data
                             Price = 49.50,
                             ImageURL = "https://www.odeon.co.uk/media/h0lb4hw3/fantastic_beasts_and_where_to_find_them_ver2_xxlg-1.jpg",
                             StartDate = DateTime.Now.AddDays(1),
-                            CinemaId = 2,
+                            WarehouseId = 1,
                             ProducerId = 2,
                             MovieCategory = MovieCategory.Movie,
                             Amount = 2
@@ -245,7 +225,7 @@ namespace SamiPotterOnlineShop.Data
                             Price = 39.50,
                             ImageURL = "https://www.odeon.co.uk/media/wcfpmqnl/fnbst2_tsr_cast_art_vert_dom_2764x4096-1.jpg",
                             StartDate = DateTime.Now.AddDays(4),
-                            CinemaId = 2,
+                            WarehouseId = 1,
                             ProducerId = 3,
                             MovieCategory = MovieCategory.Movie,
                             Amount = 6
@@ -257,7 +237,7 @@ namespace SamiPotterOnlineShop.Data
                             Price = 39.50,
                             ImageURL = "https://www.odeon.co.uk/media/guwkmf3a/main-uk-one-sheet-1.jpg",
                             StartDate = DateTime.Now.AddDays(9),
-                            CinemaId = 2,
+                            WarehouseId = 1,
                             ProducerId = 4,
                             MovieCategory = MovieCategory.Movie,
                             Amount = 1

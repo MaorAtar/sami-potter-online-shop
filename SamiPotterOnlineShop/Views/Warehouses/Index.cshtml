@@ -1,7 +1,7 @@
-﻿@model IEnumerable<Cinema>
+﻿@model IEnumerable<Warehouse>
 
 @{
-    ViewData["Title"] = "List of Cinemas";
+    ViewData["Title"] = "List of Warehouses";
 }
 
 <div class="row">
@@ -56,4 +56,4 @@
     </div>
 </div>
 
-@await Html.PartialAsync("_CreateItem", "Cinemas");
+@await Html.PartialAsync("_CreateItem", "Warehouses");

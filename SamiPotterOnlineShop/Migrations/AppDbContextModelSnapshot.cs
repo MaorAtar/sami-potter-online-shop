@@ -265,31 +265,6 @@ namespace SamiPotterOnlineShop.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("SamiPotterOnlineShop.Models.Cinema", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Logo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cinemas");
-                });
-
             modelBuilder.Entity("SamiPotterOnlineShop.Models.Movie", b =>
                 {
                     b.Property<int>("Id")
@@ -299,9 +274,6 @@ namespace SamiPotterOnlineShop.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CinemaId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -328,11 +300,14 @@ namespace SamiPotterOnlineShop.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("WarehouseId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CinemaId");
-
                     b.HasIndex("ProducerId");
+
+                    b.HasIndex("WarehouseId");
 
                     b.ToTable("Movies");
                 });
@@ -440,6 +415,31 @@ namespace SamiPotterOnlineShop.Migrations
                     b.ToTable("ShoppingCartItems");
                 });
 
+            modelBuilder.Entity("SamiPotterOnlineShop.Models.Warehouse", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Logo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Warehouses");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -512,21 +512,21 @@ namespace SamiPotterOnlineShop.Migrations
 
             modelBuilder.Entity("SamiPotterOnlineShop.Models.Movie", b =>
                 {
-                    b.HasOne("SamiPotterOnlineShop.Models.Cinema", "Cinema")
-                        .WithMany("Movies")
-                        .HasForeignKey("CinemaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("SamiPotterOnlineShop.Models.Producer", "Producer")
                         .WithMany("Movies")
                         .HasForeignKey("ProducerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Cinema");
+                    b.HasOne("SamiPotterOnlineShop.Models.Warehouse", "Warehouse")
+                        .WithMany("Movies")
+                        .HasForeignKey("WarehouseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Producer");
+
+                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("SamiPotterOnlineShop.Models.Order", b =>
@@ -575,11 +575,6 @@ namespace SamiPotterOnlineShop.Migrations
                     b.Navigation("Actors_Movies");
                 });
 
-            modelBuilder.Entity("SamiPotterOnlineShop.Models.Cinema", b =>
-                {
-                    b.Navigation("Movies");
-                });
-
             modelBuilder.Entity("SamiPotterOnlineShop.Models.Movie", b =>
                 {
                     b.Navigation("Actors_Movies");
@@ -591,6 +586,11 @@ namespace SamiPotterOnlineShop.Migrations
                 });
 
             modelBuilder.Entity("SamiPotterOnlineShop.Models.Producer", b =>
+                {
+                    b.Navigation("Movies");
+                });
+
+            modelBuilder.Entity("SamiPotterOnlineShop.Models.Warehouse", b =>
                 {
                     b.Navigation("Movies");
                 });

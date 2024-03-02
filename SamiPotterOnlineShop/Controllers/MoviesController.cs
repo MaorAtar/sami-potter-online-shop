@@ -20,14 +20,14 @@ namespace SamiPotterOnlineShop.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            var allMovies = await _service.GetAllAsync(n => n.Cinema);
+            var allMovies = await _service.GetAllAsync(n => n.Warehouse);
             return View(allMovies);
         }
 
         [AllowAnonymous]
         public async Task<IActionResult> Filter(string searchString)
         {
-            var allMovies = await _service.GetAllAsync(n => n.Cinema);
+            var allMovies = await _service.GetAllAsync(n => n.Warehouse);
             if (!string.IsNullOrEmpty(searchString))
             {
                 var filteredResult = allMovies.Where(n => n.Name.ToLower().Contains(searchString.ToLower()) ||
@@ -47,7 +47,7 @@ namespace SamiPotterOnlineShop.Controllers
         public async Task<IActionResult> Create()
         {
             var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
-            ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "Id", "Name");
+            ViewBag.Warehouses = new SelectList(movieDropdownsData.Warehouses, "Id", "Name");
             ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
             ViewBag.Actors = new SelectList(movieDropdownsData.Actors, "Id", "FullName");
             return View();
@@ -59,7 +59,7 @@ namespace SamiPotterOnlineShop.Controllers
             if (!ModelState.IsValid)
             {
                 var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
-                ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "Id", "Name");
+                ViewBag.Warehouses = new SelectList(movieDropdownsData.Warehouses, "Id", "Name");
                 ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
                 ViewBag.Actors = new SelectList(movieDropdownsData.Actors, "Id", "FullName");
                 return View(movie);
@@ -82,12 +82,12 @@ namespace SamiPotterOnlineShop.Controllers
                 Amount = movieDeatils.Amount,
                 ImageURL = movieDeatils.ImageURL,
                 MovieCategory = movieDeatils.MovieCategory,
-                CinemaId = movieDeatils.CinemaId,
+                WarehouseId = movieDeatils.WarehouseId,
                 ProducerId = movieDeatils.ProducerId,
                 ActorIds = movieDeatils.Actors_Movies.Select(n => n.ActorId).ToList()
             };
             var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
-            ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "Id", "Name");
+            ViewBag.Warehouses = new SelectList(movieDropdownsData.Warehouses, "Id", "Name");
             ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
             ViewBag.Actors = new SelectList(movieDropdownsData.Actors, "Id", "FullName");
             return View(response);
@@ -100,7 +100,7 @@ namespace SamiPotterOnlineShop.Controllers
             if (!ModelState.IsValid)
             {
                 var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
-                ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "Id", "Name");
+                ViewBag.Warehouses = new SelectList(movieDropdownsData.Warehouses, "Id", "Name");
                 ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
                 ViewBag.Actors = new SelectList(movieDropdownsData.Actors, "Id", "FullName");
                 return View(movie);

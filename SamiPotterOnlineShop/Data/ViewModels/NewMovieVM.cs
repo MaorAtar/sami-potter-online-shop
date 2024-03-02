@@ -40,9 +40,9 @@ namespace SamiPotterOnlineShop.Data.ViewModels
         [Required(ErrorMessage = "Movie actor(s) is required")]
         public List<int> ActorIds { get; set; }
 
-        [Display(Name = "Select a cinema")]
-        [Required(ErrorMessage = "Movie cinema is required")]
-        public int CinemaId { get; set; }
+        [Display(Name = "Select a Warehouse")]
+        [Required(ErrorMessage = "Movie Warehouse is required")]
+        public int WarehouseId { get; set; }
 
         [Display(Name = "Select a producer")]
         [Required(ErrorMessage = "Movie producer is required")]

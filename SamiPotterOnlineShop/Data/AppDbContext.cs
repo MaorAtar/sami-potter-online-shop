@@ -28,7 +28,7 @@ namespace SamiPotterOnlineShop.Data
 
         public DbSet<Movie> Movies { get; set; }
 
-        public DbSet<Cinema> Cinemas { get; set; }
+        public DbSet<Warehouse> Warehouses { get; set; }
 
         public DbSet<Producer> Producers { get; set; }
 

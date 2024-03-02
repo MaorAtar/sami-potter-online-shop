@@ -22,7 +22,7 @@ namespace SamiPotterOnlineShop.Data.Services
                 Description = data.Description,
                 Price = data.Price,
                 ImageURL = data.ImageURL,
-                CinemaId = data.CinemaId,
+                WarehouseId = data.WarehouseId,
                 StartDate = data.StartDate,
                 Amount = data.Amount,
                 MovieCategory = data.MovieCategory,
@@ -46,7 +46,7 @@ namespace SamiPotterOnlineShop.Data.Services
         public async Task<Movie> GetMovieByIdAsync(int id)
         {
             var movieDetails = await _context.Movies
-                .Include(c => c.Cinema)
+                .Include(c => c.Warehouse)
                 .Include(p => p.Producer)
                 .Include(am => am.Actors_Movies).ThenInclude(a => a.Actor)
                 .FirstOrDefaultAsync(n => n.Id == id);
@@ -59,7 +59,7 @@ namespace SamiPotterOnlineShop.Data.Services
             var response = new NewMovieDropdownsVM()
             {
                 Actors = await _context.Actors.OrderBy(n => n.FullName).ToListAsync(),
-                Cinemas = await _context.Cinemas.OrderBy(n => n.Name).ToListAsync(),
+                Warehouses = await _context.Warehouses.OrderBy(n => n.Name).ToListAsync(),
                 Producers = await _context.Producers.OrderBy(n => n.FullName).ToListAsync()
             };
             return response;
@@ -74,7 +74,7 @@ namespace SamiPotterOnlineShop.Data.Services
                 dbMovie.Description = data.Description;
                 dbMovie.Price = data.Price;
                 dbMovie.ImageURL = data.ImageURL;
-                dbMovie.CinemaId = data.CinemaId;
+                dbMovie.WarehouseId = data.WarehouseId;
                 dbMovie.StartDate = data.StartDate;
                 dbMovie.Amount = data.Amount;
                 dbMovie.MovieCategory = data.MovieCategory;

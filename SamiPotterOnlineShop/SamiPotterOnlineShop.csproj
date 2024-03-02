@@ -16,4 +16,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Static\Picutres\" />
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
