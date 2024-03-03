@@ -2,11 +2,11 @@
 {
     public enum ItemCategory
     {
-        Item = 1,
-        VideoGame,
-        Shirt,
+        Shirt = 1,
         Hat,
         Scarff,
-        Broom
+        Broom,
+        Movie,
+        VideoGame
     }
 }

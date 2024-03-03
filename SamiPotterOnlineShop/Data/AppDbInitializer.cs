@@ -119,7 +119,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(-10),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            ItemCategory = ItemCategory.Item,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 5
                         },
                         new Item()
@@ -131,7 +131,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now,
                             WarehouseId = 1,
                             ProducerId = 1,
-                            ItemCategory = ItemCategory.Item,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 3
                         },
                         new Item()
@@ -143,7 +143,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now,
                             WarehouseId = 1,
                             ProducerId = 1,
-                            ItemCategory = ItemCategory.Item,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 5
                         },
                         new Item()
@@ -155,7 +155,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(-10),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            ItemCategory = ItemCategory.Item,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 2
                         },
                         new Item()
@@ -167,7 +167,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(-10),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            ItemCategory = ItemCategory.Item,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 0
                         },
                         new Item()
@@ -179,7 +179,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(3),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            ItemCategory = ItemCategory.Item,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 6
                         },
                         new Item()
@@ -191,7 +191,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(2),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            ItemCategory = ItemCategory.Item,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 6
                         },
                         new Item()
@@ -203,7 +203,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(-3),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            ItemCategory = ItemCategory.Item,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 9
                         },
                         new Item()
@@ -215,7 +215,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(1),
                             WarehouseId = 1,
                             ProducerId = 2,
-                            ItemCategory = ItemCategory.Item,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 2
                         },
                         new Item()
@@ -227,7 +227,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(4),
                             WarehouseId = 1,
                             ProducerId = 3,
-                            ItemCategory = ItemCategory.Item,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 6
                         },
                         new Item()
@@ -239,7 +239,7 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(9),
                             WarehouseId = 1,
                             ProducerId = 4,
-                            ItemCategory = ItemCategory.Item,
+                            ItemCategory = ItemCategory.Movie,
                             Amount = 1
                         }
                     });
