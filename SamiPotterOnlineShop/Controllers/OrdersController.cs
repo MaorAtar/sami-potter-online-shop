@@ -11,13 +11,13 @@ namespace SamiPotterOnlineShop.Controllers
     [Authorize]
     public class OrdersController : Controller
     {
-        private readonly IMoviesService _moviesService;
+        private readonly IItemsService _ItemsService;
         private readonly ShoppingCart _shoppingCart;
         private readonly IOrdersService _ordersService;
 
-        public OrdersController(IMoviesService moviesService, ShoppingCart shoppingCart, IOrdersService ordersService)
+        public OrdersController(IItemsService ItemsService, ShoppingCart shoppingCart, IOrdersService ordersService)
         {
-            _moviesService = moviesService;
+            _ItemsService = ItemsService;
             _shoppingCart = shoppingCart;
             _ordersService = ordersService;
         }
@@ -44,7 +44,7 @@ namespace SamiPotterOnlineShop.Controllers
 
         public async Task<IActionResult> AddItemToShoppingCart(int id)
         {
-            var item = await _moviesService.GetByIdAsync(id);
+            var item = await _ItemsService.GetByIdAsync(id);
             if (item != null)
             {
                 _shoppingCart.AddItemToCart(item);
@@ -54,7 +54,7 @@ namespace SamiPotterOnlineShop.Controllers
 
         public async Task<IActionResult> RemoveItemFromShoppingCart(int id)
         {
-            var item = await _moviesService.GetByIdAsync(id);
+            var item = await _ItemsService.GetByIdAsync(id);
             if (item != null)
             {
                 _shoppingCart.RemoveItemFromCart(item);

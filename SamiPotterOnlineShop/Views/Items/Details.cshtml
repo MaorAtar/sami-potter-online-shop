@@ -1,7 +1,7 @@
-﻿@model Movie
+﻿@model Item
 
 @{
-    ViewData["Title"] = "Movie Details";
+    ViewData["Title"] = "Item Details";
 }
 
 <div class="row">
@@ -53,7 +53,7 @@
                             <b>Actors: </b>
                             <hr />
                             <div class="row">
-                                @foreach (var actor in Model.Actors_Movies)
+                                @foreach (var actor in Model.Actors_Items)
                                 {
                                     <div class="col-md-4 text-center">
                                         <img class="border-info rounded-circle" src="@actor.Actor.ProfilePictureURL" style="max-width: 150px" />

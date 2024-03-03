@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SamiPotterOnlineShop.Data.ViewModels
 {
-    public abstract class NewItemVM
+    public class NewItemVM
     {
         public int Id { get; set; }
 
@@ -40,7 +40,15 @@ namespace SamiPotterOnlineShop.Data.ViewModels
         public OrderLocation ItemLocation { get; set; }
 
         [Display(Name = "Select a Warehouse")]
-        [Required(ErrorMessage = "Movie Warehouse is required")]
+        [Required(ErrorMessage = "Item Warehouse is required")]
         public int WarehouseId { get; set; }
+
+        [Display(Name = "Select actor(s)")]
+        [Required(ErrorMessage = "Item actor(s) is required")]
+        public List<int> ActorIds { get; set; }
+
+        [Display(Name = "Select a producer")]
+        [Required(ErrorMessage = "Item producer is required")]
+        public int ProducerId { get; set; }
     }
 }

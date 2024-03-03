@@ -2,7 +2,7 @@
 {
     public enum ItemCategory
     {
-        Movie = 1,
+        Item = 1,
         VideoGame,
         Shirt,
         Hat,

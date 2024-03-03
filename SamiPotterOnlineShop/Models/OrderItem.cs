@@ -10,10 +10,10 @@ namespace SamiPotterOnlineShop.Models
 
         public int Amount { get; set; }
         public double Price { get; set; }
-        public int MovieId { get; set; }
+        public int ItemId { get; set; }
 
-        [ForeignKey("MovieId")]
-        public Movie Movie { get; set; }
+        [ForeignKey("ItemId")]
+        public Item Item { get; set; }
 
         public int OrderId { get; set; }
 

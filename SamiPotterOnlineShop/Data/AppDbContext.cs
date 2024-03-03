@@ -12,27 +12,27 @@ namespace SamiPotterOnlineShop.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Actor_Movie>().HasKey(am => new
+            modelBuilder.Entity<Actor_Item>().HasKey(am => new
             {
                 am.ActorId,
-                am.MovieId
+                am.ItemId
             });
 
-            modelBuilder.Entity<Actor_Movie>().HasOne(m => m.Movie).WithMany(am => am.Actors_Movies).HasForeignKey(m => m.MovieId);
-            modelBuilder.Entity<Actor_Movie>().HasOne(m => m.Actor).WithMany(am => am.Actors_Movies).HasForeignKey(m => m.ActorId);
+            modelBuilder.Entity<Actor_Item>().HasOne(m => m.Item).WithMany(am => am.Actors_Items).HasForeignKey(m => m.ItemId);
+            modelBuilder.Entity<Actor_Item>().HasOne(m => m.Actor).WithMany(am => am.Actors_Items).HasForeignKey(m => m.ActorId);
 
             base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Actor> Actors { get; set; }
 
-        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Item> Items { get; set; }
 
         public DbSet<Warehouse> Warehouses { get; set; }
 
         public DbSet<Producer> Producers { get; set; }
 
-        public DbSet<Actor_Movie> Actors_Movies { get; set; }
+        public DbSet<Actor_Item> Actors_Items { get; set; }
 
         public DbSet<Order> Orders { get; set; }
 

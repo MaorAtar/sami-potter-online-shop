@@ -14,7 +14,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 builder.Services.AddScoped<IActorsService, ActorsService>();
 builder.Services.AddScoped<IProducersService, ProducersService>();
 builder.Services.AddScoped<IWarehousesService, WarehousesService>();
-builder.Services.AddScoped<IMoviesService, MoviesService>();
+builder.Services.AddScoped<IItemsService, ItemsService>();
 builder.Services.AddScoped<IOrdersService, OrdersService>();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -51,7 +51,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Movies}/{action=Index}/{id?}");
+    pattern: "{controller=Items}/{action=Index}/{id?}");
 
 //Seed database
 AppDbInitializer.Seed(app);

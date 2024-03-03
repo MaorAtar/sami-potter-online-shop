@@ -2,9 +2,9 @@
 
 namespace SamiPotterOnlineShop.Data.ViewModels
 {
-    public class NewMovieDropdownsVM
+    public class NewItemDropdownsVM
     {
-        public NewMovieDropdownsVM()
+        public NewItemDropdownsVM()
         {
             Producers = new List<Producer>();
             Warehouses = new List<Warehouse>();

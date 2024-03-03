@@ -5,18 +5,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SamiPotterOnlineShop.Data.Services
 {
-    public class MoviesService : EntityBaseRepository<Movie>, IMoviesService
+    public class ItemsService : EntityBaseRepository<Item>, IItemsService
     {
         private readonly AppDbContext _context;
 
-        public MoviesService(AppDbContext context) : base(context)
+        public ItemsService(AppDbContext context) : base(context)
         {
             _context = context;
         }
 
-        public async Task AddNewMovieAsync(NewMovieVM data)
+        public async Task AddNewItemAsync(NewItemVM data)
         {
-            var newMovie = new Movie()
+            var newItem = new Item()
             {
                 Name = data.Name,
                 Description = data.Description,
@@ -28,35 +28,35 @@ namespace SamiPotterOnlineShop.Data.Services
                 ItemCategory = data.ItemCategory,
                 ProducerId = data.ProducerId
             };
-            await _context.Movies.AddAsync(newMovie);
+            await _context.Items.AddAsync(newItem);
             await _context.SaveChangesAsync();
 
             foreach (var actorId in data.ActorIds)
             {
-                var newActorMovie = new Actor_Movie()
+                var newActorItem = new Actor_Item()
                 {
-                    MovieId = newMovie.Id,
+                    ItemId = newItem.Id,
                     ActorId = actorId
                 };
-                await _context.Actors_Movies.AddAsync(newActorMovie);
+                await _context.Actors_Items.AddAsync(newActorItem);
             }
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Movie> GetMovieByIdAsync(int id)
+        public async Task<Item> GetItemByIdAsync(int id)
         {
-            var movieDetails = await _context.Movies
+            var ItemDetails = await _context.Items
                 .Include(c => c.Warehouse)
                 .Include(p => p.Producer)
-                .Include(am => am.Actors_Movies).ThenInclude(a => a.Actor)
+                .Include(am => am.Actors_Items).ThenInclude(a => a.Actor)
                 .FirstOrDefaultAsync(n => n.Id == id);
 
-            return movieDetails;
+            return ItemDetails;
         }
 
-        public async Task<NewMovieDropdownsVM> GetNewMovieDropdownsValues()
+        public async Task<NewItemDropdownsVM> GetNewItemDropdownsValues()
         {
-            var response = new NewMovieDropdownsVM()
+            var response = new NewItemDropdownsVM()
             {
                 Actors = await _context.Actors.OrderBy(n => n.FullName).ToListAsync(),
                 Warehouses = await _context.Warehouses.OrderBy(n => n.Name).ToListAsync(),
@@ -65,34 +65,34 @@ namespace SamiPotterOnlineShop.Data.Services
             return response;
         }
 
-        public async Task UpdateMovieAsync(NewMovieVM data)
+        public async Task UpdateItemAsync(NewItemVM data)
         {
-            var dbMovie = await _context.Movies.FirstOrDefaultAsync(n => n.Id == data.Id);
-            if(dbMovie != null)
+            var dbItem = await _context.Items.FirstOrDefaultAsync(n => n.Id == data.Id);
+            if(dbItem != null)
             {
-                dbMovie.Name = data.Name;
-                dbMovie.Description = data.Description;
-                dbMovie.Price = data.Price;
-                dbMovie.ImageURL = data.ImageURL;
-                dbMovie.WarehouseId = data.WarehouseId;
-                dbMovie.StartDate = data.StartDate;
-                dbMovie.Amount = data.Amount;
-                dbMovie.ItemCategory = data.ItemCategory;
-                dbMovie.ProducerId = data.ProducerId;
+                dbItem.Name = data.Name;
+                dbItem.Description = data.Description;
+                dbItem.Price = data.Price;
+                dbItem.ImageURL = data.ImageURL;
+                dbItem.WarehouseId = data.WarehouseId;
+                dbItem.StartDate = data.StartDate;
+                dbItem.Amount = data.Amount;
+                dbItem.ItemCategory = data.ItemCategory;
+                dbItem.ProducerId = data.ProducerId;
                 await _context.SaveChangesAsync();
             }
-            var existingActorDb = _context.Actors_Movies.Where(n => n.MovieId == data.Id).ToList();
-            _context.Actors_Movies.RemoveRange(existingActorDb);
+            var existingActorDb = _context.Actors_Items.Where(n => n.ItemId == data.Id).ToList();
+            _context.Actors_Items.RemoveRange(existingActorDb);
             await _context.SaveChangesAsync();
 
             foreach (var actorId in data.ActorIds)
             {
-                var newActorMovie = new Actor_Movie()
+                var newActorItem = new Actor_Item()
                 {
-                    MovieId = data.Id,
+                    ItemId = data.Id,
                     ActorId = actorId
                 };
-                await _context.Actors_Movies.AddAsync(newActorMovie);
+                await _context.Actors_Items.AddAsync(newActorItem);
             }
             await _context.SaveChangesAsync();
         }

@@ -105,12 +105,12 @@ namespace SamiPotterOnlineShop.Data
                     });
                     context.SaveChanges();
                 }
-                //Movies
-                if (!context.Movies.Any())
+                //Items
+                if (!context.Items.Any())
                 {
-                    context.Movies.AddRange(new List<Movie>()
+                    context.Items.AddRange(new List<Item>()
                     {
-                        new Movie()
+                        new Item()
                         {
                             Name = "HARRY POTTER AND THE PHILOSOPHER’S STONE (2001)",
                             Description = "HARRY POTTER AND THE PHILOSOPHER’S STONE (2001) DESCRIPTION",
@@ -119,10 +119,10 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(-10),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            ItemCategory = ItemCategory.Movie,
+                            ItemCategory = ItemCategory.Item,
                             Amount = 5
                         },
-                        new Movie()
+                        new Item()
                         {
                             Name = "HARRY POTTER AND THE CHAMBER OF SECRETS (2002)",
                             Description = "HARRY POTTER AND THE CHAMBER OF SECRETS (2002) DESCRIPTION",
@@ -131,10 +131,10 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now,
                             WarehouseId = 1,
                             ProducerId = 1,
-                            ItemCategory = ItemCategory.Movie,
+                            ItemCategory = ItemCategory.Item,
                             Amount = 3
                         },
-                        new Movie()
+                        new Item()
                         {
                             Name = "HARRY POTTER AND THE PRISONER OF AZKABAN (2004)",
                             Description = "HARRY POTTER AND THE PRISONER OF AZKABAN (2004) DESCRIPTION",
@@ -143,10 +143,10 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now,
                             WarehouseId = 1,
                             ProducerId = 1,
-                            ItemCategory = ItemCategory.Movie,
+                            ItemCategory = ItemCategory.Item,
                             Amount = 5
                         },
-                        new Movie()
+                        new Item()
                         {
                             Name = "HARRY POTTER AND THE GOBLET OF FIRE (2005)",
                             Description = "HARRY POTTER AND THE GOBLET OF FIRE (2005) DESCRIPTION",
@@ -155,10 +155,10 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(-10),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            ItemCategory = ItemCategory.Movie,
+                            ItemCategory = ItemCategory.Item,
                             Amount = 2
                         },
-                        new Movie()
+                        new Item()
                         {
                             Name = "HARRY POTTER AND THE ORDER OF THE PHOENIX (2007)",
                             Description = "HARRY POTTER AND THE ORDER OF THE PHOENIX (2007) DESCRIPTION",
@@ -167,10 +167,10 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(-10),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            ItemCategory = ItemCategory.Movie,
+                            ItemCategory = ItemCategory.Item,
                             Amount = 0
                         },
-                        new Movie()
+                        new Item()
                         {
                             Name = "HARRY POTTER AND THE HALF-BLOOD PRINCE (2009)",
                             Description = "HARRY POTTER AND THE HALF-BLOOD PRINCE (2009) DESCRIPTION",
@@ -179,10 +179,10 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(3),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            ItemCategory = ItemCategory.Movie,
+                            ItemCategory = ItemCategory.Item,
                             Amount = 6
                         },
-                        new Movie()
+                        new Item()
                         {
                             Name = "HARRY POTTER AND THE DEATHLY HALLOWS PART 1",
                             Description = "HARRY POTTER AND THE DEATHLY HALLOWS PART 1 DESCRIPTION",
@@ -191,10 +191,10 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(2),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            ItemCategory = ItemCategory.Movie,
+                            ItemCategory = ItemCategory.Item,
                             Amount = 6
                         },
-                        new Movie()
+                        new Item()
                         {
                             Name = "HARRY POTTER AND THE DEATHLY HALLOWS PART 2",
                             Description = "HARRY POTTER AND THE DEATHLY HALLOWS PART 2 DESCRIPTION",
@@ -203,10 +203,10 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(-3),
                             WarehouseId = 1,
                             ProducerId = 1,
-                            ItemCategory = ItemCategory.Movie,
+                            ItemCategory = ItemCategory.Item,
                             Amount = 9
                         },
-                        new Movie()
+                        new Item()
                         {
                             Name = "FANTASTIC BEASTS AND WHERE TO FIND THEM (2016)",
                             Description = "FANTASTIC BEASTS AND WHERE TO FIND THEM (2016) DESCRIPTION",
@@ -215,10 +215,10 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(1),
                             WarehouseId = 1,
                             ProducerId = 2,
-                            ItemCategory = ItemCategory.Movie,
+                            ItemCategory = ItemCategory.Item,
                             Amount = 2
                         },
-                        new Movie()
+                        new Item()
                         {
                             Name = "FANTASTIC BEASTS: THE CRIMES OF GRINDELWALD (2018)",
                             Description = "FANTASTIC BEASTS: THE CRIMES OF GRINDELWALD (2018) DESCRIPTION",
@@ -227,10 +227,10 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(4),
                             WarehouseId = 1,
                             ProducerId = 3,
-                            ItemCategory = ItemCategory.Movie,
+                            ItemCategory = ItemCategory.Item,
                             Amount = 6
                         },
-                        new Movie()
+                        new Item()
                         {
                             Name = "FANTASTIC BEASTS: THE SECRETS OF DUMBLEDORE (2022)",
                             Description = "FANTASTIC BEASTS: THE SECRETS OF DUMBLEDORE (2022) DESCIRPTION",
@@ -239,312 +239,312 @@ namespace SamiPotterOnlineShop.Data
                             StartDate = DateTime.Now.AddDays(9),
                             WarehouseId = 1,
                             ProducerId = 4,
-                            ItemCategory = ItemCategory.Movie,
+                            ItemCategory = ItemCategory.Item,
                             Amount = 1
                         }
                     });
                     context.SaveChanges();
                 }
 
-                if (!context.Actors_Movies.Any())
+                if (!context.Actors_Items.Any())
                 {
-                    context.Actors_Movies.AddRange(new List<Actor_Movie>()
+                    context.Actors_Items.AddRange(new List<Actor_Item>()
                     {
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 1,
-                            MovieId = 1
+                            ItemId = 1
                         },
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 2,
-                            MovieId = 1
+                            ItemId = 1
                         },
 
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 3,
-                            MovieId = 1
+                            ItemId = 1
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 4,
-                            MovieId = 1
+                            ItemId = 1
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 5,
-                            MovieId = 1
+                            ItemId = 1
                         },
 
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 1,
-                            MovieId = 2
+                            ItemId = 2
                         },
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 2,
-                            MovieId = 2
+                            ItemId = 2
                         },
 
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 3,
-                            MovieId = 2
+                            ItemId = 2
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 4,
-                            MovieId = 2
+                            ItemId = 2
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 5,
-                            MovieId = 2
+                            ItemId = 2
                         },
 
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 1,
-                            MovieId = 3
+                            ItemId = 3
                         },
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 2,
-                            MovieId = 3
+                            ItemId = 3
                         },
 
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 3,
-                            MovieId = 3
+                            ItemId = 3
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 4,
-                            MovieId = 3
+                            ItemId = 3
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 5,
-                            MovieId = 3
+                            ItemId = 3
                         },
 
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 1,
-                            MovieId = 4
+                            ItemId = 4
                         },
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 2,
-                            MovieId = 4
+                            ItemId = 4
                         },
 
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 3,
-                            MovieId = 4
+                            ItemId = 4
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 4,
-                            MovieId = 4
+                            ItemId = 4
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 5,
-                            MovieId = 4
+                            ItemId = 4
                         },
 
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 1,
-                            MovieId = 5
+                            ItemId = 5
                         },
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 2,
-                            MovieId = 5
+                            ItemId = 5
                         },
 
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 3,
-                            MovieId = 5
+                            ItemId = 5
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 4,
-                            MovieId = 5
+                            ItemId = 5
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 5,
-                            MovieId = 5
+                            ItemId = 5
                         },
 
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 1,
-                            MovieId = 6
+                            ItemId = 6
                         },
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 2,
-                            MovieId = 6
+                            ItemId = 6
                         },
 
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 3,
-                            MovieId = 6
+                            ItemId = 6
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 4,
-                            MovieId = 6
+                            ItemId = 6
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 5,
-                            MovieId = 6
+                            ItemId = 6
                         },
 
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 1,
-                            MovieId = 7
+                            ItemId = 7
                         },
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 2,
-                            MovieId = 7
+                            ItemId = 7
                         },
 
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 3,
-                            MovieId = 7
+                            ItemId = 7
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 4,
-                            MovieId = 7
+                            ItemId = 7
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 5,
-                            MovieId = 7
+                            ItemId = 7
                         },
 
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 1,
-                            MovieId = 8
+                            ItemId = 8
                         },
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 2,
-                            MovieId = 8
+                            ItemId = 8
                         },
 
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 3,
-                            MovieId = 8
+                            ItemId = 8
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 4,
-                            MovieId = 8
+                            ItemId = 8
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 5,
-                            MovieId = 8
+                            ItemId = 8
                         },
 
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 1,
-                            MovieId = 9
+                            ItemId = 9
                         },
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 2,
-                            MovieId = 9
+                            ItemId = 9
                         },
 
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 3,
-                            MovieId = 9
+                            ItemId = 9
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 4,
-                            MovieId = 9
+                            ItemId = 9
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 5,
-                            MovieId = 9
+                            ItemId = 9
                         },
 
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 1,
-                            MovieId = 10
+                            ItemId = 10
                         },
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 2,
-                            MovieId = 10
+                            ItemId = 10
                         },
 
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 3,
-                            MovieId = 10
+                            ItemId = 10
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 4,
-                            MovieId = 10
+                            ItemId = 10
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 5,
-                            MovieId = 10
+                            ItemId = 10
                         },
 
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 1,
-                            MovieId = 11
+                            ItemId = 11
                         },
-                        new Actor_Movie()
+                        new Actor_Item()
                         {
                             ActorId = 2,
-                            MovieId = 11
+                            ItemId = 11
                         },
 
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 3,
-                            MovieId = 11
+                            ItemId = 11
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 4,
-                            MovieId = 11
+                            ItemId = 11
                         },
-                         new Actor_Movie()
+                         new Actor_Item()
                         {
                             ActorId = 5,
-                            MovieId = 11
+                            ItemId = 11
                         },
                     });
                     context.SaveChanges();

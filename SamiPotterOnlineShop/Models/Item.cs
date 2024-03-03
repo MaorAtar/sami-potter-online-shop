@@ -1,10 +1,11 @@
-﻿using SamiPotterOnlineShop.Data.Enums;
+﻿using SamiPotterOnlineShop.Data.Base;
+using SamiPotterOnlineShop.Data.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SamiPotterOnlineShop.Models
 {
-    public abstract class Item
+    public class Item : IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -21,5 +22,13 @@ namespace SamiPotterOnlineShop.Models
         public int WarehouseId { get; set; }
         [ForeignKey("WarehouseId")]
         public Warehouse Warehouse { get; set; }
+
+        //Relationships
+        public List<Actor_Item> Actors_Items { get; set; }
+
+        //Producer
+        public int ProducerId { get; set; }
+        [ForeignKey("ProducerId")]
+        public Producer Producer { get; set; }
     }
 }

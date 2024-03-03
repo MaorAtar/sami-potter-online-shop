@@ -12,7 +12,7 @@ using SamiPotterOnlineShop.Data;
 namespace SamiPotterOnlineShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240302134715_Initial")]
+    [Migration("20240303094530_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -184,19 +184,19 @@ namespace SamiPotterOnlineShop.Migrations
                     b.ToTable("Actors");
                 });
 
-            modelBuilder.Entity("SamiPotterOnlineShop.Models.Actor_Movie", b =>
+            modelBuilder.Entity("SamiPotterOnlineShop.Models.Actor_Item", b =>
                 {
                     b.Property<int>("ActorId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MovieId")
+                    b.Property<int>("ItemId")
                         .HasColumnType("int");
 
-                    b.HasKey("ActorId", "MovieId");
+                    b.HasKey("ActorId", "ItemId");
 
-                    b.HasIndex("MovieId");
+                    b.HasIndex("ItemId");
 
-                    b.ToTable("Actors_Movies");
+                    b.ToTable("Actors_Items");
                 });
 
             modelBuilder.Entity("SamiPotterOnlineShop.Models.ApplicationUser", b =>
@@ -268,7 +268,7 @@ namespace SamiPotterOnlineShop.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("SamiPotterOnlineShop.Models.Movie", b =>
+            modelBuilder.Entity("SamiPotterOnlineShop.Models.Item", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -312,7 +312,7 @@ namespace SamiPotterOnlineShop.Migrations
 
                     b.HasIndex("WarehouseId");
 
-                    b.ToTable("Movies");
+                    b.ToTable("Items");
                 });
 
             modelBuilder.Entity("SamiPotterOnlineShop.Models.Order", b =>
@@ -352,7 +352,7 @@ namespace SamiPotterOnlineShop.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
-                    b.Property<int>("MovieId")
+                    b.Property<int>("ItemId")
                         .HasColumnType("int");
 
                     b.Property<int>("OrderId")
@@ -363,7 +363,7 @@ namespace SamiPotterOnlineShop.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MovieId");
+                    b.HasIndex("ItemId");
 
                     b.HasIndex("OrderId");
 
@@ -407,7 +407,7 @@ namespace SamiPotterOnlineShop.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
-                    b.Property<int>("MovieId")
+                    b.Property<int>("ItemId")
                         .HasColumnType("int");
 
                     b.Property<string>("ShoppingCartId")
@@ -416,7 +416,7 @@ namespace SamiPotterOnlineShop.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MovieId");
+                    b.HasIndex("ItemId");
 
                     b.ToTable("ShoppingCartItems");
                 });
@@ -497,35 +497,35 @@ namespace SamiPotterOnlineShop.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SamiPotterOnlineShop.Models.Actor_Movie", b =>
+            modelBuilder.Entity("SamiPotterOnlineShop.Models.Actor_Item", b =>
                 {
                     b.HasOne("SamiPotterOnlineShop.Models.Actor", "Actor")
-                        .WithMany("Actors_Movies")
+                        .WithMany("Actors_Items")
                         .HasForeignKey("ActorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SamiPotterOnlineShop.Models.Movie", "Movie")
-                        .WithMany("Actors_Movies")
-                        .HasForeignKey("MovieId")
+                    b.HasOne("SamiPotterOnlineShop.Models.Item", "Item")
+                        .WithMany("Actors_Items")
+                        .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Actor");
 
-                    b.Navigation("Movie");
+                    b.Navigation("Item");
                 });
 
-            modelBuilder.Entity("SamiPotterOnlineShop.Models.Movie", b =>
+            modelBuilder.Entity("SamiPotterOnlineShop.Models.Item", b =>
                 {
                     b.HasOne("SamiPotterOnlineShop.Models.Producer", "Producer")
-                        .WithMany("Movies")
+                        .WithMany("Items")
                         .HasForeignKey("ProducerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SamiPotterOnlineShop.Models.Warehouse", "Warehouse")
-                        .WithMany("Movies")
+                        .WithMany("Items")
                         .HasForeignKey("WarehouseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -548,9 +548,9 @@ namespace SamiPotterOnlineShop.Migrations
 
             modelBuilder.Entity("SamiPotterOnlineShop.Models.OrderItem", b =>
                 {
-                    b.HasOne("SamiPotterOnlineShop.Models.Movie", "Movie")
+                    b.HasOne("SamiPotterOnlineShop.Models.Item", "Item")
                         .WithMany()
-                        .HasForeignKey("MovieId")
+                        .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -560,30 +560,30 @@ namespace SamiPotterOnlineShop.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Movie");
+                    b.Navigation("Item");
 
                     b.Navigation("Order");
                 });
 
             modelBuilder.Entity("SamiPotterOnlineShop.Models.ShoppingCartItem", b =>
                 {
-                    b.HasOne("SamiPotterOnlineShop.Models.Movie", "Movie")
+                    b.HasOne("SamiPotterOnlineShop.Models.Item", "Item")
                         .WithMany()
-                        .HasForeignKey("MovieId")
+                        .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Movie");
+                    b.Navigation("Item");
                 });
 
             modelBuilder.Entity("SamiPotterOnlineShop.Models.Actor", b =>
                 {
-                    b.Navigation("Actors_Movies");
+                    b.Navigation("Actors_Items");
                 });
 
-            modelBuilder.Entity("SamiPotterOnlineShop.Models.Movie", b =>
+            modelBuilder.Entity("SamiPotterOnlineShop.Models.Item", b =>
                 {
-                    b.Navigation("Actors_Movies");
+                    b.Navigation("Actors_Items");
                 });
 
             modelBuilder.Entity("SamiPotterOnlineShop.Models.Order", b =>
@@ -593,12 +593,12 @@ namespace SamiPotterOnlineShop.Migrations
 
             modelBuilder.Entity("SamiPotterOnlineShop.Models.Producer", b =>
                 {
-                    b.Navigation("Movies");
+                    b.Navigation("Items");
                 });
 
             modelBuilder.Entity("SamiPotterOnlineShop.Models.Warehouse", b =>
                 {
-                    b.Navigation("Movies");
+                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }

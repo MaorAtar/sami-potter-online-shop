@@ -22,6 +22,6 @@ namespace SamiPotterOnlineShop.Models
         public string Bio { get; set; }
 
         //Relationships
-        public List<Movie>? Movies { get; set; }
+        public List<Item>? Items { get; set; }
     }
 }

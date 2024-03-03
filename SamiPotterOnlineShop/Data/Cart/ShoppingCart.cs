@@ -26,16 +26,16 @@ namespace SamiPotterOnlineShop.Data.Cart
             return new ShoppingCart(context) { ShoppingCartId = cartId };
         }
 
-        public void AddItemToCart(Movie movie)
+        public void AddItemToCart(Item Item)
         {
-            var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.Movie.Id == movie.Id && n.ShoppingCartId == ShoppingCartId);
+            var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.Item.Id == Item.Id && n.ShoppingCartId == ShoppingCartId);
 
             if (shoppingCartItem == null)
             {
                 shoppingCartItem = new ShoppingCartItem()
                 {
                     ShoppingCartId = ShoppingCartId,
-                    Movie = movie,
+                    Item = Item,
                     Amount = 1
                 };
 
@@ -48,9 +48,9 @@ namespace SamiPotterOnlineShop.Data.Cart
             _context.SaveChanges();
         }
 
-        public void RemoveItemFromCart(Movie movie)
+        public void RemoveItemFromCart(Item Item)
         {
-            var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.Movie.Id == movie.Id && n.ShoppingCartId == ShoppingCartId);
+            var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.Item.Id == Item.Id && n.ShoppingCartId == ShoppingCartId);
 
             if (shoppingCartItem != null)
             {
@@ -68,10 +68,10 @@ namespace SamiPotterOnlineShop.Data.Cart
 
         public List<ShoppingCartItem> GetShoppingCartItems()
         {
-            return ShoppingCartItems ?? (ShoppingCartItems = _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).Include(n => n.Movie).ToList());
+            return ShoppingCartItems ?? (ShoppingCartItems = _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).Include(n => n.Item).ToList());
         }
 
-        public double GetShoppingCartTotal() => _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).Select(n => n.Movie.Price * n.Amount).Sum();
+        public double GetShoppingCartTotal() => _context.ShoppingCartItems.Where(n => n.ShoppingCartId == ShoppingCartId).Select(n => n.Item.Price * n.Amount).Sum();
         
         public async Task ClearShoppingCartAsync()
         {

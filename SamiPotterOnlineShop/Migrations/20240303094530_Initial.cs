@@ -224,12 +224,11 @@ namespace SamiPotterOnlineShop.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Movies",
+                name: "Items",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProducerId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
@@ -237,19 +236,20 @@ namespace SamiPotterOnlineShop.Migrations
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ItemCategory = table.Column<int>(type: "int", nullable: false),
                     Amount = table.Column<int>(type: "int", nullable: false),
-                    WarehouseId = table.Column<int>(type: "int", nullable: false)
+                    WarehouseId = table.Column<int>(type: "int", nullable: false),
+                    ProducerId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Movies", x => x.Id);
+                    table.PrimaryKey("PK_Items", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Movies_Producers_ProducerId",
+                        name: "FK_Items_Producers_ProducerId",
                         column: x => x.ProducerId,
                         principalTable: "Producers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Movies_Warehouses_WarehouseId",
+                        name: "FK_Items_Warehouses_WarehouseId",
                         column: x => x.WarehouseId,
                         principalTable: "Warehouses",
                         principalColumn: "Id",
@@ -257,25 +257,25 @@ namespace SamiPotterOnlineShop.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Actors_Movies",
+                name: "Actors_Items",
                 columns: table => new
                 {
-                    MovieId = table.Column<int>(type: "int", nullable: false),
+                    ItemId = table.Column<int>(type: "int", nullable: false),
                     ActorId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Actors_Movies", x => new { x.ActorId, x.MovieId });
+                    table.PrimaryKey("PK_Actors_Items", x => new { x.ActorId, x.ItemId });
                     table.ForeignKey(
-                        name: "FK_Actors_Movies_Actors_ActorId",
+                        name: "FK_Actors_Items_Actors_ActorId",
                         column: x => x.ActorId,
                         principalTable: "Actors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Actors_Movies_Movies_MovieId",
-                        column: x => x.MovieId,
-                        principalTable: "Movies",
+                        name: "FK_Actors_Items_Items_ItemId",
+                        column: x => x.ItemId,
+                        principalTable: "Items",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -288,16 +288,16 @@ namespace SamiPotterOnlineShop.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Amount = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
-                    MovieId = table.Column<int>(type: "int", nullable: false),
+                    ItemId = table.Column<int>(type: "int", nullable: false),
                     OrderId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_OrderItems", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_OrderItems_Movies_MovieId",
-                        column: x => x.MovieId,
-                        principalTable: "Movies",
+                        name: "FK_OrderItems_Items_ItemId",
+                        column: x => x.ItemId,
+                        principalTable: "Items",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -314,7 +314,7 @@ namespace SamiPotterOnlineShop.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MovieId = table.Column<int>(type: "int", nullable: false),
+                    ItemId = table.Column<int>(type: "int", nullable: false),
                     Amount = table.Column<int>(type: "int", nullable: false),
                     ShoppingCartId = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -322,17 +322,17 @@ namespace SamiPotterOnlineShop.Migrations
                 {
                     table.PrimaryKey("PK_ShoppingCartItems", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ShoppingCartItems_Movies_MovieId",
-                        column: x => x.MovieId,
-                        principalTable: "Movies",
+                        name: "FK_ShoppingCartItems_Items_ItemId",
+                        column: x => x.ItemId,
+                        principalTable: "Items",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Actors_Movies_MovieId",
-                table: "Actors_Movies",
-                column: "MovieId");
+                name: "IX_Actors_Items_ItemId",
+                table: "Actors_Items",
+                column: "ItemId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -374,19 +374,19 @@ namespace SamiPotterOnlineShop.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Movies_ProducerId",
-                table: "Movies",
+                name: "IX_Items_ProducerId",
+                table: "Items",
                 column: "ProducerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Movies_WarehouseId",
-                table: "Movies",
+                name: "IX_Items_WarehouseId",
+                table: "Items",
                 column: "WarehouseId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderItems_MovieId",
+                name: "IX_OrderItems_ItemId",
                 table: "OrderItems",
-                column: "MovieId");
+                column: "ItemId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderItems_OrderId",
@@ -399,16 +399,16 @@ namespace SamiPotterOnlineShop.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ShoppingCartItems_MovieId",
+                name: "IX_ShoppingCartItems_ItemId",
                 table: "ShoppingCartItems",
-                column: "MovieId");
+                column: "ItemId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Actors_Movies");
+                name: "Actors_Items");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
@@ -441,7 +441,7 @@ namespace SamiPotterOnlineShop.Migrations
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "Movies");
+                name: "Items");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
