@@ -1,0 +1,418 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<head>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/harry-potter" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/beautiful-magic" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/harry-p" rel="stylesheet">
+
+
+    <style>
+        
+        .slider {
+            width: 800px;
+            max-width: 100vw;
+            height: 400px;
+            margin: auto;
+            position: sticky;
+            overflow: hidden;
+            
+        }
+
+        .slider .list {
+            position: absolute;
+            width: max-content;
+            height: 300px;
+            left: 0;
+            top: 0;
+            display: flex;
+            transition: 1s;
+        }
+
+        .slider .list img {
+            
+            width: 800px;
+            height: 400px;
+            
+        }
+
+        .slider .buttons {
+            position: absolute;
+            top: 45%;
+            left: 5%;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .slider .buttons button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #fff5;
+            color: #fff;
+            border: none;
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        .slider .dots {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            color: #fff;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .slider .dots li {
+            list-style: none;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            margin: 10px;
+            border-radius: 20px;
+            transition: 0.5s;
+        }
+
+        .slider .dots li.active {
+            width: 30px;
+        }
+
+        
+       
+        :root {
+            --card-height: 300px;
+            --card-width: calc(var(--card-height) / 1.5);
+        }
+
+
+        .card {
+            top: 4rem;
+            left: 10rem;
+            background-color: black;
+            width: var(--card-width);
+            height: var(--card-height);
+            position: sticky;
+            display: flex;
+            align-items: flex-end;
+            perspective: 2500px;
+
+        }
+
+        .cover-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .wrapper {
+            transition: all 0.5s;
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .card:hover .wrapper {
+            transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+            box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+        }
+
+        .wrapper::before,
+        .wrapper::after {
+            content: "";
+            opacity: 0;
+            width: 100%;
+            height: 80px;
+            transition: all 0.5s;
+            position: absolute;
+            left: 0;
+        }
+
+        .wrapper::before {
+            top: 0;
+            height: 100%;
+            background-image: linear-gradient( to top, transparent 46%, rgba(12, 13, 19, 0.5) 68%, rgba(12, 13, 19) 97% );
+        }
+
+        .wrapper::after {
+            bottom: 0;
+            opacity: 1;
+            background-image: linear-gradient( to bottom, transparent 46%, rgba(12, 13, 19, 0.5) 68%, rgba(12, 13, 19) 97% );
+        }
+
+        .card:hover .wrapper::before,
+        .wrapper::after {
+            opacity: 1;
+        }
+
+        .card:hover .wrapper::after {
+            height: 120px;
+        }
+
+        .title {
+            padding-top: 15.5rem;
+            padding-right: 0px;
+            padding-left: 1rem;
+            width: 100%;
+            transition: transform 0.5s;
+        }
+
+        .title2 {
+            padding-top: 12.5rem;
+            padding-right: 0px;
+            padding-left: 1rem;
+            width: 100%;
+            transition: transform 0.5s;
+            font-display: 10px;
+        }
+
+        .title3 {
+            padding-top: 12.5rem;
+            padding-right: 0px;
+            padding-left: 1rem;
+            width: 100%;
+            transition: transform 0.5s;
+            font-display: 10px;
+        }
+
+        .card:hover .title {
+            transform: translate3d(0%, -50px, 100px);
+        }
+
+        .card:hover .title2 {
+            transform: translate3d(0%, -50px, 100px);
+        }
+
+        .card:hover .title3 {
+            transform: translate3d(0%, -50px, 100px);
+        }
+
+        .character {
+            width: 100%;
+            opacity: 0;
+            transition: all 0.5s;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .card:hover .character {
+            opacity: 1;
+            transform: translate3d(0%, -30%, 100px);
+        }
+
+        h1{
+            font-family: 'Beautiful Magic', sans-serif;
+        }
+
+        .container1{
+            position:relative;
+            left: 12rem;
+            top: 5rem;
+            display: flex;
+            column-gap: 12rem;
+        }
+
+        .container3{
+            position: relative;
+            left: 8rem;
+            top: 20rem;
+            padding-bottom: 100px;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .house-container {
+            
+            display: flex;
+            column-gap: 6rem;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            font-family: 'Harry P', sans-serif;
+            font-size: 18px;
+            left: 9rem;
+            top: 10rem;
+        }
+
+        .background {
+            background-color: rgba(0,0,0,0.7);
+            border-radius: 50px;
+            position: relative;
+            left: 9rem;
+            top: 10rem;
+        }
+
+        .house {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .house-symbol {
+            width: 170px;
+            height: 170px;
+            transition: transform 0.3s ease-in-out;
+
+            
+        }
+
+        .house:hover .house-symbol {
+            transform: scale(1.2);
+        }
+
+        .gryffindor:hover {
+            filter: grayscale(0);
+        }
+
+        .hufflepuff:hover {
+            filter: grayscale(0);
+        }
+
+        .ravenclaw:hover {
+            filter: grayscale(0);
+        }
+
+        .slytherin:hover {
+            filter: grayscale(0);
+        }
+
+
+    </style>
+
+</head>
+
+<body id="index">
+
+           
+    <div class="container1">
+        <a href="home" style="text-decoration: none; color: white">
+            <div class="card">
+                <div class="wrapper">
+                    <img src="~/css/Ron_Weasley.jpg" class="cover-image" />
+                </div>
+                <h1 class="title">Ron Weasly</h1>
+                <img src="~/css/ron poster.png" class="character" />
+            </div>
+        </a>
+            
+
+        <a href="home" style="text-decoration: none; color: white">
+            <div class="card">
+                <div class="wrapper">
+                    <img src="~/css/hp-portrait.jpg" class="cover-image" />
+                </div>
+                <h1 class="title2">Harry Potter</h1>
+                <img src="~/css/hp-char.png" class="character" />
+            </div>
+        </a>
+            
+        <a href="home" style="text-decoration: none; color: white">
+            <div class="card">
+                <div class="wrapper">
+                    <img src="~/css/Hermione-Granger.jpg" class="cover-image" />
+                </div>
+                <h1 class="title3">Hermione Granger</h1>
+                <img src="~/css/hermione-char.png" class="character" />
+            </div>
+        </a>
+            
+    </div>
+
+    
+    <div class="background">
+        <div class="house-container">
+            
+            <div class="house gryffindor">
+                <img src="~/css/gryffindor-logo.png" alt="Gryffindor" class="house-symbol">
+                <h2>Gryffindor</h2>
+                <p>Bravery, courage, and chivalry</p>
+            </div>
+            <div class="house hufflepuff">
+                <img src="~/css/hufflepuff-logo.png" alt="Hufflepuff" class="house-symbol">
+                <h2>Hufflepuff</h2>
+                <p>Hard work, dedication, and loyalty</p>
+            </div>
+            <div class="house ravenclaw">
+                <img src="~/css/raven-logo.png" alt="Ravenclaw" class="house-symbol">
+                <h2>Ravenclaw</h2>
+                <p>Intellect, knowledge, and wit</p>
+            </div>
+            <div class="house slytherin">
+                <img src="~/css/slytherin-logo.png" alt="Slytherin" class="house-symbol">
+                <h2>Slytherin</h2>
+                <p>Ambition, cunning, and resourcefulness</p>
+            </div>
+        </div>
+    </div>
+   
+
+
+
+    
+    
+    
+    <div class="container3">
+        <div class="slider">
+            <div class="list">
+
+                <div class="item">
+                    <img id="img1" src="~/css/ad1.jpg" alt="Alternate Text" />
+                </div>
+                <div class="item">
+                    <img src="~/css/pic2.jpg" alt="Alternate Text" />
+                </div>
+                <div class="item">
+                    <img src="~/css/pic3.jpg" alt="Alternate Text" />
+                </div>
+                <div class="item">
+                    <img src="~/css/visit.jpg" alt="Alternate Text" />
+                </div>
+                <div class="item">
+                    <img src="~/css/pic1.jpg" alt="Alternate Text" />
+                </div>
+
+
+            </div>
+            <div class="buttons">
+                <button id="prev"><</button>
+                <button id="next">></button>
+            </div>
+            <ul class="dots">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+
+
+            </ul>
+
+        </div>
+    </div>
+    
+    
+    
+
+
+    <div class="footer text-muted fixed-bottom">
+        &copy; SCE Harry Potter 2024
+    </div>
+
+
+
+    <script src="~/js/app.js"></script>
+   
+</body>

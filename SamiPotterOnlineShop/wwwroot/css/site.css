@@ -12,11 +12,27 @@ html {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+body {
+    padding-bottom: 100px;
+    
 }
 
-body {
-  margin-bottom: 60px;
+#index{
+    background-image: url(bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    color: white;
+    margin-top: 5%;
+    background-attachment: fixed;
+    
 }
+
+#nav-text {
+    font-family: 'Harry Potter', sans-serif;
+    
+}
+
+
+    
+
