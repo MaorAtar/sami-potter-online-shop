@@ -2,14 +2,15 @@
 @model LoginVM;
 
 @{
-    ViewData["Title"] = "Log in to your account";
+    ViewData["Title"] = "Login";
 }
+
+<div class="container align-text-top text-center" style="font-family: 'Harry Potter', sans-serif; margin-top:8%;">
+    <h2>Log in to your account</h2>
+</div>
 
 <div class="row">
     <div class="col-md-6 offset-3">
-        <p>
-            <h4>Log in to your account</h4>
-        </p>
 
         @if (TempData["Error"] != null)
         {
