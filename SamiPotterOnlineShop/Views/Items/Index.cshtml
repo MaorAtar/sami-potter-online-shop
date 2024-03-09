@@ -33,6 +33,21 @@
                 <button type="submit" class="btn btn-dark">Sort</button>
             </form>
         </div>
+        <div class="col-md-2">
+            <form id="filterForm" asp-controller="Items" asp-action="FilterByCategory" method="get">
+                <label for="categoryFilter">Filter By Category:</label>
+                <select id="categoryFilter" name="categoryFilter" class="form-select">
+                    <option value="">All Categories</option>
+                    <option value="Shirt">Shirt</option>
+                    <option value="Hat">Hat</option>
+                    <option value="Scarff">Scarff</option>
+                    <option value="Broom">Broom</option>
+                    <option value="Movie">Movie</option>
+                    <option value="VideoGame">Video Game</option>
+                </select>
+                <button type="submit" class="btn btn-dark">Filter</button>
+            </form>
+        </div>
     </div>
 </div>
 <br />
