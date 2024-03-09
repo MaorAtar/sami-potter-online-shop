@@ -45,6 +45,7 @@ namespace SamiPotterOnlineShop.Data.Cart
                 shoppingCartItem.Amount++;
             }
             shoppingCartItem.Item.Amount--;
+
             _context.SaveChanges();
         }
 
