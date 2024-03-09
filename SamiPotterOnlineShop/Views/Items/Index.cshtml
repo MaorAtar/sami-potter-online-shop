@@ -61,10 +61,30 @@
                 <button type="submit" class="btn btn-dark mt-2">Filter</button>
             </form>
         </div>
+
+        @{
+            double maxPrice = Model.Max(item => item.Price);
+        }
+        @foreach (var item in Model)
+        {
+            if (maxPrice <= item.Price)
+            {
+                maxPrice = item.Price;
+            }
+        }
+        <div class="col-md-2">
+            <form id="priceRangeForm" asp-controller="Items" asp-action="FilterByPrice" method="post">
+                <label for="minPrice">Minimum Price:</label>
+                <input class="rounded" type="number" id="minPrice" name="minPrice" value="0" />
+                <label for="maxPrice">Maximum Price:</label>
+                <input class="rounded mt-1" type="number" id="maxPrice" name="maxPrice" value="@maxPrice" />
+                <br />
+                <button type="submit" class="btn btn-dark mt-2">Filter</button>
+            </form>
+        </div>
     </div>
 </div>
 <br />
-
 <div class="row">
     @foreach (var item in Model)
     {
@@ -135,14 +155,15 @@
 
 @await Html.PartialAsync("_CreateItem", "Items");
 
-<script>
-    function executePurchase() {
-        var url = '@Url.Action("CompleteOrder", "Orders", new { })';
-        window.location.href = url;
-    }
+@section Scripts {
+    <script>
+        function executePurchase() {
+            var url = '@Url.Action("CompleteOrder", "Orders", new { })';
+            window.location.href = url;
+        }
 
-    document.getElementById('buy-now-btn').addEventListener('click', function () {
-        executePurchase();
-    });
-</script>
+        document.getElementById('buy-now-btn').addEventListener('click', function () {
+            executePurchase();
+        });
+    </script>
 }

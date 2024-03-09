@@ -93,6 +93,19 @@ namespace SamiPotterOnlineShop.Controllers
         }
 
         [AllowAnonymous]
+        public async Task<IActionResult> FilterByPrice(double? minPrice, double? maxPrice)
+        {
+            var allItems = await _service.GetAllAsync(n => n.Warehouse);
+
+            if (minPrice.HasValue && maxPrice.HasValue)
+            {
+                allItems = allItems.Where(item => item.Price >= minPrice && item.Price <= maxPrice).ToList();
+            }
+
+            return View("Index", allItems);
+        }
+
+        [AllowAnonymous]
         public async Task<IActionResult> Filter(string searchString)
         {
             var allItems = await _service.GetAllAsync(n => n.Warehouse);
