@@ -4,6 +4,16 @@
     ViewData["Title"] = "Details of the producer";
 }
 
+<style>
+    body {
+        background-image: url('/css/bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        background-attachment: fixed;
+    }
+</style>
+
 <div class="container align-text-top text-center" style="font-family: 'Harry Potter', sans-serif; margin-top:8%;">
     <h2>Details for @Model.FullName</h2>
 </div>
@@ -34,9 +44,9 @@
                 <div class="form-group mt-3">
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                        <a class="btn btn-outline-success float-right" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                        <a class="btn btn-success float-right" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
                     }
-                    <a class="btn btn-outline-secondary ml-2" asp-action="Index">Show All</a>
+                    <a class="btn btn-secondary ml-2" asp-action="Index">Show All</a>
                 </div>
             </div>
         </div>

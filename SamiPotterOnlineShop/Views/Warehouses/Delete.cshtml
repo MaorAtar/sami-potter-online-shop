@@ -4,6 +4,16 @@
     ViewData["Title"] = "Delete Warehouse";
 }
 
+<style>
+    body {
+        background-image: url('/css/bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        background-attachment: fixed;
+    }
+</style>
+
 <div class="container align-text-top text-center" style="font-family: 'Harry Potter', sans-serif; margin-top:8%;">
     <h2>Delete confirmation for @Model.Name</h2>
 </div>
@@ -36,7 +46,7 @@
                         <input type="hidden" asp-for="Id" />
                         <div class="text-right">
                             <input type="submit" value="Confirm" class="btn btn-danger" />
-                            <a class="btn btn-outline-secondary ml-2" asp-action="Index">Show All</a>
+                            <a class="btn btn-secondary ml-2" asp-action="Index">Show All</a>
                         </div>
                     </form>
                 </div>

@@ -1,10 +1,20 @@
-﻿<div class="row" style="margin-top: 8%;">
+﻿<style>
+    body {
+        background-image: url('/css/bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        background-attachment: fixed;
+    }
+</style>
+
+<div class="row" style="margin-top: 8%;">
     <div class="col-md-6 offset-3 alert alert-danger text-center">
         <h2>You are now allowed to access this page</h2>
         <p>Please click the button below to redrirected to the home page.</p>
         <hr />
         <p>
-            <a asp-controller="Items" asp-action="Index" class="btn btn-outline-success">Home Page</a>
+            <a asp-controller="Items" asp-action="Index" class="btn btn-success">Home Page</a>
         </p>
     </div>
 </div>

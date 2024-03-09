@@ -70,7 +70,8 @@ namespace SamiPotterOnlineShop.Controllers
             {
                 FullName = registerVM.FullName,
                 Email = registerVM.EmailAddress,
-                UserName = registerVM.EmailAddress
+                UserName = registerVM.EmailAddress,
+                CreditCardNumber = registerVM.CreditCardNumber
             };
             var newUserResponse = await _userManager.CreateAsync(newUser, registerVM.Password);
 
@@ -108,7 +109,7 @@ namespace SamiPotterOnlineShop.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Items");
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult AccessDenied(string returnUrl)

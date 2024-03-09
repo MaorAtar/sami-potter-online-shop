@@ -5,6 +5,21 @@
     ViewData["Title"] = "Shopping Cart Summary";
 }
 
+<style>
+    body {
+        background-image: url('/css/bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        background-attachment: fixed;
+    }
+
+    table th,
+    table td {
+        color: white;
+    }
+</style>
+
 <div class="container align-text-top text-center" style="font-family: 'Harry Potter', sans-serif; margin-top:8%;">
     <h2>Shopping Cart Summary</h2>
 </div>
@@ -54,10 +69,14 @@
         </table>
         <div class="text-right">
             <div class="btn-group">
-                @*                 <a class="btn btn-outline-primary" asp-action="CompleteOrder">Complete Order</a> *@
                 <div id="paypal-btn"></div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <span style="padding:5px"></span>
+                    <a class="btn btn-success" id="buy-now-btn">Buy Now</a>
+                }
                 <span style="padding:5px"></span>
-                <a class="btn btn-outline-success" asp-controller="Items" asp-action="Index">Add More Items</a>
+                <a class="btn btn-info" asp-controller="Items" asp-action="Index">Add More Items</a>
             </div>
         </div>
     </div>
@@ -68,6 +87,16 @@
 
     <script>
         let _total = @Html.Raw(Model.ShoppingCartTotal);
+
+        function executePurchase() {
+            var url = '@Url.Action("CompleteOrder", "Orders", new { })';
+            window.location.href = url;
+        }
+
+        document.getElementById('buy-now-btn').addEventListener('click', function () {
+            executePurchase();
+        });
+
         paypal.Button.render({
             env: 'sandbox',
             client: {
