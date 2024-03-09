@@ -4,6 +4,16 @@
     ViewData["Title"] = "List of Items";
 }
 
+<style>
+    body {
+        background-image: url('/css/bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        background-attachment: fixed;
+    }
+</style>
+
 <div class="container align-text-top text-center" style="font-family: 'Harry Potter', sans-serif; margin-top:8%;">
     <h1>SAMI POTTER SHOP</h1>
 </div>
@@ -11,7 +21,7 @@
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-md-4 col-xs-6 mb-3" style="background-color: black;">
+        <div class="col-md-4 col-xs-6 mb-3">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-12">
@@ -31,7 +41,7 @@
                         <img src="@item.ImageURL" width="100%" alt="@item.Name" />
                     </div>
                     <div class="col-md-6">
-                        <div class="card-body">
+                        <div class="card-body text-black">
                             <p class="card-text">@item.Description</p>
                             <p class="card-text"><b>Warehouse: </b>@item.Name</p>
                             <p class="card-text"><b>Category: </b>@item.ItemCategory</p>
@@ -53,7 +63,7 @@
                     <div class="col-md-12">
                         <div class="card-footer">
                             <p>
-                                <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.Id">
+                                <a class="btn btn-primary float-right" asp-action="Details" asp-route-id="@item.Id">
                                     <i class="bi bi-eye-fill"></i> Show Details
                                 </a>
                                 <a class="btn btn-success text-white @(item.Amount == 0 ? "disabled" : "")" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id">

@@ -109,7 +109,7 @@ namespace SamiPotterOnlineShop.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Items");
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult AccessDenied(string returnUrl)
