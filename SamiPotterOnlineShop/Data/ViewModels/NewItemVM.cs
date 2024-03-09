@@ -35,10 +35,6 @@ namespace SamiPotterOnlineShop.Data.ViewModels
         [Required(ErrorMessage = "Item category is required")]
         public ItemCategory ItemCategory { get; set; }
 
-        [Display(Name = "Select a location")]
-        [Required(ErrorMessage = "Item location is required")]
-        public OrderLocation ItemLocation { get; set; }
-
         [Display(Name = "Select a Warehouse")]
         [Required(ErrorMessage = "Item Warehouse is required")]
         public int WarehouseId { get; set; }
