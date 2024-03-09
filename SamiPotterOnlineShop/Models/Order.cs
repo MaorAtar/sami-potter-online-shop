@@ -11,7 +11,6 @@ namespace SamiPotterOnlineShop.Models
 
         public string Email { get; set; }
         public string UserId { get; set; }
-        public OrderLocation OrderLocation { get; set; }
 
         [ForeignKey(nameof(UserId))]
         public ApplicationUser User { get; set; }

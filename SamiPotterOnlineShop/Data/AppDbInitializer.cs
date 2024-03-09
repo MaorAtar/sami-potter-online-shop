@@ -112,10 +112,10 @@ namespace SamiPotterOnlineShop.Data
                     {
                         new Item()
                         {
-                            Name = "HARRY POTTER AND THE PHILOSOPHER’S STONE (2001)",
-                            Description = "HARRY POTTER AND THE PHILOSOPHER’S STONE (2001) DESCRIPTION",
+                            Name = "Harry Potter and the Sorcerer's Stone",
+                            Description = "Harry Potter and the Sorcerer's Stone (2001) Description",
                             Price = 39.50,
-                            ImageURL = "https://www.odeon.co.uk/media/dayfnwnw/wb_hp_1sht_1-8_ww-logo_st02_-1.jpg",
+                            ImageURL = "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg",
                             StartDate = DateTime.Now.AddDays(-10),
                             WarehouseId = 1,
                             ProducerId = 1,
@@ -124,10 +124,10 @@ namespace SamiPotterOnlineShop.Data
                         },
                         new Item()
                         {
-                            Name = "HARRY POTTER AND THE CHAMBER OF SECRETS (2002)",
-                            Description = "HARRY POTTER AND THE CHAMBER OF SECRETS (2002) DESCRIPTION",
+                            Name = "Harry Potter and the Chamber of Secrets",
+                            Description = "Harry Potter and the Chamber of Secrets (2002) Description",
                             Price = 29.50,
-                            ImageURL = "https://www.odeon.co.uk/media/jvtpdvvy/wb_hp_1sht_1-8_ww-logo_st02_2-1-1.jpg",
+                            ImageURL = "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/sdEOH0992YZ0QSxgXNIGLq1ToUi.jpg",
                             StartDate = DateTime.Now,
                             WarehouseId = 1,
                             ProducerId = 1,
@@ -136,10 +136,10 @@ namespace SamiPotterOnlineShop.Data
                         },
                         new Item()
                         {
-                            Name = "HARRY POTTER AND THE PRISONER OF AZKABAN (2004)",
-                            Description = "HARRY POTTER AND THE PRISONER OF AZKABAN (2004) DESCRIPTION",
+                            Name = "Harry Potter and the Prisoner of Azkaban",
+                            Description = "Harry Potter and the Prisoner of Azkaban (2004) Description",
                             Price = 39.50,
-                            ImageURL = "https://www.odeon.co.uk/media/0pvbocpw/wb_hp_1sht_1-8_ww-logo_st02_4-1-1.jpg",
+                            ImageURL = "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/aWxwnYoe8p2d2fcxOqtvAtJ72Rw.jpg",
                             StartDate = DateTime.Now,
                             WarehouseId = 1,
                             ProducerId = 1,
@@ -148,10 +148,10 @@ namespace SamiPotterOnlineShop.Data
                         },
                         new Item()
                         {
-                            Name = "HARRY POTTER AND THE GOBLET OF FIRE (2005)",
-                            Description = "HARRY POTTER AND THE GOBLET OF FIRE (2005) DESCRIPTION",
+                            Name = "Harry Potter and the Goblet of Fire",
+                            Description = "Harry Potter and the Goblet of Fire (2005) Description",
                             Price = 39.50,
-                            ImageURL = "https://www.odeon.co.uk/media/u54j5bmb/wb_hp_1sht_1-8_ww-logo_st02_6-1-1.jpg",
+                            ImageURL = "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/fECBtHlr0RB3foNHDiCBXeg9Bv9.jpg",
                             StartDate = DateTime.Now.AddDays(-10),
                             WarehouseId = 1,
                             ProducerId = 1,
@@ -160,10 +160,10 @@ namespace SamiPotterOnlineShop.Data
                         },
                         new Item()
                         {
-                            Name = "HARRY POTTER AND THE ORDER OF THE PHOENIX (2007)",
-                            Description = "HARRY POTTER AND THE ORDER OF THE PHOENIX (2007) DESCRIPTION",
+                            Name = "Harry Potter and the Order of the Phoenix",
+                            Description = "Harry Potter and the Order of the Phoenix (2007) Description",
                             Price = 39.50,
-                            ImageURL = "https://www.odeon.co.uk/media/skkl4k3t/wb_hp_1sht_1-8_ww-logo_st02_7-2-1.jpg",
+                            ImageURL = "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/5aOyriWkPec0zUDxmHFP9qMmBaj.jpg",
                             StartDate = DateTime.Now.AddDays(-10),
                             WarehouseId = 1,
                             ProducerId = 1,
@@ -172,10 +172,10 @@ namespace SamiPotterOnlineShop.Data
                         },
                         new Item()
                         {
-                            Name = "HARRY POTTER AND THE HALF-BLOOD PRINCE (2009)",
-                            Description = "HARRY POTTER AND THE HALF-BLOOD PRINCE (2009) DESCRIPTION",
+                            Name = "Harry Potter and the Half-Blood Prince",
+                            Description = "Harry Potter and the Half-Blood Prince (2009) Description",
                             Price = 39.50,
-                            ImageURL = "https://www.odeon.co.uk/media/051fgvew/wb_hp_1sht_1-8_ww-logo_st02_8_500px-1-1.jpg",
+                            ImageURL = "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/z7uo9zmQdQwU5ZJHFpv2Upl30i1.jpg",
                             StartDate = DateTime.Now.AddDays(3),
                             WarehouseId = 1,
                             ProducerId = 1,
@@ -184,10 +184,10 @@ namespace SamiPotterOnlineShop.Data
                         },
                         new Item()
                         {
-                            Name = "HARRY POTTER AND THE DEATHLY HALLOWS PART 1",
-                            Description = "HARRY POTTER AND THE DEATHLY HALLOWS PART 1 DESCRIPTION",
+                            Name = "Harry Potter and the Deathly Hallows: Part 1",
+                            Description = "Harry Potter and the Deathly Hallows: Part 1 (2010) Description",
                             Price = 39.50,
-                            ImageURL = "https://www.odeon.co.uk/media/y10f3l1t/wb_hp_1sht_1-8_ww-logo_st02_9-1-1.jpg",
+                            ImageURL = "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/iGoXIpQb7Pot00EEdwpwPajheZ5.jpg",
                             StartDate = DateTime.Now.AddDays(2),
                             WarehouseId = 1,
                             ProducerId = 1,
@@ -196,10 +196,10 @@ namespace SamiPotterOnlineShop.Data
                         },
                         new Item()
                         {
-                            Name = "HARRY POTTER AND THE DEATHLY HALLOWS PART 2",
-                            Description = "HARRY POTTER AND THE DEATHLY HALLOWS PART 2 DESCRIPTION",
+                            Name = "Harry Potter and the Deathly Hallows: Part 2",
+                            Description = "Harry Potter and the Deathly Hallows: Part 2 (2011) Description",
                             Price = 39.50,
-                            ImageURL = "https://www.odeon.co.uk/media/ck4nivvy/wb_hp_1sht_1-8_ww-logo_st02_10-1-1.jpg",
+                            ImageURL = "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/c54HpQmuwXjHq2C9wmoACjxoom3.jpg",
                             StartDate = DateTime.Now.AddDays(-3),
                             WarehouseId = 1,
                             ProducerId = 1,
@@ -208,10 +208,10 @@ namespace SamiPotterOnlineShop.Data
                         },
                         new Item()
                         {
-                            Name = "FANTASTIC BEASTS AND WHERE TO FIND THEM (2016)",
-                            Description = "FANTASTIC BEASTS AND WHERE TO FIND THEM (2016) DESCRIPTION",
+                            Name = "Fantastic Beasts and Where to Find Them",
+                            Description = "Fantastic Beasts and Where to Find Them (2016) Description",
                             Price = 49.50,
-                            ImageURL = "https://www.odeon.co.uk/media/h0lb4hw3/fantastic_beasts_and_where_to_find_them_ver2_xxlg-1.jpg",
+                            ImageURL = "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/h6NYfVUyM6CDURtZSnBpz647Ldd.jpg",
                             StartDate = DateTime.Now.AddDays(1),
                             WarehouseId = 1,
                             ProducerId = 2,
@@ -220,10 +220,10 @@ namespace SamiPotterOnlineShop.Data
                         },
                         new Item()
                         {
-                            Name = "FANTASTIC BEASTS: THE CRIMES OF GRINDELWALD (2018)",
-                            Description = "FANTASTIC BEASTS: THE CRIMES OF GRINDELWALD (2018) DESCRIPTION",
+                            Name = "Fantastic Beasts: The Crimes of Grindelwald",
+                            Description = "Fantastic Beasts: The Crimes of Grindelwald (2018) Description",
                             Price = 39.50,
-                            ImageURL = "https://www.odeon.co.uk/media/wcfpmqnl/fnbst2_tsr_cast_art_vert_dom_2764x4096-1.jpg",
+                            ImageURL = "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/fMMrl8fD9gRCFJvsx0SuFwkEOop.jpg",
                             StartDate = DateTime.Now.AddDays(4),
                             WarehouseId = 1,
                             ProducerId = 3,
@@ -232,10 +232,10 @@ namespace SamiPotterOnlineShop.Data
                         },
                         new Item()
                         {
-                            Name = "FANTASTIC BEASTS: THE SECRETS OF DUMBLEDORE (2022)",
-                            Description = "FANTASTIC BEASTS: THE SECRETS OF DUMBLEDORE (2022) DESCIRPTION",
+                            Name = "Fantastic Beasts: The Secrets of Dumbledore",
+                            Description = "Fantastic Beasts: The Secrets of Dumbledore (2022) Description",
                             Price = 39.50,
-                            ImageURL = "https://www.odeon.co.uk/media/guwkmf3a/main-uk-one-sheet-1.jpg",
+                            ImageURL = "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/jrgifaYeUtTnaH7NF5Drkgjg2MB.jpg",
                             StartDate = DateTime.Now.AddDays(9),
                             WarehouseId = 1,
                             ProducerId = 4,

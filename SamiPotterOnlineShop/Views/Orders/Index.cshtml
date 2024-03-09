@@ -61,10 +61,6 @@
                         {
                             <td class="align-middle"> @order.User.FullName </td>
                         }
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <td class="align-middle"> @order.OrderLocation </td>
-                        }
                     </tr>
                 }
             </tbody>
