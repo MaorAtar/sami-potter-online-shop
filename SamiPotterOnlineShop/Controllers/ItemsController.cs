@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace SamiPotterOnlineShop.Controllers
 {
@@ -63,6 +64,19 @@ namespace SamiPotterOnlineShop.Controllers
             }
 
             return View(allItems.ToList());
+        }
+
+        [AllowAnonymous]
+        public async Task<IActionResult> FilterByCategory(string categoryFilter)
+        {
+            var allItems = await _service.GetAllAsync(n => n.Warehouse);
+
+            if (!string.IsNullOrEmpty(categoryFilter))
+            {
+                allItems = allItems.Where(n => n.ItemCategory.ToString().ToLower() == categoryFilter.ToLower());
+            }
+
+            return View("Index", allItems.ToList());
         }
 
         [AllowAnonymous]
