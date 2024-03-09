@@ -7,5 +7,8 @@ namespace SamiPotterOnlineShop.Models
     {
         [Display(Name = "Full Name")]
         public string FullName { get; set; }
+
+        [Display(Name = "Credit Card Number")]
+        public string CreditCardNumber { get; set; }
     }
 }

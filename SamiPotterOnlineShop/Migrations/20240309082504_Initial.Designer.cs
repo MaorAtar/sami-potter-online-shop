@@ -12,8 +12,8 @@ using SamiPotterOnlineShop.Data;
 namespace SamiPotterOnlineShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240308122404_Init")]
-    partial class Init
+    [Migration("20240309082504_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -209,6 +209,10 @@ namespace SamiPotterOnlineShop.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreditCardNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
