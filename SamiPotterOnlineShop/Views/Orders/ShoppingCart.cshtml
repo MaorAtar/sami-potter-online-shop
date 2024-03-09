@@ -70,8 +70,13 @@
         <div class="text-right">
             <div class="btn-group">
                 <div id="paypal-btn"></div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <span style="padding:5px"></span>
+                    <a class="btn btn-success" id="buy-now-btn">Buy Now</a>
+                }
                 <span style="padding:5px"></span>
-                <a class="btn btn-success" asp-controller="Items" asp-action="Index">Add More Items</a>
+                <a class="btn btn-info" asp-controller="Items" asp-action="Index">Add More Items</a>
             </div>
         </div>
     </div>
@@ -82,6 +87,16 @@
 
     <script>
         let _total = @Html.Raw(Model.ShoppingCartTotal);
+
+        function executePurchase() {
+            var url = '@Url.Action("CompleteOrder", "Orders", new { })';
+            window.location.href = url;
+        }
+
+        document.getElementById('buy-now-btn').addEventListener('click', function () {
+            executePurchase();
+        });
+
         paypal.Button.render({
             env: 'sandbox',
             client: {
