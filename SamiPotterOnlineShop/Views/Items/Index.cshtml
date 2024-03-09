@@ -18,6 +18,25 @@
     <h1>SAMI POTTER SHOP</h1>
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <form id="sortForm" asp-controller="Items" asp-action="Index" method="get">
+                <label for="sortOrder">Sort By:</label>
+                <select id="sortOrder" name="sortOrder" class="form-select">
+                    <option value="Name">Name</option>
+                    <option value="Date">Start Date</option>
+                    <option value="Price Decrease">Price Decrease</option>
+                    <option value="Price Increase">Price Increase</option>
+                    <option value="Category">Category</option>
+                </select>
+                <button type="submit" class="btn btn-dark">Sort</button>
+            </form>
+        </div>
+    </div>
+</div>
+<br />
+
 <div class="row">
     @foreach (var item in Model)
     {
@@ -69,6 +88,13 @@
                                 <a class="btn btn-success text-white @(item.Amount == 0 ? "disabled" : "")" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id">
                                     <i class="bi bi-cart-plus"></i> Add to Cart (Price @item.Price.ToString("c"))
                                 </a>
+                                @if (item.Amount > 0)
+                                {
+                                    <a class="btn btn-success" id="buy-now-btn">Buy</a>
+                                } else
+                                {
+                                    <a class="btn btn-warning" id="notify-btn">Notify</a>
+                                }
                             </p>
                         </div>
                     </div>
@@ -79,3 +105,15 @@
 </div>
 
 @await Html.PartialAsync("_CreateItem", "Items");
+
+<script>
+    function executePurchase() {
+        var url = '@Url.Action("CompleteOrder", "Orders", new { })';
+        window.location.href = url;
+    }
+
+    document.getElementById('buy-now-btn').addEventListener('click', function () {
+        executePurchase();
+    });
+</script>
+}

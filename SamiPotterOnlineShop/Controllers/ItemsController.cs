@@ -4,6 +4,7 @@ using SamiPotterOnlineShop.Data.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace SamiPotterOnlineShop.Controllers
 {
@@ -17,11 +18,51 @@ namespace SamiPotterOnlineShop.Controllers
             _service = service;
         }
 
-        [AllowAnonymous]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewData["PriceDecSortParm"] = sortOrder == "Price Decrease" ? "price_decr" : "Price Decrease";
+            ViewData["PriceIncSortParm"] = sortOrder == "Price Increase" ? "price_incr" : "Price Increase";
+            ViewData["CategorySortParm"] = sortOrder == "Category" ? "category_desc" : "Category";
+
             var allItems = await _service.GetAllAsync(n => n.Warehouse);
-            return View(allItems);
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    allItems = allItems.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    allItems = allItems.OrderBy(s => s.StartDate);
+                    break;
+                case "date_desc":
+                    allItems = allItems.OrderByDescending(s => s.StartDate);
+                    break;
+                case "Price Decrease":
+                    allItems = allItems.OrderByDescending(s => s.Price);
+                    break;
+                case "price_decr":
+                    allItems = allItems.OrderByDescending(s => s.Price);
+                    break;
+                case "Price Increase":
+                    allItems = allItems.OrderBy(s => s.Price);
+                    break;
+                case "price_incr":
+                    allItems = allItems.OrderBy(s => s.Price);
+                    break;
+                case "Category":
+                    allItems = allItems.OrderBy(s => s.ItemCategory);
+                    break;
+                case "category_desc":
+                    allItems = allItems.OrderByDescending(s => s.ItemCategory);
+                    break;
+                default:
+                    allItems = allItems.OrderBy(s => s.Name);
+                    break;
+            }
+
+            return View(allItems.ToList());
         }
 
         [AllowAnonymous]
