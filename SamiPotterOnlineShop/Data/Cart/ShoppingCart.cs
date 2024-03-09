@@ -38,13 +38,13 @@ namespace SamiPotterOnlineShop.Data.Cart
                     Item = Item,
                     Amount = 1
                 };
-
                 _context.ShoppingCartItems.Add(shoppingCartItem);
             }
             else
             {
                 shoppingCartItem.Amount++;
             }
+            shoppingCartItem.Item.Amount--;
             _context.SaveChanges();
         }
 
