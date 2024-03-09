@@ -19,6 +19,7 @@ namespace SamiPotterOnlineShop.Controllers
             _service = service;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index(string sortOrder)
         {
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -65,6 +66,7 @@ namespace SamiPotterOnlineShop.Controllers
 
             return View(allItems.ToList());
         }
+
 
         [AllowAnonymous]
         public async Task<IActionResult> FilterByCategory(string categoryFilter)
