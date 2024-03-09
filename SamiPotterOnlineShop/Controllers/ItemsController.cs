@@ -80,6 +80,19 @@ namespace SamiPotterOnlineShop.Controllers
         }
 
         [AllowAnonymous]
+        public async Task<IActionResult> FilterByDate(string dateFilter)
+        {
+            var allItems = await _service.GetAllAsync(n => n.Warehouse);
+
+            if (!string.IsNullOrEmpty(dateFilter))
+            {
+                allItems = allItems.Where(n => n.StartDate.ToString().ToLower() == dateFilter.ToLower());
+            }
+
+            return View("Index", allItems.ToList());
+        }
+
+        [AllowAnonymous]
         public async Task<IActionResult> Filter(string searchString)
         {
             var allItems = await _service.GetAllAsync(n => n.Warehouse);
