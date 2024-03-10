@@ -61,23 +61,12 @@
                 <button type="submit" class="btn btn-dark mt-2">Filter</button>
             </form>
         </div>
-
-        @{
-            double maxPrice = Model.Max(item => item.Price);
-        }
-        @foreach (var item in Model)
-        {
-            if (maxPrice <= item.Price)
-            {
-                maxPrice = item.Price;
-            }
-        }
         <div class="col-md-2">
             <form id="priceRangeForm" asp-controller="Items" asp-action="FilterByPrice" method="post">
                 <label for="minPrice">Minimum Price:</label>
                 <input class="rounded" type="number" id="minPrice" name="minPrice" value="0" />
                 <label for="maxPrice">Maximum Price:</label>
-                <input class="rounded mt-1" type="number" id="maxPrice" name="maxPrice" value="@maxPrice" />
+                <input class="rounded mt-1" type="number" id="maxPrice" name="maxPrice" value="200" />
                 <br />
                 <button type="submit" class="btn btn-dark mt-2">Filter</button>
             </form>
