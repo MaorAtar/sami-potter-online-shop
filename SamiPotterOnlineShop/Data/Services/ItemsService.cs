@@ -79,7 +79,7 @@ namespace SamiPotterOnlineShop.Data.Services
                 dbItem.Amount = data.Amount;
                 dbItem.ItemCategory = data.ItemCategory;
                 dbItem.ProducerId = data.ProducerId;
-                await _context.SaveChangesAsync();
+               await _context.SaveChangesAsync();
             }
             var existingActorDb = _context.Actors_Items.Where(n => n.ItemId == data.Id).ToList();
             _context.Actors_Items.RemoveRange(existingActorDb);

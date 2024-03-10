@@ -24,10 +24,11 @@
     <div class="col-md-8 offset-2">
         <div class="row">
             <div class="col-md-8 offset-2">
-                <form asp-action="Edit">
+                <form asp-action="Edit" asp-route-id="@Model.Id">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="row">
                         <div class="col-md-6">
+                            <input type="hidden" asp-for="Id" />
                             <div class="form-group">
                                 <label asp-for="Name" class="control-label"></label>
                                 <input asp-for="Name" class="form-control" />
@@ -65,12 +66,12 @@
                                 <select asp-for="ItemCategory" class="form-control" asp-items="Html.GetEnumSelectList<ItemCategory>()"></select>
                                 <span asp-validation-for="ItemCategory" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="producerGroup" style="display:none;">
                                 <label asp-for="ProducerId" class="control-label"></label>
                                 <select asp-for="ProducerId" class="form-control" asp-items="ViewBag.Producers"></select>
                                 <span asp-validation-for="ProducerId" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="actorGroup" style="display:none;">
                                 <label asp-for="ActorIds" class="control-label"></label>
                                 <select asp-for="ActorIds" class="form-control" asp-items="ViewBag.Actors" multiple></select>
                                 <span asp-validation-for="ActorIds" class="text-danger"></span>
@@ -100,6 +101,27 @@
 
 @section Scripts {
     <script>
+        $(document).ready(function () {
+            $("#ItemCategory").change(function () {
+                if ($(this).val() == "@((int)ItemCategory.Movie)") {
+                    $("#producerGroup").show();
+                    $("#actorGroup").show();
+                } else {
+                    $("#producerGroup").hide();
+                    $("#actorGroup").hide();
+                    setDefaultOptionByText("ProducerId", "David Heyman");
+                    setDefaultOptionByText("ActorIds", "Daniel Radcliffe");
+                    return false;
+                }
+            });
+        });
+
+        function setDefaultOptionByText(selectId, text) {
+            $("#" + selectId + " option").filter(function () {
+                return $(this).text() === text;
+            }).prop('selected', true);
+        }
+
         $(document).ready(function () {
             var output = document.getElementById("ImageUrlPreview");
             output.src = $("#ImageURL").val();

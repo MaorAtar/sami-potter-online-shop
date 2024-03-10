@@ -12,7 +12,7 @@ using SamiPotterOnlineShop.Data;
 namespace SamiPotterOnlineShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240309194958_Initial")]
+    [Migration("20240310140523_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
