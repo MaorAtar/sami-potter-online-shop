@@ -1,0 +1,91 @@
+﻿@using SamiPotterOnlineShop.Data.ViewModels;
+@model RegisterVM;
+
+@{
+    ViewData["Title"] = "Buy Now";
+}
+
+<style>
+    body {
+        background-image: url('/css/bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        background-attachment: fixed;
+    }
+</style>
+
+<div class="container align-text-top text-center" style="font-family: 'Harry Potter', sans-serif; margin-top:8%;">
+    <h2>Fill the following</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        @if (TempData["Error"] != null)
+        {
+            <div class="col-md-12 alert alert-danger">
+                <span>
+                    <b>Sorry!</b> - @TempData["Error"]
+                </span>
+            </div>
+        }
+
+        <div class="row" style="border: 1px solid #f5d376;">
+            <br />
+            <div class="col-md-8 offset-2">
+                <form asp-controller="Orders" asp-action="CompleteBuyNow" asp-route-id="@ViewBag.ItemId">
+                    <input type="hidden" name="id" value="@ViewBag.ItemId" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label for="fullName" class="control-label">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" class="form-control" />
+                        <span class="text-danger" data-valmsg-for="fullName" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailAddress" class="control-label">Email Address</label>
+                        <input type="email" id="emailAddress" name="emailAddress" class="form-control" />
+                        <span class="text-danger" data-valmsg-for="emailAddress" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="card" style="background-color: transparent;">
+                        <div class="card-header">
+                            <div class="row">
+                                <h3 class="text-xs-center">Payment Details</h3>
+                                <img class="img-fluid cc-img" src="https://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
+                            </div>
+                        </div>
+                        <div class="card-block" style="background-color: transparent;">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="creditCardNumber" class="control-label">Credit Card Number</label>
+                                        <input type="text" id="creditCardNumber" name="creditCardNumber" class="form-control" />
+                                        <span class="text-danger" data-valmsg-for="creditCardNumber" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success float-right" value="Buy Now" />
+                        <a href="@Url.Action("Index", "Items")" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+    document.getElementById('creditCardNumber').addEventListener('input', function (event) {
+    var inputValue = event.target.value;
+    var creditCardRegex = /^\d{16}\d{2}\/\d{2}\d{3}$/;
+
+    if (!creditCardRegex.test(inputValue)) {
+            event.target.setCustomValidity('Credit Card Number must be in the format CREDIT NUMBER-EXP[MM/YY]-CVV');
+        } else {
+            event.target.setCustomValidity('');
+                }
+            });
+    </script>
+}

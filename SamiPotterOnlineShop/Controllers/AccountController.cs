@@ -81,7 +81,6 @@ namespace SamiPotterOnlineShop.Controllers
                 return View("RegisterCompleted");
             }
 
-            // Check for specific error codes and set relevant error message
             string errorMessage;
             if (newUserResponse.Errors.Any(e => e.Code == "PasswordRequiresDigit"))
             {
@@ -97,7 +96,6 @@ namespace SamiPotterOnlineShop.Controllers
             }
             else
             {
-                // If no specific error code matches, concatenate all error descriptions
                 errorMessage = string.Join(", ", newUserResponse.Errors.Select(e => e.Description));
             }
 

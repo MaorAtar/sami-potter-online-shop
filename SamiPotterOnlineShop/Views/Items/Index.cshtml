@@ -164,14 +164,32 @@
                                 <a class="btn btn-success text-white @(item.Amount == 0 ? "disabled" : "")" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id">
                                     <i class="bi bi-cart-plus"></i> Add to Cart (Price @item.Price.ToString("c"))
                                 </a>
-                                @if (item.Amount > 0)
-                                {
-                                    <a class="btn btn-success" id="buy-now-btn">Buy</a>
+                                @{
+                                    if(User.Identity.IsAuthenticated)
+                                    {
+                                        if (item.Amount > 0)
+                                        {
+                                            <a class="btn btn-success text-white" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id">
+                                            Buy
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a class="btn btn-warning text-white" asp-controller="Orders" asp-action="*TODO*" asp-route-id="@item.Id">
+                                            Notify
+                                            </a>
+                                        }
+                                    } else
+                                    {
+                                        if (item.Amount > 0)
+                                        {
+                                            <a class="btn btn-success text-white" asp-controller="Orders" asp-action="BuyNow" asp-route-id="@item.Id">
+                                                Buy
+                                            </a>
+                                        }
+                                    }
                                 }
-                                else
-                                {
-                                    <a class="btn btn-warning" id="notify-btn">Notify</a>
-                                }
+
                             </p>
                         </div>
                     </div>
