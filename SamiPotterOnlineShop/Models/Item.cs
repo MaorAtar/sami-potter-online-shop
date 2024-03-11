@@ -13,6 +13,9 @@ namespace SamiPotterOnlineShop.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }
+        public double OriginalPrice { get; set; }
+        public bool OnSale { get; set; }
+        public MostPopularCategory MostPopular { get; set; }
         public string ImageURL { get; set; }
         public DateTime StartDate { get; set; }
         public ItemCategory ItemCategory { get; set; }

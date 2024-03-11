@@ -77,11 +77,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-8">
                         <div class="form-group">
                             <label asp-for="Description" class="control-label"></label>
                             <textarea asp-for="Description" class="form-control"></textarea>
                             <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="MostPopular" class="control-label"></label>
+                                <select asp-for="MostPopular" class="form-control" asp-items="Html.GetEnumSelectList<MostPopularCategory>()"></select>
+                                <span asp-validation-for="MostPopular" class="text-danger"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4 offset-4 text-center">

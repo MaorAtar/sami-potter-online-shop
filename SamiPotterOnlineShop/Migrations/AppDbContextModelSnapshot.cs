@@ -291,9 +291,18 @@ namespace SamiPotterOnlineShop.Migrations
                     b.Property<int>("ItemCategory")
                         .HasColumnType("int");
 
+                    b.Property<int>("MostPopular")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("OnSale")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("OriginalPrice")
+                        .HasColumnType("float");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");

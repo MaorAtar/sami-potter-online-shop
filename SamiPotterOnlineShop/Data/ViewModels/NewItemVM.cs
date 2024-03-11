@@ -19,6 +19,13 @@ namespace SamiPotterOnlineShop.Data.ViewModels
         [Required(ErrorMessage = "Price is required")]
         public double Price { get; set; }
 
+        public double OriginalPrice { get; set; }
+        public bool OnSale { get; set; }
+
+        [Display(Name = "Most Pouplar")]
+        [Required(ErrorMessage = "Most Pouplar is required")]
+        public MostPopularCategory MostPopular { get; set; }
+
         [Display(Name = "Item poster URL")]
         [Required(ErrorMessage = "Item poster URL is required")]
         public string ImageURL { get; set; }

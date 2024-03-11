@@ -95,6 +95,28 @@ namespace SamiPotterOnlineShop.Controllers
         }
 
         [AllowAnonymous]
+        public async Task<IActionResult> FilterOnSale(string onSaleFilter)
+        {
+            var allItems = await _service.GetAllAsync(n => n.Warehouse);
+
+            if (!string.IsNullOrEmpty(onSaleFilter))
+            {
+                bool onSaleValue = onSaleFilter.ToLower() == "true";
+                allItems = allItems.Where(n => n.Price < n.OriginalPrice == onSaleValue);
+            }
+
+            foreach (var item in allItems)
+            {
+                if(item.Price < item.OriginalPrice)
+                {
+                    item.OnSale = true;
+                }
+            }
+
+            return View("Index", allItems.ToList());
+        }
+
+        [AllowAnonymous]
         public async Task<IActionResult> FilterByPrice(double? minPrice, double? maxPrice)
         {
             var allItems = await _service.GetAllAsync(n => n.Warehouse);
@@ -161,6 +183,9 @@ namespace SamiPotterOnlineShop.Controllers
                 Name = ItemDeatils.Name,
                 Description = ItemDeatils.Description,
                 Price = ItemDeatils.Price,
+                OriginalPrice = ItemDeatils.Price,
+                OnSale = ItemDeatils.OnSale,
+                MostPopular = ItemDeatils.MostPopular,
                 StartDate = ItemDeatils.StartDate,
                 Amount = ItemDeatils.Amount,
                 ImageURL = ItemDeatils.ImageURL,

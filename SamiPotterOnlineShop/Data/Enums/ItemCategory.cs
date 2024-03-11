@@ -7,6 +7,8 @@
         Scarff,
         Broom,
         Movie,
-        VideoGame
+        VideoGame,
+        Book,
+        Cup
     }
 }

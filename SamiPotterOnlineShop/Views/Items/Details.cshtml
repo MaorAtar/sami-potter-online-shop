@@ -36,7 +36,7 @@
                     <img src="@Model.ImageURL" width="100%" alt="@Model.Name">
                 </div>
                 <div class="col-md-8">
-                    <div class="card-body">
+                    <div class="card-body text-black">
                         <p class="card-text">@Model.Description</p>
                         <p class="card-text">
                             <b>Warehouse: </b>
@@ -90,9 +90,20 @@
                         }
                         <p class="card-text">
                             <b>Price: </b>
-                            <span id="price">
-                                @Model.Price.ToString("c")
-                            </span>
+                            @{
+                                if(Model.Price < Model.OriginalPrice)
+                                {
+                                    Model.OnSale = true;
+                                    <span id="price">
+                                        <del>@Model.OriginalPrice.ToString("c")</del>
+                                    </span>
+                                } else
+                                {
+                                    <span id="price">
+                                        @Model.Price.ToString("c")
+                                    </span>
+                                }
+                            }
                         </p>
                     </div>
                 </div>

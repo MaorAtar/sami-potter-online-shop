@@ -21,6 +21,8 @@ namespace SamiPotterOnlineShop.Data.Services
                 Name = data.Name,
                 Description = data.Description,
                 Price = data.Price,
+                OriginalPrice = data.Price,
+                MostPopular = data.MostPopular,
                 ImageURL = data.ImageURL,
                 WarehouseId = data.WarehouseId,
                 StartDate = data.StartDate,
@@ -73,6 +75,8 @@ namespace SamiPotterOnlineShop.Data.Services
                 dbItem.Name = data.Name;
                 dbItem.Description = data.Description;
                 dbItem.Price = data.Price;
+                dbItem.OnSale = data.OnSale;
+                dbItem.MostPopular = data.MostPopular;
                 dbItem.ImageURL = data.ImageURL;
                 dbItem.WarehouseId = data.WarehouseId;
                 dbItem.StartDate = data.StartDate;
