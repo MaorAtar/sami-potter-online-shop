@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
+using SamiPotterOnlineShop.Data.Enums;
 
 namespace SamiPotterOnlineShop.Controllers
 {
@@ -127,6 +128,17 @@ namespace SamiPotterOnlineShop.Controllers
             }
 
             return View("Index", allItems);
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> FilterMostPopular()
+        {
+            var allItems = await _service.GetAllAsync(n => n.Warehouse);
+
+            allItems = allItems.Where(n => n.MostPopular.ToString().ToLower() == MostPopularCategory.Yes.ToString().ToLower());
+
+            return View("Index", allItems.ToList());
         }
 
         [AllowAnonymous]
