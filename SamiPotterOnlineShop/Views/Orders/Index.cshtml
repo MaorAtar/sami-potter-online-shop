@@ -1,6 +1,8 @@
-﻿@model List<Order>
+﻿@using System;
+@model List<Order>
 
 @{
+   
     ViewData["Title"] = "All Orders";
 }
 
@@ -17,53 +19,339 @@
     table td {
         color: white;
     }
+
+    .tracker {
+        font-family: "Poppins", sans-serif;
+        position: relative;
+        
+    }
+
+    .step-wizard {
+        height: 6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .step-wizard-list {
+        color: white;
+        list-style-type: none;       
+        display: flex;
+        padding: 0px 0px;
+        position: relative;
+        z-index: 10;
+    }
+
+    .step-wizard-item {
+        padding: 0 20px;
+        flex-basis: 0;
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        min-width: 170px;
+        position: relative;
+    }
+
+    .step-wizard-item + .step-wizard-item:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 19px;
+            background: #d1aa41;
+        width: 100%;
+        height: 2px;
+        transform: translateX(-50%);
+        z-index: -10;
+    }
+
+    .progress-count {
+        height: 40px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-weight: 600;
+        margin: 0 auto;
+        position: relative;
+        z-index: 10;
+        color: transparent;
+    }
+
+    .progress-count:after {
+        content: "";
+        height: 40px;
+        width: 40px;
+        background: #d1aa41;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: -10;
+    }
+
+    .progress-count:before {
+        content: "";
+        height: 10px;
+        width: 20px;
+        border-left: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -60%) rotate(-45deg);
+        transform-origin: center center;
+    }
+
+    .progress-label {
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+
+    .current-item .progress-count:before,
+    .current-item ~ .step-wizard-item .progress-count:before {
+        display: none;
+    }
+
+    .current-item ~ .step-wizard-item .progress-count:after {
+        height: 10px;
+        width: 10px;
+    }
+
+    .current-item ~ .step-wizard-item .progress-label {
+        opacity: 0.5;
+    }
+
+    .current-item .progress-count:after {
+        background: #fff;
+        border: 2px solid #d1aa41;
+    }
+
+    .current-item .progress-count {
+        color: #d1aa41;
+    }
+
+    
+    .button-15 {
+        background-image: linear-gradient(#c29723, #f0d07a);
+        border: 2px solid #d9b966;
+        border-radius: 4px;
+        box-sizing: border-box;
+        color: #FFFFFF;
+        cursor: pointer;
+        direction: ltr;
+        display: block;
+        font-family: "SF Pro Text","SF Pro Icons","AOS Icons","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        letter-spacing: -.022em;
+        line-height: 1.47059;
+        min-width: 30px;
+        overflow: visible;
+        padding: 4px 15px;
+        text-align: center;
+        vertical-align: baseline;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: nowrap;
+    }
+
+    .button-15:disabled {
+        cursor: default;
+        opacity: .3;
+    }
+
+    .button-15:hover {
+        background-image: linear-gradient( #f0d07a, #c29723);
+        border-color: #d9b966;
+        text-decoration: none;
+    }
+
 </style>
 
-<div class="container align-text-top text-center" style="font-family: 'Harry Potter', sans-serif; margin-top:8%;">
-    <h2>List of all your orders</h2>
-</div>
 
-<div class="row">
-    <div class="col-md-8 offset-2">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Items</th>
-                    <th>Total</th>
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                    {
-                        <th>User</th>
-                    }
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var order in Model)
-                {
+<body>
+    <div class="container align-text-top text-center" style="font-family: 'Harry Potter', sans-serif; margin-top:8%;">
+        <h2>List of all your orders</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <table class="table" style="text-align: center;">
+                <thead>
                     <tr>
-                        <td class="align-middle">@order.Id</td>
-                        <td class="align-middle">
-                            <ul style="list-style-type:none">
-                                @foreach (var item in order.OrderItems)
-                                {
-                                    <li>
-                                        <div class="alert-info" role="alert">
-                                            <span class="badge bg-success">@item.Amount</span> [@item.Price.ToString("c")] - @item.Item.Name
-                                        </div>
-                                    </li>
-                                }
-                            </ul>
-                        </td>
-                        <td class="align-middle">
-                            @order.OrderItems.Select(m => m.Item.Price * m.Amount).Sum().ToString("c")
-                        </td>
+                        <th>Order ID</th>
+                        <th>Items</th>
+                        <th>Total</th>
+
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
-                            <td class="align-middle"> @order.User.FullName </td>
+                            <th>User</th>
                         }
+                        <th>Tracking</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model)
+                    {
+                        <tr>
+                            <td class="align-middle">@order.Id</td>
+                            <td class="align-middle">
+                                <ul style="list-style-type:none">
+                                    @foreach (var item in order.OrderItems)
+                                    {
+                                        <li>
+                                            <div class="alert-info" role="alert">
+                                                <span class="badge bg-success">@item.Amount</span> [@item.Price.ToString("c")] - @item.Item.Name
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </td>
+                            <td class="align-middle">
+                                @order.OrderItems.Select(m => m.Item.Price * m.Amount).Sum().ToString("c")
+                            </td>
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <td class="align-middle"> @order.User.FullName </td>
+                            }
+
+
+
+                            <td class="align-middle">
+
+                                <div id="stateDisplay_@order.Id"></div>
+
+                                @if(User.IsInRole("Admin"))
+                                {
+                                    <div style="position: relative; left: 12rem;">
+                                        <button class="button-15" onclick="changeState('stateDisplay_@order.Id')">Change Status</button>
+                                    </div>
+                                    
+                                }
+                                
+                            </td>
+                            
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            
+        </div>
     </div>
-</div>
+
+    
+</body>
+
+
+<script>
+    // Function to change and display state
+    function changeState(displayId) {
+        var currentState = localStorage.getItem('currentState_' + displayId) || 'State 1'; // Default to State 1 if not set
+        var newState;
+
+        // Update state
+        switch (currentState) {
+            case 'State 1':
+                newState = 'State 2';
+                break;
+            case 'State 2':
+                newState = 'State 3';
+                break;
+            case 'State 3':
+                newState = 'State 1';
+                break;
+            default:
+                newState = 'State 1';
+                break;
+        }
+
+        // Display and store new state
+        document.getElementById(displayId).innerHTML = getStateHtml(newState);
+        localStorage.setItem('currentState_' + displayId, newState);
+    }
+
+    // Function to get HTML markup for a given state
+    function getStateHtml(state) {
+        switch (state) {
+            case 'State 1':
+                return `
+                    <div class="tracker current-state">
+                        <section class="step-wizard">
+                            <ul id="tracker1" class="step-wizard-list">
+                                <li class="step-wizard-item">
+                                    <span class="progress-count">1</span>
+                                    <span class="progress-label">Ordered</span>
+                                </li>
+                                <li class="step-wizard-item current-item">
+                                    <span class="progress-count">2</span>
+                                    <span class="progress-label">Out for Delivery</span>
+                                </li>
+                                <li class="step-wizard-item">
+                                    <span class="progress-count">3</span>
+                                    <span class="progress-label">Delivered</span>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>`;
+            case 'State 2':
+                return `
+                    <div class="tracker current-state">
+                        <section class="step-wizard">
+                            <ul id="tracker1" class="step-wizard-list">
+                                <li class="step-wizard-item">
+                                    <span class="progress-count">1</span>
+                                    <span class="progress-label">Ordered</span>
+                                </li>
+                                <li class="step-wizard-item">
+                                    <span class="progress-count">2</span>
+                                    <span class="progress-label">Out for Delivery</span>
+                                </li>
+                                    <li class="step-wizard-item current-item">
+                                    <span class="progress-count">3</span>
+                                    <span class="progress-label">Delivered</span>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>`;
+            case 'State 3':
+                return `
+                    <div class="tracker current-state">
+                        <section class="step-wizard">
+                            <ul id="tracker1" class="step-wizard-list">
+                                <li class="step-wizard-item">
+                                    <span class="progress-count">1</span>
+                                    <span class="progress-label">Ordered</span>
+                                </li>
+                                <li class="step-wizard-item">
+                                    <span class="progress-count">2</span>
+                                    <span class="progress-label">Out for Delivery</span>
+                                </li>
+                                <li class="step-wizard-item">
+                                    <span class="progress-count">3</span>
+                                    <span class="progress-label">Delivered</span>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>`;
+        }
+    }
+
+    // Display initial state
+    document.querySelectorAll('[id^="stateDisplay_"]').forEach(function (element) {
+        var displayId = element.id;
+        var currentState = localStorage.getItem('currentState_' + displayId) || 'State 1';
+        element.innerHTML = getStateHtml(currentState);
+    });
+
+</script>
+
+
+

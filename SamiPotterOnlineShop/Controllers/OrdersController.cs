@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using SamiPotterOnlineShop.Models;
+using SamiPotterOnlineShop.Data.Enums;
 
 namespace SamiPotterOnlineShop.Controllers
 {
@@ -72,9 +73,10 @@ namespace SamiPotterOnlineShop.Controllers
             string userEmailAddress = User.FindFirstValue(ClaimTypes.Email);
             await _ordersService.StoreOrderAsync(items, userId, userEmailAddress);
             await _shoppingCart.ClearShoppingCartAsync();
-
             return View("OrderCompleted");
         }
+
+
 
         [AllowAnonymous]
         public IActionResult BuyNow(int id)

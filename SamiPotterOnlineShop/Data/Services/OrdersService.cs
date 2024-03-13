@@ -1,5 +1,6 @@
 ﻿using SamiPotterOnlineShop.Models;
 using Microsoft.EntityFrameworkCore;
+using SamiPotterOnlineShop.Data.Enums;
 
 namespace SamiPotterOnlineShop.Data.Services
 {
@@ -28,7 +29,9 @@ namespace SamiPotterOnlineShop.Data.Services
             {
                 UserId = userId,
                 Email = userEmailAddress
-            };
+                
+            };      
+
             await _context.Orders.AddAsync(order);
             await _context.SaveChangesAsync();
 
@@ -45,5 +48,8 @@ namespace SamiPotterOnlineShop.Data.Services
             }
             await _context.SaveChangesAsync();
         }
+
+        
+        
     }
 }
