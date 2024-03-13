@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using SamiPotterOnlineShop.Models;
-using SamiPotterOnlineShop.Data.Enums;
+using Microsoft.EntityFrameworkCore;
+using SamiPotterOnlineShop.Data;
 
 namespace SamiPotterOnlineShop.Controllers
 {
@@ -16,13 +17,15 @@ namespace SamiPotterOnlineShop.Controllers
         private readonly IItemsService _ItemsService;
         private readonly ShoppingCart _shoppingCart;
         private readonly IOrdersService _ordersService;
+        private readonly AppDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public OrdersController(IItemsService ItemsService, ShoppingCart shoppingCart, IOrdersService ordersService, UserManager<ApplicationUser> userManager)
+        public OrdersController(IItemsService ItemsService, ShoppingCart shoppingCart, IOrdersService ordersService, AppDbContext context, UserManager<ApplicationUser> userManager)
         {
             _ItemsService = ItemsService;
             _shoppingCart = shoppingCart;
             _ordersService = ordersService;
+            _context = context;
             _userManager = userManager;
         }
 
@@ -68,12 +71,20 @@ namespace SamiPotterOnlineShop.Controllers
 
         public async Task<IActionResult> CompleteOrder()
         {
-            var items = _shoppingCart.GetShoppingCartItems();
-            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            string userEmailAddress = User.FindFirstValue(ClaimTypes.Email);
-            await _ordersService.StoreOrderAsync(items, userId, userEmailAddress);
-            await _shoppingCart.ClearShoppingCartAsync();
-            return View("OrderCompleted");
+            try
+            {
+                var items = _shoppingCart.GetShoppingCartItems();
+                string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                string userEmailAddress = User.FindFirstValue(ClaimTypes.Email);
+                await _ordersService.StoreOrderAsync(items, userId, userEmailAddress);
+                await _shoppingCart.ClearShoppingCartAsync();
+
+                return View("OrderCompleted");
+            }
+            catch (Exception)
+            {
+                return View("NotFound");
+            }
         }
 
 
@@ -89,36 +100,53 @@ namespace SamiPotterOnlineShop.Controllers
         [HttpPost]
         public async Task<IActionResult> CompleteBuyNow(int id, string fullName, string emailAddress, string creditCardNumber)
         {
-            var item = await _ItemsService.GetByIdAsync(id);
-            if (item == null)
+            using (var transaction = _context.Database.BeginTransaction())
             {
-                return View("NotFound");
-            }
-
-            var newUser = new ApplicationUser
-            {
-                UserName = fullName.Replace(" ", ""),
-                FullName = fullName,
-                Email = emailAddress,
-                CreditCardNumber = creditCardNumber
-            };
-
-            var result = await _userManager.CreateAsync(newUser);
-            if (result.Succeeded)
-            {
-                _shoppingCart.AddItemToCart(item);
-                var items = _shoppingCart.GetShoppingCartItems();
-                await _ordersService.StoreOrderAsync(items, newUser.Id, newUser.Email);
-                await _shoppingCart.ClearShoppingCartAsync();
-                return View("OrderCompleted");
-            }
-            else
-            {
-                foreach (var error in result.Errors)
+                try
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    var item = await _ItemsService.GetByIdAsync(id);
+                    lock (item)
+                    {
+                        if (item.Amount < 1 || item == null)
+                        {
+                            throw new Exception("Item is not available for purchase.");
+                        }
+                        item.Amount--;
+                    }
+                    await _context.SaveChangesAsync();
+
+                    var newUser = new ApplicationUser
+                    {
+                        UserName = fullName.Replace(" ", ""),
+                        FullName = fullName,
+                        Email = emailAddress,
+                        CreditCardNumber = creditCardNumber
+                    };
+
+                    var result = await _userManager.CreateAsync(newUser);
+                    if (result.Succeeded)
+                    {
+                        _shoppingCart.AddItemToCart(item);
+                        var items = _shoppingCart.GetShoppingCartItems();
+                        await _ordersService.StoreOrderAsync(items, newUser.Id, newUser.Email);
+                        await _shoppingCart.ClearShoppingCartAsync();
+                        transaction.Commit();
+                        return View("OrderCompleted");
+                    }
+                    else
+                    {
+                        foreach (var error in result.Errors)
+                        {
+                            ModelState.AddModelError(string.Empty, error.Description);
+                        }
+                        return View("BuyNow");
+                    }
                 }
-                return View("BuyNow");
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    return View("NotFound");
+                }
             }
         }
     }

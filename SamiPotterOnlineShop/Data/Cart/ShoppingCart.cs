@@ -26,25 +26,35 @@ namespace SamiPotterOnlineShop.Data.Cart
             return new ShoppingCart(context) { ShoppingCartId = cartId };
         }
 
-        public void AddItemToCart(Item Item)
+        public void AddItemToCart(Item item)
         {
-            var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.Item.Id == Item.Id && n.ShoppingCartId == ShoppingCartId);
+            var shoppingCartItem = _context.ShoppingCartItems.FirstOrDefault(n => n.Item.Id == item.Id && n.ShoppingCartId == ShoppingCartId);
 
             if (shoppingCartItem == null)
             {
+                if (item.Amount < 1)
+                {
+                    throw new Exception("Item is not available for purchase.");
+                }
+
                 shoppingCartItem = new ShoppingCartItem()
                 {
                     ShoppingCartId = ShoppingCartId,
-                    Item = Item,
+                    Item = item,
                     Amount = 1
                 };
                 _context.ShoppingCartItems.Add(shoppingCartItem);
             }
             else
             {
+                if (item.Amount - shoppingCartItem.Amount < 1)
+                {
+                    throw new Exception("Item is not available for purchase.");
+                }
+
                 shoppingCartItem.Amount++;
             }
-            shoppingCartItem.Item.Amount--;
+            item.Amount--;
 
             _context.SaveChanges();
         }
