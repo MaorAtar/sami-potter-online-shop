@@ -5,6 +5,8 @@ using SamiPotterOnlineShop.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace SamiPotterOnlineShop.Controllers
 {
@@ -66,14 +68,18 @@ namespace SamiPotterOnlineShop.Controllers
                 TempData["Error"] = "This email address is already in use";
                 return View(registerVM);
             }
+
+            var encryptedCreditCardNumber = EncryptString(registerVM.CreditCardNumber, "samipotterencryption1234");
+
             var newUser = new ApplicationUser()
             {
                 FullName = registerVM.FullName,
                 Email = registerVM.EmailAddress,
                 UserName = registerVM.EmailAddress,
-                CreditCardNumber = registerVM.CreditCardNumber,
+                CreditCardNumber = encryptedCreditCardNumber,
                 Notified = registerVM.Notified
             };
+
             var newUserResponse = await _userManager.CreateAsync(newUser, registerVM.Password);
 
             if (newUserResponse.Succeeded)
@@ -102,6 +108,27 @@ namespace SamiPotterOnlineShop.Controllers
 
             TempData["Error"] = errorMessage;
             return View(registerVM);
+        }
+
+        private string EncryptString(string text, string password)
+        {
+            using (Aes aesAlg = Aes.Create())
+            {
+                aesAlg.Key = Encoding.UTF8.GetBytes(password);
+                aesAlg.IV = new byte[16];
+                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+
+                using (MemoryStream msEncrypt = new MemoryStream())
+                {
+                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                    using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                    {
+                        swEncrypt.Write(text);
+                    }
+
+                    return Convert.ToBase64String(msEncrypt.ToArray());
+                }
+            }
         }
 
         [HttpPost]

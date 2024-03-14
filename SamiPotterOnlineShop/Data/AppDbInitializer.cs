@@ -2,6 +2,9 @@
 using SamiPotterOnlineShop.Data.Static;
 using SamiPotterOnlineShop.Models;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Cryptography;
+using System.Text;
+using SamiPotterOnlineShop.Data.ViewModels;
 
 namespace SamiPotterOnlineShop.Data
 {
@@ -598,6 +601,7 @@ namespace SamiPotterOnlineShop.Data
                 var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
                 string adminUserEmail = "admin@gmail.com";
                 var adminUser = await userManager.FindByEmailAsync(adminUserEmail);
+                var encryptedCreditCardNumber = EncryptString("470132221111123412/2026837", "samipotterencryption1234");
                 if (adminUser == null)
                 {
                     var newAdminUser = new ApplicationUser()
@@ -606,7 +610,7 @@ namespace SamiPotterOnlineShop.Data
                         UserName = "admin-user",
                         Email = adminUserEmail,
                         EmailConfirmed = true,
-                        CreditCardNumber = "470132221111123412/2026837",
+                        CreditCardNumber = encryptedCreditCardNumber,
                         Notified = false
                     };
                     await userManager.CreateAsync(newAdminUser, "Admin123!");
@@ -623,11 +627,32 @@ namespace SamiPotterOnlineShop.Data
                         UserName = "app-user",
                         Email = appUserEmail,
                         EmailConfirmed = true,
-                        CreditCardNumber = "470132221111123412/2026837",
+                        CreditCardNumber = encryptedCreditCardNumber,
                         Notified = false
                     };
                     await userManager.CreateAsync(newAppUser, "User123!");
                     await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
+                }
+            }
+        }
+
+        private static string EncryptString(string text, string password)
+        {
+            using (Aes aesAlg = Aes.Create())
+            {
+                aesAlg.Key = Encoding.UTF8.GetBytes(password);
+                aesAlg.IV = new byte[16];
+                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+
+                using (MemoryStream msEncrypt = new MemoryStream())
+                {
+                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                    using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                    {
+                        swEncrypt.Write(text);
+                    }
+
+                    return Convert.ToBase64String(msEncrypt.ToArray());
                 }
             }
         }
