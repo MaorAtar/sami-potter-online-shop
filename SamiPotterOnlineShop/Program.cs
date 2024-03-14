@@ -16,6 +16,7 @@ builder.Services.AddScoped<IProducersService, ProducersService>();
 builder.Services.AddScoped<IWarehousesService, WarehousesService>();
 builder.Services.AddScoped<IItemsService, ItemsService>();
 builder.Services.AddScoped<IOrdersService, OrdersService>();
+builder.Services.AddScoped<ItemsService>();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));

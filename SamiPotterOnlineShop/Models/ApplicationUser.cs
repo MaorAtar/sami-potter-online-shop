@@ -10,5 +10,8 @@ namespace SamiPotterOnlineShop.Models
 
         [Display(Name = "Credit Card Number")]
         public string CreditCardNumber { get; set; }
+
+        public bool Notified { get; set; }
+        public int NotifyItemId { get; set; }
     }
 }

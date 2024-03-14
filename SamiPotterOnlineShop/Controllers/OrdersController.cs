@@ -118,7 +118,8 @@ namespace SamiPotterOnlineShop.Controllers
                         UserName = fullName.Replace(" ", ""),
                         FullName = fullName,
                         Email = emailAddress,
-                        CreditCardNumber = creditCardNumber
+                        CreditCardNumber = creditCardNumber,
+                        Notified = false
                     };
 
                     var result = await _userManager.CreateAsync(newUser);

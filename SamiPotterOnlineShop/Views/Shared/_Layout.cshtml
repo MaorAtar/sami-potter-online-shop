@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using SamiPotterOnlineShop.Data.Services
+@inject UserManager<ApplicationUser> UserManager
+@inject ItemsService ItemService
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -11,6 +16,7 @@
     <link href="https://fonts.cdnfonts.com/css/harry-potter" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/beautiful-magic" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/harry-p" rel="stylesheet">
+
 </head>
 <body>
     <header>
@@ -26,16 +32,63 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Items" asp-action="Index"><i class="badge-info bi-shop"></i>  Items</a>
                         </li>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+                        {
+                            var currentUser = await UserManager.GetUserAsync(User);
+                            if (currentUser != null)
+                            {
+                                var itemId = currentUser.NotifyItemId;
+                                var item = await ItemService.GetItemByIdAsync(itemId);
 
+                                if (item != null)
+                                {
+                                    if (currentUser != null && currentUser.Notified == true && item.Amount > 0)
+                                    {
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle text-danger" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                               aria-haspopup="true" aria-expanded="false" style="text-decoration: none; color: black;">
+                                                <i class="bi bi-bell-fill"></i>
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <a class="dropdown-item" href="@Url.Action("Details", "Items", new { id = itemId })">@item.Name is back in stock!</a>
+                                            </div>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                               aria-haspopup="true" aria-expanded="false" style="text-decoration: none; color: black;">
+                                                <i class="bi bi-bell"></i>
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                <span class="dropdown-item disabled">No items back in stock</span>
+                                            </div>
+                                        </li>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false" style="text-decoration: none; color: black;">
+                                        <i class="bi bi-bell"></i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <span class="dropdown-item disabled">No items back in stock</span>
+                                    </div>
+                                </li>
+                            }
+                        }
 
-                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        @if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                                    aria-haspopup="true" aria-expanded="false" style="text-decoration: none; color: black;">
                                     <i class="bi bi-gear"></i> Management
                                 </a>
-
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" asp-controller="Warehouses" asp-action="Index"><i class="bi bi-house-gear"></i> Warehouses</a>
                                     <a class="dropdown-item" asp-controller="Producers" asp-action="Index"><i class="bi bi-headset"></i> Producers</a>
@@ -43,14 +96,8 @@
                                 </div>
                             </li>
                         }
-
                     </ul>
-
-                    @if (ViewContext.RouteData.Values["controller"].ToString() == "Home")
-                    {
-
-                    }
-                    else
+                    @if (ViewContext.RouteData.Values["controller"].ToString() != "Home" && ViewContext.RouteData.Values["controller"].ToString() != "Account")
                     {
                         <form class="form-check-inline my-2 my-lg-0" asp-controller="Items" asp-action="Filter">
                             <div class="input-group">
@@ -62,12 +109,10 @@
                         </form>
                     }
 
-
                     <ul class="navbar-nav">
                         @await Component.InvokeAsync("ShoppingCartSummary")
                     </ul>
                     <partial name="_Identity.cshtml" />
-
                 </div>
             </div>
         </nav>
@@ -78,7 +123,6 @@
             @RenderBody()
         </main>
     </div>
-
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
