@@ -277,6 +277,141 @@ namespace SamiPotterOnlineShop.Data
                             ProducerId = 4,
                             ItemCategory = ItemCategory.Movie,
                             Amount = 1
+                        },
+                        new Item()
+                        {
+                            Name = "Harry Potter and the Sorcerer's Stone",
+                            Description = "Harry Potter and the Sorcerer's Stone (1999) Description",
+                            Price = 24.90,
+                            OriginalPrice = 24.90,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.Yes,
+                            ImageURL = "https://images-evrit.yit.co.il/Images/Products/YediotMasters/HarryPottter1_Master.jpg",
+                            StartDate = DateTime.Now.AddDays(9),
+                            WarehouseId = 1,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Book,
+                            Amount = 9
+                        },
+                        new Item()
+                        {
+                            Name = "Harry Potter and the Chamber of Secrets",
+                            Description = "Harry Potter and the Chamber of Secrets (2000) Description",
+                            Price = 29.50,
+                            OriginalPrice = 29.50,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.Yes,
+                            ImageURL = "https://images-evrit.yit.co.il/Images/Products/YediotMasters/HarryPottter2_Master.jpg",
+                            StartDate = DateTime.Now,
+                            WarehouseId = 1,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Book,
+                            Amount = 3
+                        },
+                        new Item()
+                        {
+                            Name = "Harry Potter and the Prisoner of Azkaban",
+                            Description = "Harry Potter and the Prisoner of Azkaban (2001) Description",
+                            Price = 39.50,
+                            OriginalPrice = 39.50,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.Yes,
+                            ImageURL = "https://images-evrit.yit.co.il/Images/Products/YediotMasters/HarryPottter3_Master.jpg",
+                            StartDate = DateTime.Now,
+                            WarehouseId = 1,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Book,
+                            Amount = 5
+                        },
+                        new Item()
+                        {
+                            Name = "Harry Potter and the Goblet of Fire",
+                            Description = "Harry Potter and the Goblet of Fire (2001) Description",
+                            Price = 39.50,
+                            OriginalPrice = 39.50,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.No,
+                            ImageURL = "https://images-evrit.yit.co.il/Images/Products/YediotMasters/HarryPottter4_Master.jpg",
+                            StartDate = DateTime.Now.AddDays(-10),
+                            WarehouseId = 1,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Book,
+                            Amount = 2
+                        },
+                        new Item()
+                        {
+                            Name = "Harry Potter and the Order of the Phoenix",
+                            Description = "Harry Potter and the Order of the Phoenix (2003) Description",
+                            Price = 24.90,
+                            OriginalPrice = 24.90,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.No,
+                            ImageURL = "https://images-evrit.yit.co.il/Images/Products/YediotMasters/HarryPottter5_Master.jpg",
+                            StartDate = DateTime.Now.AddDays(-10),
+                            WarehouseId = 2,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Book,
+                            Amount = 5
+                        },
+                        new Item()
+                        {
+                            Name = "Harry Potter and the Half-Blood Prince",
+                            Description = "Harry Potter and the Half-Blood Prince (2005) Description",
+                            Price = 24.90,
+                            OriginalPrice = 24.90,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.No,
+                            ImageURL = "https://images-evrit.yit.co.il/Images/Products/YediotMasters/HarryPottter6_Master.jpg",
+                            StartDate = DateTime.Now.AddDays(3),
+                            WarehouseId = 2,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Book,
+                            Amount = 6
+                        },
+                        new Item()
+                        {
+                            Name = "Harry Potter and the Deathly Hallows",
+                            Description = "Harry Potter and the Deathly Hallows (2007) Description",
+                            Price = 24.90,
+                            OriginalPrice = 24.90,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.No,
+                            ImageURL = "https://images-evrit.yit.co.il/Images/Products/YediotMasters/HarryPottter7_Master.jpg",
+                            StartDate = DateTime.Now.AddDays(2),
+                            WarehouseId = 2,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Book,
+                            Amount = 6
+                        },
+                        new Item()
+                        {
+                            Name = "Hogwarts Legacy",
+                            Description = "Hogwarts Legacy (2023) Description",
+                            Price = 199.90,
+                            OriginalPrice = 199.90,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.Yes,
+                            ImageURL = "https://image.api.playstation.com/vulcan/ap/rnd/202208/0921/Ah7Ar9MU0r1BBlzAUflmhyQP.png",
+                            StartDate = DateTime.Now.AddDays(3),
+                            WarehouseId = 2,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.VideoGame,
+                            Amount = 9
+                        },
+                        new Item()
+                        {
+                            Name = "LEGO Harry Potter: Years 5-7 ",
+                            Description = "LEGO Harry Potter: Years 5-7 (2012) Description",
+                            Price = 19.90,
+                            OriginalPrice = 19.90,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.No,
+                            ImageURL = "https://assets-prd.ignimgs.com/2022/01/07/lego-harry-potter-years-5-7-button-1641594071231.jpg",
+                            StartDate = DateTime.Now.AddDays(2),
+                            WarehouseId = 2,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.VideoGame,
+                            Amount = 2
                         }
                     });
                     context.SaveChanges();
