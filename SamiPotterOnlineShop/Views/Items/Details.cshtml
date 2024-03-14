@@ -40,8 +40,8 @@
                         <p class="card-text">@Model.Description</p>
                         <p class="card-text">
                             <b>Warehouse: </b>
-                            <a asp-controller="Warehouses" asp-action="Details" asp-route-id="@Model.WarehouseId">
-                                @Model.Warehouse.Name
+                            <a asp-controller="Warehouses" asp-action="Details" asp-route-id="@Model.WarehouseId" style="color: black; text-decoration:none;">
+                                <i class="bi bi-info-circle-fill"></i> @Model.Warehouse.Name
                             </a>
                         </p>
                         @{
@@ -49,8 +49,8 @@
                             {
                                 <p class="card-text">
                                     <b>Producer: </b>
-                                    <a asp-controller="Producers" asp-action="Details" asp-route-id="@Model.ProducerId">
-                                        @Model.Producer.FullName
+                                    <a asp-controller="Producers" asp-action="Details" asp-route-id="@Model.ProducerId" style="color: black; text-decoration:none;">
+                                        <i class="bi bi-info-circle-fill"></i> @Model.Producer.FullName
                                     </a>
                                 </p>
                             }
@@ -81,7 +81,9 @@
                                             <div class="col-md-4 text-center">
                                                 <img class="border-info rounded-circle" src="@actor.Actor.ProfilePictureURL" style="max-width: 150px" />
                                                 <br />
-                                                <a asp-controller="Actors" asp-action="Details" asp-route-id="@actor.ActorId">@actor.Actor.FullName</a>
+                                                <a style="color: black; text-decoration:none;" asp-controller="Actors" asp-action="Details" asp-route-id="@actor.ActorId">
+                                                    <i class="bi bi-info-circle-fill"></i> @actor.Actor.FullName
+                                                </a>
                                             </div>
                                         }
                                     </div>

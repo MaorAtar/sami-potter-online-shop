@@ -606,7 +606,8 @@ namespace SamiPotterOnlineShop.Data
                         UserName = "admin-user",
                         Email = adminUserEmail,
                         EmailConfirmed = true,
-                        CreditCardNumber = "470132221111123412/2026837"
+                        CreditCardNumber = "470132221111123412/2026837",
+                        Notified = false
                     };
                     await userManager.CreateAsync(newAdminUser, "Admin123!");
                     await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
@@ -622,7 +623,8 @@ namespace SamiPotterOnlineShop.Data
                         UserName = "app-user",
                         Email = appUserEmail,
                         EmailConfirmed = true,
-                        CreditCardNumber = "470132221111123412/2026837"
+                        CreditCardNumber = "470132221111123412/2026837",
+                        Notified = false
                     };
                     await userManager.CreateAsync(newAppUser, "User123!");
                     await userManager.AddToRoleAsync(newAppUser, UserRoles.User);

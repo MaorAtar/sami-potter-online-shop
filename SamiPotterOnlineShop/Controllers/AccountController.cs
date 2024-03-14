@@ -71,7 +71,8 @@ namespace SamiPotterOnlineShop.Controllers
                 FullName = registerVM.FullName,
                 Email = registerVM.EmailAddress,
                 UserName = registerVM.EmailAddress,
-                CreditCardNumber = registerVM.CreditCardNumber
+                CreditCardNumber = registerVM.CreditCardNumber,
+                Notified = registerVM.Notified
             };
             var newUserResponse = await _userManager.CreateAsync(newUser, registerVM.Password);
 

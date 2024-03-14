@@ -116,7 +116,7 @@
                     <div class="col-md-6">
                         <div class="card-body text-black">
                             <p class="card-text">@item.Description</p>
-                            <p class="card-text"><b>Warehouse: </b>@item.Name</p>
+                            <p class="card-text"><b>Warehouse: </b>@item.Warehouse.Name</p>
                             <p class="card-text"><b>Category: </b>@item.ItemCategory</p>
                             <p class="card-text"><b>Start Date: </b>@item.StartDate.ToString("dd MMM yy")</p>
                             <p class="card-text"><b>Stock: </b>@item.Amount.ToString()</p>
@@ -159,32 +159,36 @@
                         <div class="card-footer">
                             <p>
                                 <a class="btn btn-primary float-right" asp-action="Details" asp-route-id="@item.Id">
-                                    <i class="bi bi-eye-fill"></i> Show Details
+                                    <i class="bi bi-eye"></i> Show Details
                                 </a>
                                 <a class="btn btn-success text-white @(item.Amount <= 0 ? "disabled" : "")" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id">
-                                    <i class="bi bi-cart-plus"></i> Add to Cart (Price @item.Price.ToString("c"))
+                                    <i class="bi bi-cart-plus"></i> Add to Cart @item.Price.ToString("c")
                                 </a>
                                 @{
-                                    if(User.Identity.IsAuthenticated)
+                                    if (User.Identity.IsAuthenticated)
                                     {
                                         if (item.Amount > 0)
                                         {
                                             <a class="btn btn-info text-white" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id">
-                                            Buy
+                                                <i class="bi bi-arrow-up-right-circle"></i> Buy Now
                                             </a>
                                         }
                                         else
                                         {
-                                            <a class="btn btn-warning text-white" asp-controller="Orders" asp-action="*TODO*" asp-route-id="@item.Id">
-                                            Notify
-                                            </a>
+                                            if (User.IsInRole("User"))
+                                            {
+                                                <a class="btn btn-warning text-white" asp-controller="Items" asp-action="NotifyIfAvailable" asp-route-id="@item.Id">
+                                                    <i class="bi bi-bell"></i> Notify
+                                                </a>
+                                            }
                                         }
-                                    } else
+                                    }
+                                    else
                                     {
                                         if (item.Amount > 0)
                                         {
                                             <a class="btn btn-info text-white" asp-controller="Orders" asp-action="BuyNow" asp-route-id="@item.Id">
-                                                Buy
+                                                <i class="bi bi-arrow-up-right-circle"></i> Buy Now
                                             </a>
                                         }
                                     }

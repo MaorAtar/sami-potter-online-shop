@@ -27,5 +27,7 @@ namespace SamiPotterOnlineShop.Data.ViewModels
         [Display(Name = "Credit Card Number - CREDIT NUMBER-EXP[MM/YY]-CVV Format")]
         [Required(ErrorMessage = "Credit Card Number is required")]
         public string CreditCardNumber { get; set; }
+
+        public bool Notified {  get; set; }
     }
 }

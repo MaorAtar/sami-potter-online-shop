@@ -4,19 +4,22 @@ using SamiPotterOnlineShop.Data.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using System;
 using SamiPotterOnlineShop.Data.Enums;
+using Microsoft.AspNetCore.Identity;
+using SamiPotterOnlineShop.Models;
+using System.Security.Claims;
 
 namespace SamiPotterOnlineShop.Controllers
 {
     [Authorize(Roles = UserRoles.Admin)]
     public class ItemsController : Controller
     {
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly IItemsService _service;
 
-        public ItemsController(IItemsService service)
+        public ItemsController(UserManager<ApplicationUser> userManager, IItemsService service)
         {
+            _userManager = userManager;
             _service = service;
         }
 
@@ -108,7 +111,7 @@ namespace SamiPotterOnlineShop.Controllers
 
             foreach (var item in allItems)
             {
-                if(item.Price < item.OriginalPrice)
+                if (item.Price < item.OriginalPrice)
                 {
                     item.OnSale = true;
                 }
@@ -158,6 +161,13 @@ namespace SamiPotterOnlineShop.Controllers
         public async Task<IActionResult> Details(int id)
         {
             var ItemDetail = await _service.GetItemByIdAsync(id);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user != null && user.Notified == true)
+            {
+                user.Notified = false;
+                await _userManager.UpdateAsync(user);
+            }
             return View(ItemDetail);
         }
 
@@ -227,6 +237,25 @@ namespace SamiPotterOnlineShop.Controllers
             }
             await _service.UpdateItemAsync(Item);
             return RedirectToAction(nameof(Index));
+        }
+
+        [AllowAnonymous]
+        public async Task<IActionResult> NotifyIfAvailable(int id)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user != null)
+            {
+                user.Notified = true;
+                user.NotifyItemId = id;
+                await _userManager.UpdateAsync(user);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View("NotFound");
+            }
         }
     }
 }

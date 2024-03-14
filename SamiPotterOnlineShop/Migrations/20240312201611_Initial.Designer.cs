@@ -12,7 +12,7 @@ using SamiPotterOnlineShop.Data;
 namespace SamiPotterOnlineShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240310160544_Initial")]
+    [Migration("20240312201611_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -239,6 +239,12 @@ namespace SamiPotterOnlineShop.Migrations
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("Notified")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("NotifyItemId")
+                        .HasColumnType("int");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");

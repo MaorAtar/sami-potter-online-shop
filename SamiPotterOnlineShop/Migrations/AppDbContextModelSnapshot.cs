@@ -237,6 +237,12 @@ namespace SamiPotterOnlineShop.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<bool>("Notified")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("NotifyItemId")
+                        .HasColumnType("int");
+
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 

@@ -47,6 +47,8 @@ namespace SamiPotterOnlineShop.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreditCardNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Notified = table.Column<bool>(type: "bit", nullable: false),
+                    NotifyItemId = table.Column<int>(type: "int", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
