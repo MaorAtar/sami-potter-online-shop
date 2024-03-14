@@ -12,13 +12,8 @@ using SamiPotterOnlineShop.Data;
 namespace SamiPotterOnlineShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-<<<<<<<< HEAD:SamiPotterOnlineShop/Migrations/20240312201611_Initial.Designer.cs
-    [Migration("20240312201611_Initial")]
+    [Migration("20240314093147_Initial")]
     partial class Initial
-========
-    [Migration("20240313133943_Init")]
-    partial class Init
->>>>>>>> 2d664074cd64e99a8067958cdb85eaae981b3c61:SamiPotterOnlineShop/Migrations/20240313133943_Init.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

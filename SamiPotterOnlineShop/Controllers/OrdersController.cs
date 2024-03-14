@@ -111,7 +111,6 @@ namespace SamiPotterOnlineShop.Controllers
                         {
                             throw new Exception("Item is not available for purchase.");
                         }
-                        item.Amount--;
                     }
                     await _context.SaveChangesAsync();
 
