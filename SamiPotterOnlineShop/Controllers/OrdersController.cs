@@ -87,6 +87,8 @@ namespace SamiPotterOnlineShop.Controllers
             }
         }
 
+
+
         [AllowAnonymous]
         public IActionResult BuyNow(int id)
         {
