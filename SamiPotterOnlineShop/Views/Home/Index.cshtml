@@ -21,66 +21,66 @@
             overflow: hidden;
         }
 
-            .slider .list {
-                position: absolute;
-                width: max-content;
-                height: 300px;
-                left: 0;
-                top: 0;
-                display: flex;
-                transition: 1s;
-            }
+        .slider .list {
+            position: absolute;
+            width: max-content;
+            height: 300px;
+            left: 0;
+            top: 0;
+            display: flex;
+            transition: 1s;
+        }
 
-                .slider .list img {
-                    width: 800px;
-                    height: 400px;
-                }
+        .slider .list img {
+            width: 800px;
+            height: 400px;
+        }
 
-            .slider .buttons {
-                position: absolute;
-                top: 45%;
-                left: 5%;
-                width: 90%;
-                display: flex;
-                justify-content: space-between;
-            }
+        .slider .buttons {
+            position: absolute;
+            top: 45%;
+            left: 5%;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+        }
 
-                .slider .buttons button {
-                    width: 50px;
-                    height: 50px;
-                    border-radius: 50%;
-                    background-color: #fff5;
-                    color: #fff;
-                    border: none;
-                    font-family: monospace;
-                    font-weight: bold;
-                }
+        .slider .buttons button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #fff5;
+            color: #fff;
+            border: none;
+            font-family: monospace;
+            font-weight: bold;
+        }
 
-            .slider .dots {
-                position: absolute;
-                bottom: 10px;
-                left: 0;
-                color: #fff;
-                width: 100%;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                justify-content: center;
-            }
+        .slider .dots {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            color: #fff;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
 
-                .slider .dots li {
-                    list-style: none;
-                    width: 10px;
-                    height: 10px;
-                    background-color: #fff;
-                    margin: 10px;
-                    border-radius: 20px;
-                    transition: 0.5s;
-                }
+        .slider .dots li {
+            list-style: none;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            margin: 10px;
+            border-radius: 20px;
+            transition: 0.5s;
+        }
 
-                    .slider .dots li.active {
-                        width: 30px;
-                    }
+        .slider .dots li.active {
+            width: 30px;
+        }
 
 
 
@@ -212,7 +212,7 @@
         .container1 {
             position: relative;
             left: 9.5rem;
-            top: 5rem;
+            top: 4rem;
             display: flex;
             column-gap: 12rem;
         }
@@ -283,53 +283,52 @@
             filter: grayscale(0);
         }
 
-        #toggleMusicButton {
-            font-size: 24px;
+        .container-title{
+            position: relative;
+            left: 16rem;
         }
-
+ 
     </style>
 
 </head>
 
 <body id="index">
 
-    <div class="container1 justify-content-center">
+    <div class="container-title">
         <img src="~/css/logo.png" />
     </div>
 
-        <div class="container1 justify-content-center">
-            <a href="home" style="text-decoration: none; color: white">
-                <div class="card">
-                    <div class="wrapper">
-                        <img src="~/css/Ron_Weasley.jpg" class="cover-image" />
-                    </div>
-                    <h1 class="title">Ron Weasly</h1>
-                    <img src="~/css/ron poster.png" class="character" />
+    <div class="container1 justify-content-center">
+        <a asp-controller = "Items" asp-action = "Details" asp-route-id = "21" style="text-decoration: none; color: white">
+            <div class="card">
+                <div class="wrapper">
+                    <img src="~/css/Ron_Weasley.jpg" class="cover-image" />
                 </div>
-            </a>
+                <h1 class="title">Ron Weasly</h1>
+                <img src="~/css/ron poster.png" class="character" />
+            </div>
+        </a>
 
-
-            <a href="home" style="text-decoration: none; color: white">
-                <div class="card">
-                    <div class="wrapper">
-                        <img src="~/css/hp-portrait.jpg" class="cover-image" />
-                    </div>
-                    <h1 class="title2">Harry Potter</h1>
-                    <img src="~/css/hp-char.png" class="character" />
+        <a asp-controller="Items" asp-action="Details" asp-route-id="22" style="text-decoration: none; color: white">
+            <div class="card">
+                <div class="wrapper">
+                    <img src="~/css/hp-portrait.jpg" class="cover-image" />
                 </div>
-            </a>
+                <h1 class="title2">Harry Potter</h1>
+                <img src="~/css/hp-char.png" class="character" />
+            </div>
+        </a>
 
-            <a href="home" style="text-decoration: none; color: white">
-                <div class="card">
-                    <div class="wrapper">
-                        <img src="~/css/Hermione-Granger.jpg" class="cover-image" />
-                    </div>
-                    <h1 class="title3">Hermione Granger</h1>
-                    <img src="~/css/hermione-char.png" class="character" />
+        <a asp-controller="Items" asp-action="Details" asp-route-id="23" style="text-decoration: none; color: white">
+            <div class="card">
+                <div class="wrapper">
+                    <img src="~/css/Hermione-Granger.jpg" class="cover-image" />
                 </div>
-            </a>
-
-        </div>
+                <h1 class="title3">Hermione Granger</h1>
+                <img src="~/css/hermione-char.png" class="character" />
+            </div>
+        </a>
+    </div>
 
 
         <div class="background">
@@ -419,6 +418,10 @@
         <script src="~/js/app.js"></script>
 </body>
 
+</body>
+<script>
+
+</script>
 @section Scripts {
     <script>
         var audio = document.querySelector('#backgroundMusic');
