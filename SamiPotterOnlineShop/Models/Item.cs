@@ -19,6 +19,7 @@ namespace SamiPotterOnlineShop.Models
         public string ImageURL { get; set; }
         public DateTime StartDate { get; set; }
         public ItemCategory ItemCategory { get; set; }
+        public FormatCategory FormatCategory { get; set; }
         public int Amount { get; set; }
 
         //Warehouse

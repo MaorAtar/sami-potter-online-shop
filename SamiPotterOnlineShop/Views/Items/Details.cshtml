@@ -54,15 +54,35 @@
                                     </a>
                                 </p>
                             }
-                        }
-                        @{
+
                             if (Model.ItemCategory == ItemCategory.VideoGame)
                             {
                                 <p class="card-text"><b>Category: </b>Video Game</p>
                             }
+
+                            if(Model.FormatCategory == FormatCategory.HardBack)
+                            {
+                                <p class="card-text"><b>Format: </b>Hard Back</p>
+                            }
+                            else if (Model.FormatCategory == FormatCategory.SoftCover)
+                            {
+                                <p class="card-text"><b>Format: </b>Soft Back</p>
+                            }
+                            else if (Model.FormatCategory == FormatCategory.XBOXONEX)
+                            {
+                                <p class="card-text"><b>Format: </b>XBOX-ONE X</p>
+                            }
+                            else if (Model.FormatCategory == FormatCategory.PS5)
+                            {
+                                <p class="card-text"><b>Format: </b>Play-Station 5</p>
+                            }
+                            else if (Model.FormatCategory == FormatCategory.BluRay)
+                            {
+                                <p class="card-text"><b>Format: </b>Blu-Ray</p>
+                            }
                             else
                             {
-                                <p class="card-text"><b>Category: </b>@Model.ItemCategory</p>
+                                <p class="card-text"><b>Format: </b>@Model.FormatCategory</p>
                             }
                         }
                         <p class="card-text"><b>Start Date: </b>@Model.StartDate.ToString("dd MMM yy")</p>

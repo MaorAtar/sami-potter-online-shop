@@ -212,6 +212,7 @@ namespace SamiPotterOnlineShop.Controllers
                 Amount = ItemDeatils.Amount,
                 ImageURL = ItemDeatils.ImageURL,
                 ItemCategory = ItemDeatils.ItemCategory,
+                FormatCategory = ItemDeatils.FormatCategory,
                 WarehouseId = ItemDeatils.WarehouseId,
                 ProducerId = ItemDeatils.ProducerId,
                 ActorIds = ItemDeatils.Actors_Items.Select(n => n.ActorId).ToList()

@@ -42,6 +42,10 @@ namespace SamiPotterOnlineShop.Data.ViewModels
         [Required(ErrorMessage = "Item category is required")]
         public ItemCategory ItemCategory { get; set; }
 
+        [Display(Name = "Select a format")]
+        [Required(ErrorMessage = "Item format is required")]
+        public FormatCategory FormatCategory { get; set; }
+
         [Display(Name = "Select a Warehouse")]
         [Required(ErrorMessage = "Item Warehouse is required")]
         public int WarehouseId { get; set; }

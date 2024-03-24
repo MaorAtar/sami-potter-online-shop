@@ -2,6 +2,7 @@
 using SamiPotterOnlineShop.Data.ViewModels;
 using SamiPotterOnlineShop.Models;
 using Microsoft.EntityFrameworkCore;
+using SamiPotterOnlineShop.Data.Enums;
 
 namespace SamiPotterOnlineShop.Data.Services
 {
@@ -28,6 +29,7 @@ namespace SamiPotterOnlineShop.Data.Services
                 StartDate = data.StartDate,
                 Amount = data.Amount,
                 ItemCategory = data.ItemCategory,
+                FormatCategory = data.FormatCategory,
                 ProducerId = data.ProducerId
             };
             await _context.Items.AddAsync(newItem);
@@ -82,6 +84,7 @@ namespace SamiPotterOnlineShop.Data.Services
                 dbItem.StartDate = data.StartDate;
                 dbItem.Amount = data.Amount;
                 dbItem.ItemCategory = data.ItemCategory;
+                dbItem.FormatCategory = data.FormatCategory;
                 dbItem.ProducerId = data.ProducerId;
                await _context.SaveChangesAsync();
             }

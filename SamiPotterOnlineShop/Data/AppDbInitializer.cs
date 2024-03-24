@@ -126,6 +126,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 1,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Movie,
+                            FormatCategory = FormatCategory.DVD,
                             Amount = 5
                         },
                         new Item()
@@ -141,6 +142,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 1,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Movie,
+                            FormatCategory = FormatCategory.DVD,
                             Amount = 3
                         },
                         new Item()
@@ -156,6 +158,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 1,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Movie,
+                            FormatCategory = FormatCategory.DVD,
                             Amount = 5
                         },
                         new Item()
@@ -171,6 +174,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 1,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Movie,
+                            FormatCategory = FormatCategory.BluRay,
                             Amount = 2
                         },
                         new Item()
@@ -186,6 +190,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 1,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Movie,
+                            FormatCategory = FormatCategory.BluRay,
                             Amount = 0
                         },
                         new Item()
@@ -201,6 +206,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 1,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Movie,
+                            FormatCategory = FormatCategory.BluRay,
                             Amount = 6
                         },
                         new Item()
@@ -216,6 +222,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 1,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Movie,
+                            FormatCategory = FormatCategory.FHD,
                             Amount = 6
                         },
                         new Item()
@@ -231,6 +238,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 1,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Movie,
+                            FormatCategory = FormatCategory.FHD,
                             Amount = 9
                         },
                         new Item()
@@ -246,6 +254,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 1,
                             ProducerId = 2,
                             ItemCategory = ItemCategory.Movie,
+                            FormatCategory = FormatCategory.FHD,
                             Amount = 2
                         },
                         new Item()
@@ -261,6 +270,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 1,
                             ProducerId = 3,
                             ItemCategory = ItemCategory.Movie,
+                            FormatCategory = FormatCategory.FHD,
                             Amount = 6
                         },
                         new Item()
@@ -276,6 +286,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 1,
                             ProducerId = 4,
                             ItemCategory = ItemCategory.Movie,
+                            FormatCategory = FormatCategory.FHD,
                             Amount = 1
                         },
                         new Item()
@@ -291,6 +302,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 1,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Book,
+                            FormatCategory = FormatCategory.HardBack,
                             Amount = 9
                         },
                         new Item()
@@ -306,6 +318,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 1,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Book,
+                            FormatCategory = FormatCategory.HardBack,
                             Amount = 3
                         },
                         new Item()
@@ -321,6 +334,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 1,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Book,
+                            FormatCategory = FormatCategory.HardBack,
                             Amount = 5
                         },
                         new Item()
@@ -336,6 +350,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 1,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Book,
+                            FormatCategory = FormatCategory.HardBack,
                             Amount = 2
                         },
                         new Item()
@@ -351,6 +366,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 2,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Book,
+                            FormatCategory = FormatCategory.SoftCover,
                             Amount = 5
                         },
                         new Item()
@@ -366,6 +382,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 2,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Book,
+                            FormatCategory = FormatCategory.SoftCover,
                             Amount = 6
                         },
                         new Item()
@@ -381,6 +398,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 2,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Book,
+                            FormatCategory = FormatCategory.SoftCover,
                             Amount = 6
                         },
                         new Item()
@@ -396,6 +414,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 2,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.VideoGame,
+                            FormatCategory = FormatCategory.PS5,
                             Amount = 9
                         },
                         new Item()
@@ -411,6 +430,7 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 2,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.VideoGame,
+                            FormatCategory = FormatCategory.PC,
                             Amount = 2
                         },
                         new Item()

@@ -120,12 +120,38 @@
                             <p class="card-text">@item.Description</p>
                             <p class="card-text"><b>Warehouse: </b>@item.Warehouse.Name</p>
 
-                            @if(item.ItemCategory.ToString() == "VideoGame"){
+                            @if (item.ItemCategory.ToString() == "VideoGame")
+                            {
                                 <p class="card-text"><b>Category: </b>Video Game</p>
                             }
                             else
                             {
                                 <p class="card-text"><b>Category: </b>@item.ItemCategory</p>
+                            }
+
+                            @if (item.FormatCategory.ToString() == "HardBack")
+                            {
+                                <p class="card-text"><b>Format: </b>Hard Back</p>
+                            }
+                            else if (item.FormatCategory.ToString() == "SoftCover")
+                            {
+                                <p class="card-text"><b>Format: </b>Soft Back</p>
+                            }
+                            else if (item.FormatCategory.ToString() == "XBOXONEX")
+                            {
+                                <p class="card-text"><b>Format: </b>XBOX-ONE X</p>
+                            }
+                            else if (item.FormatCategory.ToString() == "PS5")
+                            {
+                                <p class="card-text"><b>Format: </b>Play-Station 5</p>
+                            }
+                            else if (item.FormatCategory.ToString() == "BluRay")
+                            {
+                                <p class="card-text"><b>Format: </b>Blu-Ray</p>
+                            }
+                            else
+                            {
+                                <p class="card-text"><b>Format: </b>@item.FormatCategory</p>
                             }
 
                             <p class="card-text"><b>Start Date: </b>@item.StartDate.ToString("dd MMM yy")</p>
