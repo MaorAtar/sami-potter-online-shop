@@ -17,7 +17,11 @@ body {
     
 }
 
-#index{
+#index {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-image: url(bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -25,7 +29,6 @@ body {
     color: white;
     margin-top: 5%;
     background-attachment: fixed;
-    
 }
 
 #nav-text {

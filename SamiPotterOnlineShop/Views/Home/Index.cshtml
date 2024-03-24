@@ -283,6 +283,17 @@
             filter: grayscale(0);
         }
 
+        .footer {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000; /* Ensure it's above other elements */
+        }
+
+        #toggleMusicButton {
+            font-size: 24px; /* Adjust button size if needed */
+        }
+
     </style>
 
 </head>
@@ -293,127 +304,126 @@
         <img src="~/css/logo.png" />
     </div>
 
-    <div class="container1 justify-content-center">
-        <a href="home" style="text-decoration: none; color: white">
-            <div class="card">
-                <div class="wrapper">
-                    <img src="~/css/Ron_Weasley.jpg" class="cover-image" />
+        <div class="container1 justify-content-center">
+            <a href="home" style="text-decoration: none; color: white">
+                <div class="card">
+                    <div class="wrapper">
+                        <img src="~/css/Ron_Weasley.jpg" class="cover-image" />
+                    </div>
+                    <h1 class="title">Ron Weasly</h1>
+                    <img src="~/css/ron poster.png" class="character" />
                 </div>
-                <h1 class="title">Ron Weasly</h1>
-                <img src="~/css/ron poster.png" class="character" />
-            </div>
-        </a>
+            </a>
 
 
-        <a href="home" style="text-decoration: none; color: white">
-            <div class="card">
-                <div class="wrapper">
-                    <img src="~/css/hp-portrait.jpg" class="cover-image" />
+            <a href="home" style="text-decoration: none; color: white">
+                <div class="card">
+                    <div class="wrapper">
+                        <img src="~/css/hp-portrait.jpg" class="cover-image" />
+                    </div>
+                    <h1 class="title2">Harry Potter</h1>
+                    <img src="~/css/hp-char.png" class="character" />
                 </div>
-                <h1 class="title2">Harry Potter</h1>
-                <img src="~/css/hp-char.png" class="character" />
-            </div>
-        </a>
+            </a>
 
-        <a href="home" style="text-decoration: none; color: white">
-            <div class="card">
-                <div class="wrapper">
-                    <img src="~/css/Hermione-Granger.jpg" class="cover-image" />
+            <a href="home" style="text-decoration: none; color: white">
+                <div class="card">
+                    <div class="wrapper">
+                        <img src="~/css/Hermione-Granger.jpg" class="cover-image" />
+                    </div>
+                    <h1 class="title3">Hermione Granger</h1>
+                    <img src="~/css/hermione-char.png" class="character" />
                 </div>
-                <h1 class="title3">Hermione Granger</h1>
-                <img src="~/css/hermione-char.png" class="character" />
-            </div>
-        </a>
-
-    </div>
-
-
-    <div class="background">
-        <div class="house-container justify-content-center">
-
-            <div class="house gryffindor">
-                <img src="~/css/gryffindor-logo.png" alt="Gryffindor" class="house-symbol">
-                <h2>Gryffindor</h2>
-                <p>Bravery, courage, and chivalry</p>
-            </div>
-            <div class="house hufflepuff">
-                <img src="~/css/hufflepuff-logo.png" alt="Hufflepuff" class="house-symbol">
-                <h2>Hufflepuff</h2>
-                <p>Hard work, dedication, and loyalty</p>
-            </div>
-            <div class="house ravenclaw">
-                <img src="~/css/raven-logo.png" alt="Ravenclaw" class="house-symbol">
-                <h2>Ravenclaw</h2>
-                <p>Intellect, knowledge, and wit</p>
-            </div>
-            <div class="house slytherin">
-                <img src="~/css/slytherin-logo.png" alt="Slytherin" class="house-symbol">
-                <h2>Slytherin</h2>
-                <p>Ambition, cunning, and resourcefulness</p>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-    <div class="container3">
-        <div class="slider justify-content-center">
-            <div class="list">
-
-                <div class="item">
-                    <img id="img1" src="~/css/ad1.jpg" alt="Alternate Text" />
-                </div>
-                <div class="item">
-                    <img src="~/css/pic2.jpg" alt="Alternate Text" />
-                </div>
-                <div class="item">
-                    <img src="~/css/pic3.jpg" alt="Alternate Text" />
-                </div>
-                <div class="item">
-                    <img src="~/css/visit.jpg" alt="Alternate Text" />
-                </div>
-                <div class="item">
-                    <img src="~/css/pic1.jpg" alt="Alternate Text" />
-                </div>
-
-
-            </div>
-            <div class="buttons">
-                <button id="prev"><</button>
-                <button id="next">></button>
-            </div>
-            <ul class="dots">
-                <li class="active"></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-
-
-            </ul>
+            </a>
 
         </div>
-    </div>
-
-    <audio id="backgroundMusic" autoplay loop>
-        <source src="~/BackgroundMusic/Harry Potter - Main Theme.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
-    <div class="footer text-muted fixed-bottom">
-        <button class="btn btn-outline-light" id="toggleMusicButton"><i class="bi bi-music-note"></i></button>
-        <br />
-        &copy; SCE Sami Potter 2024
-    </div>
 
 
+        <div class="background">
+            <div class="house-container justify-content-center">
 
-    <script src="~/js/app.js"></script>
+                <div class="house gryffindor">
+                    <img src="~/css/gryffindor-logo.png" alt="Gryffindor" class="house-symbol">
+                    <h2>Gryffindor</h2>
+                    <p>Bravery, courage, and chivalry</p>
+                </div>
+                <div class="house hufflepuff">
+                    <img src="~/css/hufflepuff-logo.png" alt="Hufflepuff" class="house-symbol">
+                    <h2>Hufflepuff</h2>
+                    <p>Hard work, dedication, and loyalty</p>
+                </div>
+                <div class="house ravenclaw">
+                    <img src="~/css/raven-logo.png" alt="Ravenclaw" class="house-symbol">
+                    <h2>Ravenclaw</h2>
+                    <p>Intellect, knowledge, and wit</p>
+                </div>
+                <div class="house slytherin">
+                    <img src="~/css/slytherin-logo.png" alt="Slytherin" class="house-symbol">
+                    <h2>Slytherin</h2>
+                    <p>Ambition, cunning, and resourcefulness</p>
+                </div>
+            </div>
+        </div>
 
+
+
+
+
+
+
+        <div class="container3">
+            <div class="slider justify-content-center">
+                <div class="list">
+
+                    <div class="item">
+                        <img id="img1" src="~/css/ad1.jpg" alt="Alternate Text" />
+                    </div>
+                    <div class="item">
+                        <img src="~/css/pic2.jpg" alt="Alternate Text" />
+                    </div>
+                    <div class="item">
+                        <img src="~/css/pic3.jpg" alt="Alternate Text" />
+                    </div>
+                    <div class="item">
+                        <img src="~/css/visit.jpg" alt="Alternate Text" />
+                    </div>
+                    <div class="item">
+                        <img src="~/css/pic1.jpg" alt="Alternate Text" />
+                    </div>
+
+
+                </div>
+                <div class="buttons">
+                    <button id="prev"><</button>
+                    <button id="next">></button>
+                </div>
+                <ul class="dots">
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+
+
+                </ul>
+
+            </div>
+        </div>
+
+        <audio id="backgroundMusic">
+            <source src="~/BackgroundMusic/Harry Potter - Main Theme.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <div class="footer text-muted fixed-bottom">
+            <button class="btn btn-outline-light" id="toggleMusicButton"><i class="bi bi-music-note"></i></button>
+            <br />
+            &copy; SCE Sami Potter 2024
+        </div>
+
+
+
+        <script src="~/js/app.js"></script>
 </body>
 
 @section Scripts {
