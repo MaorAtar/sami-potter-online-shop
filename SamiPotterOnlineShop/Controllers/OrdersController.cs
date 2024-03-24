@@ -145,7 +145,7 @@ namespace SamiPotterOnlineShop.Controllers
                 catch (Exception)
                 {
                     transaction.Rollback();
-                    return View("NotFound");
+                    return View("LastItemBought");
                 }
             }
         }

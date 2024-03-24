@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Error";
+}
+
+<style>
+    body {
+        background-image: url('/css/bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        background-attachment: fixed;
+    }
+</style>
+
+<div class="row" style="margin-top: 8%;">
+    <div class="col-md-6 offset-3 alert alert-danger text-center">
+        <h1 class="text-danger">Whoops you missed your chance! :(<br />The last item has already been bought.</h1>
+        <hr />
+        <a class="btn btn-outline-danger" asp-controller="Home" asp-action="Index">Home Page</a>
+    </div>
+</div>
