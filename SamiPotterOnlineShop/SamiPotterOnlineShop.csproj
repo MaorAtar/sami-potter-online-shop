@@ -17,8 +17,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\BackgroundMusic\" />
     <Folder Include="Data\Static\Picutres\" />
     <Folder Include="Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\BackgroundMusic\Harry Potter - Main Theme.mp3" />
   </ItemGroup>
 
   <ItemGroup>
