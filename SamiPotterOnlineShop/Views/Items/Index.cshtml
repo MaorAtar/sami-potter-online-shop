@@ -41,11 +41,11 @@
                     <option value="Shirt">Shirt</option>
                     <option value="Hat">Hat</option>
                     <option value="Scarff">Scarff</option>
-                    <option value="Broom">Broom</option>
+                    <option value="Wand">Wand</option>
                     <option value="Movie">Movie</option>
                     <option value="VideoGame">Video Game</option>
                     <option value="Book">Book</option>
-                    <option value="Book">Cup</option>
+                    <option value="Cup">Cup</option>
                 </select>
                 <button type="submit" class="btn btn-dark mt-2">Filter</button>
             </form>
@@ -119,7 +119,15 @@
                         <div class="card-body text-black">
                             <p class="card-text">@item.Description</p>
                             <p class="card-text"><b>Warehouse: </b>@item.Warehouse.Name</p>
-                            <p class="card-text"><b>Category: </b>@item.ItemCategory</p>
+
+                            @if(item.ItemCategory.ToString() == "VideoGame"){
+                                <p class="card-text"><b>Category: </b>Video Game</p>
+                            }
+                            else
+                            {
+                                <p class="card-text"><b>Category: </b>@item.ItemCategory</p>
+                            }
+
                             <p class="card-text"><b>Start Date: </b>@item.StartDate.ToString("dd MMM yy")</p>
                             <p class="card-text"><b>Stock: </b>@item.Amount.ToString()</p>
                             <p class="card-text">

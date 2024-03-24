@@ -74,6 +74,7 @@ namespace SamiPotterOnlineShop.Data.Cart
                     _context.ShoppingCartItems.Remove(shoppingCartItem);
                 }
             }
+            Item.Amount++;
             _context.SaveChanges();
         }
 

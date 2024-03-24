@@ -9,6 +9,7 @@
         Movie,
         VideoGame,
         Book,
-        Cup
+        Cup,
+        Wand
     }
 }

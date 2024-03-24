@@ -412,7 +412,53 @@ namespace SamiPotterOnlineShop.Data
                             ProducerId = 1,
                             ItemCategory = ItemCategory.VideoGame,
                             Amount = 2
-                        }
+                        },
+                        new Item()
+                        {
+                            Name = "Harry Potter's Wand",
+                            Description = "The wand that chose Harry Potter, the Boy Who Lived, when he visited Ollivanders Wand shop at 11 years of age. Take home one of the most iconic and recognisable props from the Harry Potter film series, this high-quality replica of Harry Potter's wand.",
+                            Price = 149.99,
+                            OriginalPrice = 149.99,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.No,
+                            ImageURL = "https://shop.universalorlando.com/merchimages/p-interactive-harry-potter-wand-1279648.jpg",
+                            StartDate = DateTime.Now.AddDays(2),
+                            WarehouseId = 2,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Wand,
+                            Amount = 5
+                        },
+                        new Item()
+                        {
+                            Name = "Ron Weasly's Wand",
+                            Description = "The wand of Ron Weasley, founding member of Dumbledore’s Army, Gryffindor Keeper and best friend to Harry Potter and Hermione Granger.",
+                            Price = 149.99,
+                            OriginalPrice = 149.99,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.No,
+                            ImageURL = "https://shop.universalorlando.com/merchimages/p-interactive-ron-weasley-wand-1285935.jpg",
+                            StartDate = DateTime.Now.AddDays(2),
+                            WarehouseId = 2,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Wand,
+                            Amount = 5
+                        },
+                        new Item()
+                        {
+                            Name = "Hermione Granger's Wand",
+                            Description = "Take home the wand of Hermione Granger, founding member of Dumbledore’s Army, best friend to Ron and Harry and often called the brightest witch of her age.",
+                            Price = 149.99,
+                            OriginalPrice = 149.99,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.No,
+                            ImageURL = "https://shop.universalorlando.com/merchimages/p-interactive-hermione-granger-wand-1279649.jpg",
+                            StartDate = DateTime.Now.AddDays(2),
+                            WarehouseId = 2,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Wand,
+                            Amount = 5
+                        },
+
                     });
                     context.SaveChanges();
                 }
