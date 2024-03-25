@@ -4,7 +4,7 @@
     {
         Shirt = 1,
         Hat,
-        Scarff,
+        Scarf,
         Broom,
         Movie,
         VideoGame,

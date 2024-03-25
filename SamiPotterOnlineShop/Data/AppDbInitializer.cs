@@ -4,7 +4,6 @@ using SamiPotterOnlineShop.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Cryptography;
 using System.Text;
-using SamiPotterOnlineShop.Data.ViewModels;
 
 namespace SamiPotterOnlineShop.Data
 {
@@ -425,7 +424,7 @@ namespace SamiPotterOnlineShop.Data
                             OriginalPrice = 19.90,
                             OnSale = false,
                             MostPopular = MostPopularCategory.No,
-                            ImageURL = "https://assets-prd.ignimgs.com/2022/01/07/lego-harry-potter-years-5-7-button-1641594071231.jpg",
+                            ImageURL = "https://cdn.cdkeys.com/500x706/media/catalog/product/n/e/new_project_-_2023-02-09t112922.032.jpg",
                             StartDate = DateTime.Now.AddDays(2),
                             WarehouseId = 2,
                             ProducerId = 1,
@@ -436,7 +435,7 @@ namespace SamiPotterOnlineShop.Data
                         new Item()
                         {
                             Name = "Harry Potter's Wand",
-                            Description = "The wand that chose Harry Potter, the Boy Who Lived, when he visited Ollivanders Wand shop at 11 years of age. Take home one of the most iconic and recognisable props from the Harry Potter film series, this high-quality replica of Harry Potter's wand.",
+                            Description = "The wand that chose Harry Potter.",
                             Price = 149.99,
                             OriginalPrice = 149.99,
                             OnSale = false,
@@ -446,12 +445,13 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 2,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Wand,
+                            FormatCategory = FormatCategory.None,
                             Amount = 5
                         },
                         new Item()
                         {
                             Name = "Ron Weasly's Wand",
-                            Description = "The wand of Ron Weasley, founding member of Dumbledore’s Army, Gryffindor Keeper and best friend to Harry Potter and Hermione Granger.",
+                            Description = "The wand of Ron Weasley.",
                             Price = 149.99,
                             OriginalPrice = 149.99,
                             OnSale = false,
@@ -461,12 +461,13 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 2,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Wand,
+                            FormatCategory = FormatCategory.None,
                             Amount = 5
                         },
                         new Item()
                         {
                             Name = "Hermione Granger's Wand",
-                            Description = "Take home the wand of Hermione Granger, founding member of Dumbledore’s Army, best friend to Ron and Harry and often called the brightest witch of her age.",
+                            Description = "The wand of Hermione Granger.",
                             Price = 149.99,
                             OriginalPrice = 149.99,
                             OnSale = false,
@@ -476,9 +477,153 @@ namespace SamiPotterOnlineShop.Data
                             WarehouseId = 2,
                             ProducerId = 1,
                             ItemCategory = ItemCategory.Wand,
+                            FormatCategory = FormatCategory.None,
                             Amount = 5
                         },
-
+                        new Item()
+                        {
+                            Name = "Hogwarts T-Shirt (White)",
+                            Description = "Pure cotton, Washable at 40 degrees.",
+                            Price = 49.99,
+                            OriginalPrice = 49.99,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.Yes,
+                            ImageURL = "https://static.thcdn.com/images/large/webp/productimg/1600/1600/11764501-1024578148130067.jpg",
+                            StartDate = DateTime.Now.AddDays(5),
+                            WarehouseId = 1,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Shirt,
+                            FormatCategory = FormatCategory.None,
+                            Amount = 9
+                        },
+                        new Item()
+                        {
+                            Name = "Harry Potter T-Shirt (Black)",
+                            Description = "Grey 90% Cotton – 10% Polyester.",
+                            Price = 39.99,
+                            OriginalPrice = 39.99,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.Yes,
+                            ImageURL = "https://static.thcdn.com/images/large/webp/productimg/1600/1600/11535018-1274508944891662.jpg",
+                            StartDate = DateTime.Now.AddDays(5),
+                            WarehouseId = 1,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Shirt,
+                            FormatCategory = FormatCategory.None,
+                            Amount = 10
+                        },
+                        new Item()
+                        {
+                            Name = "Gryffindor T-Shirt (Grey)",
+                            Description = "Pure cotton.",
+                            Price = 49.99,
+                            OriginalPrice = 49.99,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.No,
+                            ImageURL = "https://static.thcdn.com/images/large/webp/productimg/1600/1600/11605081-2044531732203696.png",
+                            StartDate = DateTime.Now.AddDays(4),
+                            WarehouseId = 1,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Shirt,
+                            FormatCategory = FormatCategory.None,
+                            Amount = 5
+                        },
+                        new Item()
+                        {
+                            Name = "Slytherin Collectable Goblet",
+                            Description = "Highly-detailed sculpted design, Size 19.5cm.",
+                            Price = 24.99,
+                            OriginalPrice = 24.99,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.Yes,
+                            ImageURL = "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12920636-5264853931413637.jpg",
+                            StartDate = DateTime.Now.AddDays(3),
+                            WarehouseId = 2,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Cup,
+                            FormatCategory = FormatCategory.None,
+                            Amount = 3
+                        },
+                        new Item()
+                        {
+                            Name = "Gryffindor Collectable Tankard",
+                            Description = "Highly-detailed sculpted design, Size 15.5cm.",
+                            Price = 24.99,
+                            OriginalPrice = 24.99,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.Yes,
+                            ImageURL = "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12920633-1004853931272793.jpg",
+                            StartDate = DateTime.Now.AddDays(3),
+                            WarehouseId = 2,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Cup,
+                            FormatCategory = FormatCategory.None,
+                            Amount = 4
+                        },
+                        new Item()
+                        {
+                            Name = "Ravenclaw House Scarf",
+                            Description = "Washable at 40 degrees.",
+                            Price = 24.99,
+                            OriginalPrice = 24.99,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.Yes,
+                            ImageURL = "https://static.thcdn.com/images/large/webp//productimg/1600/1600/14885613-3515092931469606.jpg",
+                            StartDate = DateTime.Now.AddDays(3),
+                            WarehouseId = 2,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Scarf,
+                            FormatCategory = FormatCategory.None,
+                            Amount = 7
+                        },
+                        new Item()
+                        {
+                            Name = "Gryffindor Beanie",
+                            Description = "Inspired by the famous Hogwarts Houses, this Gryffindor Bobble Hat.",
+                            Price = 19.99,
+                            OriginalPrice = 19.99,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.Yes,
+                            ImageURL = "https://static.thcdn.com/images/large/webp//productimg/1600/1600/13656884-1574942558807590.jpg",
+                            StartDate = DateTime.Now.AddDays(3),
+                            WarehouseId = 2,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Hat,
+                            FormatCategory = FormatCategory.None,
+                            Amount = 8
+                        },
+                        new Item()
+                        {
+                            Name = "Ravenclaw Beanie",
+                            Description = "Inspired by the famous Hogwarts Houses, this Ravenclaw Bobble Hat.",
+                            Price = 19.99,
+                            OriginalPrice = 19.99,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.No,
+                            ImageURL = "https://static.thcdn.com/images/large/webp//productimg/1600/1600/13656886-1184942559743500.jpg",
+                            StartDate = DateTime.Now.AddDays(4),
+                            WarehouseId = 2,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Hat,
+                            FormatCategory = FormatCategory.None,
+                            Amount = 6
+                        },
+                        new Item()
+                        {
+                            Name = "Slytherin Beanie",
+                            Description = "Inspired by the famous Hogwarts Houses, this Slytherin Bobble Hat.",
+                            Price = 19.99,
+                            OriginalPrice = 19.99,
+                            OnSale = false,
+                            MostPopular = MostPopularCategory.No,
+                            ImageURL = "https://static.thcdn.com/images/large/webp//productimg/1600/1600/13656887-3454942560102330.jpg",
+                            StartDate = DateTime.Now.AddDays(3),
+                            WarehouseId = 2,
+                            ProducerId = 1,
+                            ItemCategory = ItemCategory.Hat,
+                            FormatCategory = FormatCategory.None,
+                            Amount = 7
+                        }
                     });
                     context.SaveChanges();
                 }
