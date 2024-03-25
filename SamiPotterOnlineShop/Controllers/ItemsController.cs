@@ -258,5 +258,21 @@ namespace SamiPotterOnlineShop.Controllers
                 return View("NotFound");
             }
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var itemDetails = await _service.GetByIdAsync(id);
+            if (itemDetails == null) return View("NotFound");
+            return View(itemDetails);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var itemDetails = await _service.GetByIdAsync(id);
+            if (itemDetails == null) return View("NotFound");
+            await _service.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

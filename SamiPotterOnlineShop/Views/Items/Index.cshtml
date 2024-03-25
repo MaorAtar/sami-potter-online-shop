@@ -102,17 +102,19 @@
                     <div class="col-md-12">
                         <div class="card-header text-white" style="background-color: #f5d376;">
                             <p class="card-text">
-                                <h5 class="card-title">
+                                <h5 class="card-title mt-4">
                                     @item.Name
                                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                                     {
-                                        <a class="text-white" asp-action="Edit" asp-route-id="@item.Id" style="position: absolute; right: 10px; top: 10px;"><i class="bi-pencil-square" style="background-color: #f5d376;"></i></a>
+                                        <a class="text-white" asp-action="Edit" asp-route-id="@item.Id" style="position: absolute; left: 10px; top: 10px; background-color: #f5d376;"><i class="bi-pencil-square"></i></a>
+                                        <a class="text-white" asp-action="Delete" asp-route-id="@item.Id" style="position: absolute; right: 10px; top: 10px; background-color: #f5d376;"><i class="bi bi-trash"></i></a>
                                     }
                                 </h5>
                             </p>
                         </div>
                     </div>
                     <div class="col-md-6">
+                        <br />
                         <img src="@item.ImageURL" width="100%" alt="@item.Name" />
                     </div>
                     <div class="col-md-6">

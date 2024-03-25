@@ -1,0 +1,81 @@
+﻿@model Item
+
+@{
+    ViewData["Title"] = "Delete item";
+}
+
+<style>
+    body {
+        background-image: url('/css/bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        background-attachment: fixed;
+    }
+</style>
+
+
+<div class="container align-text-top text-center" style="font-family: 'Harry Potter', sans-serif; margin-top:8%;">
+    <h2>Delete confirmation for @Model.Name</h2>
+</div>
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <div class="row text">
+            <div class="col-md-8 offset-2">
+                <div class="form-group text-center">
+                    <img class="border-info rounded-circle" style="max-width: 150px" id="ProfilePicturePreview" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" readonly />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" readonly />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" readonly />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImageURL" class="control-label"></label>
+                    <input asp-for="ImageURL" class="form-control" readonly />
+                    <span asp-validation-for="ImageURL" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StartDate" class="control-label"></label>
+                    <input asp-for="StartDate" class="form-control" readonly />
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Amount" class="control-label"></label>
+                    <input asp-for="Amount" class="form-control" readonly />
+                    <span asp-validation-for="Amount" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mt-3">
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="text-right">
+                            <input type="submit" value="Confirm" class="btn btn-danger" />
+                            <a class="btn btn-secondary ml-2" asp-action="Index">Show All</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById('ProfilePicturePreview');
+            output.src = $("#ImageURL").val();
+        })
+    </script>
+}
