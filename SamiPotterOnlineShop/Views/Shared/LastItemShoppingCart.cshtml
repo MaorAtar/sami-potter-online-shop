@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Error";
+}
+
+<style>
+    body {
+        background-image: url('/css/bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        background-attachment: fixed;
+    }
+</style>
+
+<div class="row" style="margin-top: 8%;">
+    <div class="col-md-6 offset-3 alert alert-danger text-center">
+        <h1 class="text-danger">You already added the last item from this product.</h1>
+        <hr />
+        <h3>Click here to return to your cart</h3>
+        <a class="btn btn-outline-danger" asp-controller="Orders" asp-action="ShoppingCart">Shopping Cart</a>
+    </div>
+</div>

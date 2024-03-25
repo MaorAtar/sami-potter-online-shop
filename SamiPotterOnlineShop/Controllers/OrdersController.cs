@@ -52,6 +52,10 @@ namespace SamiPotterOnlineShop.Controllers
         public async Task<IActionResult> AddItemToShoppingCart(int id)
         {
             var item = await _ItemsService.GetByIdAsync(id);
+            if(item.Amount < 1)
+            {
+                return View("LastItemShoppingCart");
+            }
             if (item != null)
             {
                 _shoppingCart.AddItemToCart(item);
