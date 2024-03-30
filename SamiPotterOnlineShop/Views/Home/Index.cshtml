@@ -209,19 +209,31 @@
             font-family: 'Beautiful Magic', sans-serif;
         }
 
+        .page-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-image: url(bg.jpg);
+            background-repeat: no-repeat;
+            color: white;
+            background-attachment: fixed;
+        }
+
         .container1 {
-            position: relative;
             left: 9.5rem;
             top: 4rem;
             display: flex;
             column-gap: 12rem;
+            margin-top: 5%;
         }
 
         .container3 {
-            position: relative;
             left: 8rem;
             top: 20rem;
             padding-bottom: 100px;
+            margin-top: 10%;
         }
 
         .header {
@@ -247,9 +259,10 @@
         .background {
             background-color: rgba(0,0,0,0.7);
             border-radius: 50px;
-            position: relative;
+            position: center;
             left: 9rem;
             top: 10rem;
+            margin-top: 4%;
         }
 
         .house {
@@ -291,112 +304,113 @@
 </head>
 
 <body id="index">
+    <div class="page-container">
+        <div class="container1 justify-content-center">
+            <img src="~/css/logo.png" />
+        </div>
 
-    <div class="container1 justify-content-center">
-        <img src="~/css/logo.png" />
-    </div>
-
-    <div class="container1 justify-content-center">
-        <a asp-controller="Items" asp-action="Details" asp-route-id="21" style="text-decoration: none; color: white">
-            <div class="card">
-                <div class="wrapper">
-                    <img src="~/css/Ron_Weasley.jpg" class="cover-image" />
+        <div class="container1 justify-content-center">
+            <a asp-controller="Items" asp-action="Details" asp-route-id="21" style="text-decoration: none; color: white">
+                <div class="card">
+                    <div class="wrapper">
+                        <img src="~/css/Ron_Weasley.jpg" class="cover-image" />
+                    </div>
+                    <h1 class="title">Ron Weasly</h1>
+                    <img src="~/css/ron poster.png" class="character" />
                 </div>
-                <h1 class="title">Ron Weasly</h1>
-                <img src="~/css/ron poster.png" class="character" />
-            </div>
-        </a>
+            </a>
 
-        <a asp-controller="Items" asp-action="Details" asp-route-id="22" style="text-decoration: none; color: white">
-            <div class="card">
-                <div class="wrapper">
-                    <img src="~/css/hp-portrait.jpg" class="cover-image" />
+            <a asp-controller="Items" asp-action="Details" asp-route-id="22" style="text-decoration: none; color: white">
+                <div class="card">
+                    <div class="wrapper">
+                        <img src="~/css/hp-portrait.jpg" class="cover-image" />
+                    </div>
+                    <h1 class="title2">Harry Potter</h1>
+                    <img src="~/css/hp-char.png" class="character" />
                 </div>
-                <h1 class="title2">Harry Potter</h1>
-                <img src="~/css/hp-char.png" class="character" />
-            </div>
-        </a>
+            </a>
 
-        <a asp-controller="Items" asp-action="Details" asp-route-id="23" style="text-decoration: none; color: white">
-            <div class="card">
-                <div class="wrapper">
-                    <img src="~/css/Hermione-Granger.jpg" class="cover-image" />
+            <a asp-controller="Items" asp-action="Details" asp-route-id="23" style="text-decoration: none; color: white">
+                <div class="card">
+                    <div class="wrapper">
+                        <img src="~/css/Hermione-Granger.jpg" class="cover-image" />
+                    </div>
+                    <h1 class="title3">Hermione Granger</h1>
+                    <img src="~/css/hermione-char.png" class="character" />
                 </div>
-                <h1 class="title3">Hermione Granger</h1>
-                <img src="~/css/hermione-char.png" class="character" />
-            </div>
-        </a>
-    </div>
+            </a>
+        </div>
 
-    <div class="background">
-        <div class="house-container justify-content-center">
+        <div class="background">
+            <div class="house-container justify-content-center">
 
-            <div class="house gryffindor">
-                <img src="~/css/gryffindor-logo.png" alt="Gryffindor" class="house-symbol">
-                <h2>Gryffindor</h2>
-                <p>Bravery, courage, and chivalry</p>
-            </div>
-            <div class="house hufflepuff">
-                <img src="~/css/hufflepuff-logo.png" alt="Hufflepuff" class="house-symbol">
-                <h2>Hufflepuff</h2>
-                <p>Hard work, dedication, and loyalty</p>
-            </div>
-            <div class="house ravenclaw">
-                <img src="~/css/raven-logo.png" alt="Ravenclaw" class="house-symbol">
-                <h2>Ravenclaw</h2>
-                <p>Intellect, knowledge, and wit</p>
-            </div>
-            <div class="house slytherin">
-                <img src="~/css/slytherin-logo.png" alt="Slytherin" class="house-symbol">
-                <h2>Slytherin</h2>
-                <p>Ambition, cunning, and resourcefulness</p>
+                <div class="house gryffindor">
+                    <img src="~/css/gryffindor-logo.png" alt="Gryffindor" class="house-symbol">
+                    <h2>Gryffindor</h2>
+                    <p>Bravery, courage, and chivalry</p>
+                </div>
+                <div class="house hufflepuff">
+                    <img src="~/css/hufflepuff-logo.png" alt="Hufflepuff" class="house-symbol">
+                    <h2>Hufflepuff</h2>
+                    <p>Hard work, dedication, and loyalty</p>
+                </div>
+                <div class="house ravenclaw">
+                    <img src="~/css/raven-logo.png" alt="Ravenclaw" class="house-symbol">
+                    <h2>Ravenclaw</h2>
+                    <p>Intellect, knowledge, and wit</p>
+                </div>
+                <div class="house slytherin">
+                    <img src="~/css/slytherin-logo.png" alt="Slytherin" class="house-symbol">
+                    <h2>Slytherin</h2>
+                    <p>Ambition, cunning, and resourcefulness</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="container3">
-        <div class="slider justify-content-center">
-            <div class="list">
+        <div class="container3">
+            <div class="slider justify-content-center">
+                <div class="list">
 
-                <div class="item">
-                    <img id="img1" src="~/css/ad1.jpg" alt="Alternate Text" />
+                    <div class="item">
+                        <img id="img1" src="~/css/ad1.jpg" alt="Alternate Text" />
+                    </div>
+                    <div class="item">
+                        <img src="~/css/pic2.jpg" alt="Alternate Text" />
+                    </div>
+                    <div class="item">
+                        <img src="~/css/pic3.jpg" alt="Alternate Text" />
+                    </div>
+                    <div class="item">
+                        <img src="~/css/visit.jpg" alt="Alternate Text" />
+                    </div>
+                    <div class="item">
+                        <img src="~/css/pic1.jpg" alt="Alternate Text" />
+                    </div>
                 </div>
-                <div class="item">
-                    <img src="~/css/pic2.jpg" alt="Alternate Text" />
+                <div class="buttons">
+                    <button id="prev"><</button>
+                    <button id="next">></button>
                 </div>
-                <div class="item">
-                    <img src="~/css/pic3.jpg" alt="Alternate Text" />
-                </div>
-                <div class="item">
-                    <img src="~/css/visit.jpg" alt="Alternate Text" />
-                </div>
-                <div class="item">
-                    <img src="~/css/pic1.jpg" alt="Alternate Text" />
-                </div>
+                <ul class="dots">
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
             </div>
-            <div class="buttons">
-                <button id="prev"><</button>
-                <button id="next">></button>
-            </div>
-            <ul class="dots">
-                <li class="active"></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
         </div>
-    </div>
 
-    <audio id="backgroundMusic">
-        <source src="~/BackgroundMusic/Harry Potter - Main Theme.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+        <audio id="backgroundMusic">
+            <source src="~/BackgroundMusic/Harry Potter - Main Theme.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
 
-    <div class="footer text-muted fixed-bottom">
-        <button class="btn btn-outline-light" id="toggleMusicButton"><i class="bi bi-music-note"></i></button>
-        <br />
-        &copy; SCE Sami Potter 2024
+        <div class="footer text-muted fixed-bottom">
+            <button class="btn btn-outline-light" id="toggleMusicButton" style="margin-left: 2%;"><i class="bi bi-music-note"></i></button>
+            <br />
+            &copy; SCE Sami Potter 2024
+        </div>
     </div>
 
     <script src="~/js/app.js"></script>
