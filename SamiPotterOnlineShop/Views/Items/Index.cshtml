@@ -213,11 +213,15 @@
                                         }
                                         else
                                         {
-                                            if (User.IsInRole("User"))
+                                            var currentUser = await UserManager.GetUserAsync(User);
+                                            if (currentUser != null)
                                             {
-                                                <a class="btn btn-warning text-white" asp-controller="Items" asp-action="NotifyIfAvailable" asp-route-id="@item.Id">
-                                                    <i class="bi bi-bell"></i> Notify
-                                                </a>
+                                                if (User.IsInRole("User") && !currentUser.Notified)
+                                                {
+                                                    <a class="btn btn-warning text-white" asp-controller="Items" asp-action="NotifyIfAvailable" asp-route-id="@item.Id">
+                                                        <i class="bi bi-bell"></i> Notify
+                                                    </a>
+                                                }
                                             }
                                         }
                                     }
