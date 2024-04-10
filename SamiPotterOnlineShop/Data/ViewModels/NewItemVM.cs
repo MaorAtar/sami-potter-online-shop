@@ -17,6 +17,7 @@ namespace SamiPotterOnlineShop.Data.ViewModels
 
         [Display(Name = "Price")]
         [Required(ErrorMessage = "Price is required")]
+        [Range(0, int.MaxValue, ErrorMessage = "The Price must positive")]
         public double Price { get; set; }
 
         public double OriginalPrice { get; set; }
@@ -36,6 +37,7 @@ namespace SamiPotterOnlineShop.Data.ViewModels
 
         [Display(Name = "Amount")]
         [Required(ErrorMessage = "Amount is required")]
+        [Range(0, 100, ErrorMessage = "The Amount must be between 0-100")]
         public int Amount { get; set; }
 
         [Display(Name = "Select a category")]
