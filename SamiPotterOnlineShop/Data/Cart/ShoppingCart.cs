@@ -47,7 +47,7 @@ namespace SamiPotterOnlineShop.Data.Cart
             }
             else
             {
-                if (item.Amount - shoppingCartItem.Amount < 1)
+                if (item.Amount < 1)
                 {
                     throw new Exception("Item is not available for purchase.");
                 }
